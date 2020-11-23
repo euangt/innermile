@@ -1,0 +1,41 @@
+
+// Base styles
+body {
+  margin: 0;
+  font-size: 16px;
+  background: $inner-gray;
+  padding-bottom: 100px;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+  color: rgba(black, 0.8)
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+p {
+  font-weight: lighter;
+  color: rgba(black, 0.8);
+}
+
+a {
+  text-decoration: none;
+  color: rgba($inner-green, 0.8);
+
+  &:hover{
+   text-decoration: none;
+   opacity: 1;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
