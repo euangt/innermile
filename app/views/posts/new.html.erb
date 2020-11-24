@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h1 class="text-center">Create a post</h1>
+      <p class="text-center">----------</p>
+      <%= simple_form_for([@business, @post]) do |f| %>
+         <div class="form-inputs">
+          <%= f.input :content %>
+          <%= f.input :post_image, as: :file %>
+         </div>
+         <div class="form-actions mb-2">
+          <%= f.button :submit, "Create Post", class: "btn btn-flat"%>
+         </div>
+      <% end %>
+    </div>
+  </div>
+</div>

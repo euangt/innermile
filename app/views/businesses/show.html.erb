@@ -1,2 +1,6 @@
 <h1><%= @business.name %></h1>
 <p><em><%= @business.address %></em></p>
+
+<% if policy(Post).create? %>
+  <%= link_to "Create a post", new_business_post_path(@business), class: "btn btn-flat" %>
+<% end %>

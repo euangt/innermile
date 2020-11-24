@@ -6,10 +6,10 @@ class PostPolicy < ApplicationPolicy
   end
 
   def new?
-    user.business == record.business
+    true
   end
 
   def create?
-    new?
+    true
   end
 end
