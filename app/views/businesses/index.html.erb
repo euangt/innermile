@@ -1,12 +1,12 @@
 <div>
-<h1>All the businesses near you!</h1>
+  <h1>All the businesses near you!</h1>
 </div>
 
-<div>
-<ul>
-<% @businesses.each do |business| %>
-<li><%= business.name %></li>
-<li><%= business.bio %></li>
-<% end %>
-</ul>
+<div class="container">
+  <ul>
+    <% @businesses.each do |business| %>
+      <li><%= business.name %></li>
+      <li><%= business.bio %></li>
+    <% end %>
+  </ul>
 </div>
