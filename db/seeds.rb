@@ -134,8 +134,7 @@ facebook/Lowkick
 instagram/lowkick_gym",
   owner_name: "Claudia Huth",
   owner_bio: "I am an accredited Weapons Instructor and Self Defence Instructor, with 20 years training experience in the Martial Arts.
-
-I launched Lowkick in 2010, to pass on my knowledge to women warriors! I will be your instructor for the beginner courses offered at Lowkick:)",
+    I launched Lowkick in 2010, to pass on my knowledge to women warriors! I will be your instructor for the beginner courses offered at Lowkick:)",
   address: "Rosenthaler Str. 61, 10119 Berlin",
   telephone: "+49-123-4567-8901",
   email: "claudia@claudia.com",
@@ -169,10 +168,9 @@ business4 = Business.create!(
   name: "Apple Nails",
   short_bio: "Local Nail Bar experience so far from normal",
   long_bio: "You will be warmly welcomed by Apple and Kevin in the modern salon. The duo will advise you in detail and take care of your hands and feet, be it a classic manicure and pedicure, the scratch-resistant Shellac or a gel modeling with the most beautiful designs - the regulars crowding the salon prove that the two of them are masters of their profession. Great quality at fair prices. What are you waiting for? Come by and experience for yourself what beautiful nails can do.
-
-Follow us:
-facebook/apple_nails
-instagram/apple_nails",
+      Follow us:
+      facebook/apple_nails
+      instagram/apple_nails",
   owner_name: "Apple Nguyen",
   owner_bio: "Hi I'm Apple. I'm a manicurist or nail technician with 10 years of experience in the field. I'm a Berlin native and opened my salon with my husband Kevin in 2016. We welcome both men and women who want to take a break and feel beautiful. Bookmark our profile and watch out for special offers!",
   address: "Gipsstraße 3, 10119 Berlin",
