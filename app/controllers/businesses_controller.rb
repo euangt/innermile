@@ -22,21 +22,23 @@ class BusinessesController < ApplicationController
   end
 
   def show
-    @business = Business.find(params[:id])
+    find_business
   end
 
   def edit
+    find_business
     authorize @business
   end
 
   def update
+    find_business
     authorize @business
     @business.update(business_params)
     redirect_to business_path(@business)
   end
 
   def destroy
-    @business = Business.find(params[:id])
+    find_business
     authorize @business
     @business.destroy
     redirect_to businesses_path
@@ -46,5 +48,9 @@ class BusinessesController < ApplicationController
 
   def business_params
     params.require(:business).permit(:name, :address, :short_bio, :long_bio, :owner_name, :owner_bio, :telephone, :email, :opening_hours, :website_url)
+  end
+
+  def find_business
+    @business = Business.find(params[:id])
   end
 end
