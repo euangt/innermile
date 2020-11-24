@@ -2,6 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-6">
       <div class="container-edit">
+        <div><%= link_to "< Back", business_path(@business) %></div>
         <h1 class="text-center">edit</h1>
         <p class="text-center">----------</p>
         <%= simple_form_for @space do |f| %>

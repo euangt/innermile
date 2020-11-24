@@ -23,7 +23,7 @@ form.example button {
   float: left;
   width: 20%;
   padding: 10px;
-  background: #2196F3;
+  background: rgba($inner-blue, 0.9);
   color: white;
   font-size: 17px;
   border: 0px solid grey;
@@ -35,7 +35,7 @@ form.example button {
 }
 
 form.example button:hover {
-  background: #0b7dda;
+  background: rgba($inner-blue, 1);
 }
 
 form.example::after {

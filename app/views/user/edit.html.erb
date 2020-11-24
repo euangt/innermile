@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h1>Update your profile and preferences</h1>
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <div class="container-edit">
+          <h1 class="text-center">edit</h1>
+          <p class="text-center">----------</p>
+          <%= simple_form_for @space do |f| %>
+            <div class="form-inputs">
+              <%= f.input :first_name %>
+              <%= f.input :last_name %>
+              <%= f.input :address %>
+              <%= f.input :bio %>
+              <%= f.input :email %>
+              <%= f.input :avatar, as: :file %>
+            </div>
+            <div class="form-actions">
+              <div><%= f.button :submit, class: "btn btn-flat"%></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,30 +1,37 @@
 // Specific CSS for your home-page
-#map {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-}
+// #map {
+//   position: relative;
+//   background-size: cover;
+//   background-position: center;
+//   padding: 150px 0;
+// }
 
 .headline {
   width: 100%;
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 0;
-  padding-left: 200px;
-  padding-right: 200px;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .headline h1 {
 
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 42px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
 
 .headline h3 {
   font-size: 24px;
   font-weight: 400;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.home_searchbar {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  right: 20%;
+}
