@@ -3,10 +3,12 @@
 </div>
 
 <div class="container px-10">
-  <ul>
+  <div class="cards">
     <% @businesses.each do |business| %>
-      <li><%= business.name %></li>
-      <li><%= business.bio %></li>
+      <div class="card-business">
+        <p><%= link_to business.name, business_path(business) %></p>
+        <p><%= business.short_bio %></p>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
