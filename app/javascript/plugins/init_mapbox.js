@@ -27,8 +27,11 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(indexMapElement.dataset.markers);
     markers.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(map);
   });
     fitMapToMarkers(map, markers);
