@@ -11,7 +11,7 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @business = Business.new(space_params)
+    @business = Business.new(business_params)
     @business.user = current_user
     authorize @business
     if @business.save!
