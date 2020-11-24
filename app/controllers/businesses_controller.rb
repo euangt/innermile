@@ -1,7 +1,7 @@
 class BusinessesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index ]
 
-  def index 
+  def index
     @businesses = policy_scope(Business)
   end
 
@@ -12,5 +12,9 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
-    end
+  end
+
+  def edit
+    authorize @business
+  end
 end
