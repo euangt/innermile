@@ -1,12 +1,14 @@
-<div>
-<h1>All the businesses near you!</h1>
+<div class="container py-5">
+  <h1>All the businesses near you!</h1>
 </div>
 
-<div>
-<ul>
-<% @businesses.each do |business| %>
-<li><%= business.name %></li>
-<li><%= business.bio %></li>
-<% end %>
-</ul>
+<div class="container px-10">
+  <div class="cards">
+    <% @businesses.each do |business| %>
+      <div class="card-business">
+        <p><%= link_to business.name, business_path(business) %></p>
+        <p><%= business.short_bio %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

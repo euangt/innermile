@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="container-edit">
+        <h1 class="text-center">edit</h1>
+        <p class="text-center">----------</p>
+        <%= simple_form_for @space do |f| %>
+           <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :short_bio %>
+            <%= f.input :long_bio %>
+            <%= f.input :owner_name %>
+            <%= f.input :owner_bio%>
+            <%= f.input :telephone%>
+            <%= f.input :email%>
+            <%= f.input :opening_hours%>
+            <%= f.input :website_url%>
+            <%= f.input :accept_cards, as: :boolean%>
+           </div>
+           <div class="form-actions">
+            <div><%= f.button :submit, class: "btn btn-flat"%></div>
+           </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
