@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :bookmarks
-  has_many :businesses
+  has_many :bookmarks, dependent: :destroy
+  has_many :businesses, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
