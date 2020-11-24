@@ -10,4 +10,9 @@ class Business < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  has_one_attached :avatar
+  has_one_attached :banner_photo
+  has_one_attached :owner_photo
+  has_many_attached :business_photos
 end
