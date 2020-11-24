@@ -13,11 +13,29 @@ class BusinessPolicy < ApplicationPolicy
     true
   end
 
-  def edit?
+  def create?
     true
+  end
+
+  def edit?
+    user
   end
 
   def show?
     true
+  end
+
+  def update?
+    user
+  end
+
+  def destroy?
+    user
+  end
+
+  private
+
+  def user
+    record.user == user
   end
 end
