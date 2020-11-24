@@ -3,6 +3,13 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = policy_scope(Business)
+      @markers = @businesses.geocoded.map do |business|
+        {
+          lat: business.latitude,
+          lng: business.longitude
+
+        }
+      end
   end
 
   def new
