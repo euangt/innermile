@@ -11,7 +11,10 @@ class BusinessesController < ApplicationController
   end
 
   def show
->>>>>>> cd324db620c12579b2b72fdb93eb89a5275964fe
     @business = Business.find(params[:id])
-    end
+  end
+
+  def edit
+    authorize @business
+  end
 end
