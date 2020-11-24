@@ -10,6 +10,17 @@ class BusinessesController < ApplicationController
     authorize @business
   end
 
+  def create
+    @business = Business.new(space_params)
+    @business.user = current_user
+    authorize @business
+    if @business.save!
+      redirect_to business_path(@business)
+    else
+      render :new
+    end
+  end
+
   def show
     @business = Business.find(params[:id])
   end
@@ -25,6 +36,7 @@ class BusinessesController < ApplicationController
   end
 
   def destroy
+    @business = Business.find(params[:id])
     authorize @business
     @business.destroy
     redirect_to businesses_path
