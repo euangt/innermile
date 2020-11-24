@@ -138,12 +138,7 @@ instagram/lowkick_gym",
   address: "Rosenthaler Str. 61, 10119 Berlin",
   telephone: "+49-123-4567-8901",
   email: "claudia@claudia.com",
-  opening_hours: "Monday closed
-Tuesday 9:00 - 17:00
-Wednesday 9:00 - 17:00
-Friday 9:00 - 17:00
-Saturday  9:00 - 17:00
-Sunday  9:00 - 17:00 ",
+  opening_hours: nil,
   accept_cards: true,
   website_url: "www.highkick.com",
     )
