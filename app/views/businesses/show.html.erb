@@ -13,7 +13,7 @@
         <p>Post and share updates for  <%= @business.name %> </p>
       <% else %>
         <% @business.posts.each do |p| %>
-          <%= render partial: 'post', locals: { post: p } %>
+          <%= render partial: 'posts/post', locals: { post: p } %>
         <% end %>
       <% end %>
     </div>

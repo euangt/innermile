@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to business_path(@business)
     else
-      render 'business/show'
+      render 'businesses/show'
     end
   end
 
