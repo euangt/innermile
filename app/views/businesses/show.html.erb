@@ -1,2 +1,4 @@
 <h1><%= @business.name %></h1>
 <p><em><%= @business.address %></em></p>
+
+<%= link_to "add bookmark", new_business_bookmark_path(@business)  %>
