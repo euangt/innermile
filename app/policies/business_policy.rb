@@ -18,8 +18,7 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user == user
-    true
+    user
   end
 
   def show?
@@ -27,12 +26,16 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
-    true
+    user
   end
 
   def destroy?
+    user
+  end
+
+  private
+
+  def user
     record.user == user
-    true
   end
 end
