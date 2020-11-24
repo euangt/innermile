@@ -9,13 +9,17 @@
           <%= f.input :address %>
           <%= f.input :short_bio %>
           <%= f.input :long_bio %>
+          <%= f.input :banner_photo, as: :file %>
+          <%= f.input :avatar, as: :file %>
           <%= f.input :owner_name %>
           <%= f.input :owner_bio%>
+          <%= f.input :owner_photo, as: :file %>
           <%= f.input :telephone %>
           <%= f.input :email%>
           <%= f.input :opening_hours%>
           <%= f.input :website_url%>
           <%= f.input :accept_cards, as: :boolean%>
+          <%= f.input :business_photos, as: :file, input_html: { multiple: true } %>
          </div>
          <div class="form-actions mb-2">
           <%= f.button :submit, class: "btn btn-flat"%>
