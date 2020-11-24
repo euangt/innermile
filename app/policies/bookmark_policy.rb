@@ -10,11 +10,11 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def new? 
-    index?
+    true
   end
 
   def create? 
-    index?
+    true
   end 
 
   def destroy?
