@@ -22,8 +22,8 @@ class BusinessesController < ApplicationController
   end
 
   def show
-    @post = Post.new
     find_business
+    @post = Post.new
     authorize @business
   end
 

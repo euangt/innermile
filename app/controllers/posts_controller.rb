@@ -1,29 +1,32 @@
 class PostsController < ApplicationController
-  # before_action :find_post
+  before_action :find_business
 
-  def new
-    @business = Business.find(params[:business_id])
-    @post = Post.new
-    authorize @post
-  end
+  # def index
+  #   @posts = Post.where(business_id: @business.id)
+  # end
+
+  # def new
+  #   @post = Post.new
+  #   authorize @post
+  # end
 
   def create
-    @business = Business.find(params[:id])
     @post = Post.new(post_params)
     authorize @post
-    @post.business = current_user.business
+    @business.user = current_user
+    @post.business = @business
     if @post.save
-      redirect_to business_path(@post.business)
+      redirect_to business_path(@business)
     else
-      render :new
+      render 'business/show'
     end
   end
 
   private
 
-  # def find_post
-  #   @post = Post.find(params[:post_id])
-  # end
+  def find_business
+    @business = Business.find(params[:business_id])
+  end
 
   def post_params
     params.require(:post).permit(:content, :post_image, :business_id)
