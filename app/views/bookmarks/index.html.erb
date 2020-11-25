@@ -1,8 +1,10 @@
-<h1><%= @bookmarks %></h1>
-
-<%# current_user.bookmarks.each do |bookmark|
-if bookmark.business = Business.find([params[:id])
-put bookmarked icon (hopefully a button with js applied to trigger event listener which adds a bookmark to the user)
-else 
-put empty bookmark
-end  %>
+<div class="container px-10">
+  <div class="cards">
+    <% @bookmarks.each do |bookmark| %>
+        <div class="bookmark-cards">
+          <p><%= link_to bookmark.name, business_path(bookmark) %></p>
+          <p><%= bookmark.address %></p>
+        </div>
+      <% end %>
+  </div>
+</div>
