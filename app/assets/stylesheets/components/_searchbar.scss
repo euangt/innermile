@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
 }
 
-form.example input {
+.example input {
   padding: 10px;
   padding-left: 25px;
   font-size: 17px;
@@ -20,7 +20,7 @@ form.example input {
   font-family: "Poppins", "sans-serif";
 }
 
-form.example button {
+.example .button_search {
   float: left;
   width: 20%;
   padding: 10px;
@@ -28,8 +28,10 @@ form.example button {
   color: white;
   font-size: 17px;
   border: 0px solid grey;
+  border-top-right-radius: 50px;
   border-bottom-right-radius:50px;
-  border-top-right-radius:50px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   border-left: none;
   cursor: pointer;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
@@ -45,3 +47,11 @@ form.example::after {
   clear: both;
   display: table;
 }
+
+.home_searchbar {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  right: 20%;
+}
+
