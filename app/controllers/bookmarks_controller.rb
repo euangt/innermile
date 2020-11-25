@@ -23,13 +23,9 @@ class BookmarksController < ApplicationController
   end 
 
   def destroy 
-    @business = Business.find(params[:id])
+    @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
-    current_user.bookmarks do |bookmark|
-      if bookmark.business_id = @business.id
-        bookmark.destroy
-        redirect_to business_path(@business)
-      end 
-    end
+    @bookmark.destroy
+    redirect_to business_path(@bookmark.business)
   end  
 end
