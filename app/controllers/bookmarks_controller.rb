@@ -28,5 +28,3 @@ class BookmarksController < ApplicationController
     redirect_to business_path(@bookmark.business)
   end
 end
-
-#@bookmark = @user.bookmarks.where(business_id: @business.id).first
