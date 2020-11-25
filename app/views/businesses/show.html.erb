@@ -10,7 +10,7 @@
     <div id="posts">
       <% if @business.posts.blank? %>
       <%# if policy(Post).create? %>
-        <p>Post and share updates for  <%= @business.name %> </p>
+        <p> <%= @business.name %> has no posts yet</p>
       <% else %>
         <% @business.posts.each do |p| %>
           <%= render partial: 'posts/post', locals: { post: p } %>
