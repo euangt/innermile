@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     @post.destroy
-    redirect_to business_posts_path
+    redirect_to business_path(@business)
   end
 
   private
