@@ -19,7 +19,6 @@ class BookmarksController < ApplicationController
     if @bookmark.save!
       redirect_to business_path(@bookmark.business_id)
     end
-    # Written with the view that the bookmark icon will alternate between being bookmarked or not
   end
 
   def destroy

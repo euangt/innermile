@@ -14,6 +14,6 @@ class BookmarkPolicy < ApplicationPolicy
   end 
 
   def destroy?
-    index?
+    user == record.user
   end
 end
