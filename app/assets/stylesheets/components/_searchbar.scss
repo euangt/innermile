@@ -8,7 +8,7 @@ body {
 
 form.example input {
   padding: 10px;
-  padding-left: 10px;
+  padding-left: 25px;
   font-size: 17px;
   border: 0px solid grey;
   border-top-left-radius: 50px;
@@ -17,6 +17,7 @@ form.example input {
   width: 80%;
   background: #f1f1f1;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", "sans-serif";
 }
 
 form.example button {
@@ -32,6 +33,7 @@ form.example button {
   border-left: none;
   cursor: pointer;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+  font-family: "Poppins", "sans-serif";
 }
 
 form.example button:hover {

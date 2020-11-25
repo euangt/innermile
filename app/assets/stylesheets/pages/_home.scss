@@ -35,3 +35,13 @@
   left: 20%;
   right: 20%;
 }
+
+.map_overlay {
+  background-color: #ffffff87;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}

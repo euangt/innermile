@@ -4,6 +4,13 @@ class BusinessesController < ApplicationController
   def index
     @businesses = policy_scope(Business)
     @user = current_user
+      @markers = @businesses.geocoded.map do |business|
+        {
+          lat: business.latitude,
+          lng: business.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { business: business })
+        }
+      end
   end
 
   def new
