@@ -16,7 +16,7 @@ class BookmarksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get destro" do
+  test "should get destroy" do
     get bookmarks_destro_url
     assert_response :success
   end
