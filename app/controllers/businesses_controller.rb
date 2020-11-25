@@ -3,6 +3,7 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = policy_scope(Business)
+    @user = current_user
   end
 
   def new
@@ -23,6 +24,7 @@ class BusinessesController < ApplicationController
 
   def show
     find_business
+    @user = current_user
     @post = Post.new
     authorize @business
   end
