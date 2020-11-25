@@ -3,6 +3,16 @@
 <h1><%= @business.name %></h1>
 <p><em><%= @business.address %></em></p>
 
+<% if !@user.businesses.include?(@business) %>
+  <% if !@user.bookmarked_businesses.include?(@business) %>
+    <i class="far fa-bookmark"></i>
+    <%= link_to "Add to bookmarks", business_bookmarks_path(@business), method: :post %>
+  <% else %>
+    <i class="fas fa-bookmark"></i>
+    <%= link_to "Remove from bookmarks", bookmark_path(@bookmark), method: :delete  %>
+  <% end %>
+<% end %>
+
 <div class="container">
  <div class="row justify-content-center">
   <div class="col-6">
@@ -32,14 +42,10 @@
           <%= f.button :submit, "Create Post", class: "btn btn-flat" %>
         </div>
         <hr>
+
       <% end %>
     <% end %>
 
     </div>
   </div>
 </div>
-
-<i class="far fa-bookmark"></i>
-<%= link_to "Add to bookmarks", business_bookmarks_path(@business), method: :post %>
-<i class="fas fa-bookmark"></i>
-<%= link_to "Remove from bookmarks", business_bookmark_path(@business), method: :delete  %>

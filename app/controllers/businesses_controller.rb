@@ -2,8 +2,14 @@ class BusinessesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @businesses = policy_scope(Business)
     @user = current_user
+    @businesses = policy_scope(Business)
+      if params[:query].present?
+        @businesses = Business.near(params[:query], 1)
+      else
+        @businesses = Business.all
+      end
+
       @markers = @businesses.geocoded.map do |business|
         {
           lat: business.latitude,
@@ -32,6 +38,7 @@ class BusinessesController < ApplicationController
   def show
     find_business
     @user = current_user
+    @bookmark = @user.bookmarks.where(business_id: @business.id).first
     @post = Post.new
     authorize @business
   end
