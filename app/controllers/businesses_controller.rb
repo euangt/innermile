@@ -3,11 +3,12 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = policy_scope(Business)
+    @user = current_user
       @markers = @businesses.geocoded.map do |business|
         {
           lat: business.latitude,
           lng: business.longitude,
-           infoWindow: render_to_string(partial: "info_window", locals: { business: business })
+          infoWindow: render_to_string(partial: "info_window", locals: { business: business })
         }
       end
   end
@@ -30,6 +31,9 @@ class BusinessesController < ApplicationController
 
   def show
     find_business
+    @user = current_user
+    @post = Post.new
+    authorize @business
   end
 
   def edit
