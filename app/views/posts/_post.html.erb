@@ -10,9 +10,10 @@
               </button>
               <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                 <a class="dropdown-item" href="#">Hide post</a>
-                <a class="dropdown-item" href="#">Stop following</a>
                 <a class="dropdown-item" href="#">Report</a>
-                <%= link_to "Delete post", business_post_path(@business, post), method: :delete, class: "dropdown-item"%>
+                <% if current_user == @business.user %>
+                  <%= link_to "Delete post", business_post_path(@business, post), method: :delete, class: "dropdown-item"%>
+                <% end %>
               </div>
             </div>
               <div class="media m-0">
