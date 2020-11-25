@@ -3,11 +3,18 @@ class BusinessesController < ApplicationController
 
   def index
     @user = current_user
+    @categories = Category.all
     @businesses = policy_scope(Business)
       if params[:query].present?
-        @businesses = Business.near(params[:query], 1)
+        @address = params[:query]
+        @businesses = Business.near(@address, 1)
       else
         @businesses = Business.all
+      end
+
+      if params[:category].present?
+        @category = Category.find_by_name(params[:category])
+        @businesses = @businesses.where(category: @category)
       end
 
       @markers = @businesses.geocoded.map do |business|
