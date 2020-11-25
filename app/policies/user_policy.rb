@@ -6,10 +6,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    user == record.user
+    true
   end
 
   def update?
-    user == record.user
+    true
   end
 end
