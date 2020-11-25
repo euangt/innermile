@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :find_business
 
-  # def index
-  #   @posts = Post.where(business_id: @business.id)
-  # end
+  def index
+    @posts = Post.all
+    authorize @posts
+  end
 
   # def new
   #   @post = Post.new
