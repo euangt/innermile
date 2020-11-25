@@ -23,6 +23,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    authorize @post
+    @post.destroy
+    redirect_to business_posts_path
+  end
+
   private
 
   def find_business
