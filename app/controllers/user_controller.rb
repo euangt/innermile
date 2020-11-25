@@ -3,6 +3,7 @@ class UserController < ApplicationController
 
   def edit
     authorize @user
+    @user = current_user
   end
 
   def update
