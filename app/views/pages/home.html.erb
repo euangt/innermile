@@ -16,12 +16,16 @@
   </div>
 
   <div class="home_searchbar">
-    <form class="example" action="/action_page.php">
-      <input type="text" placeholder="Enter home address here" name="search">
-      <button type="submit">Explore</button>
-    </form>
+    <%= form_tag businesses_path, method: :get do %>
+      <div class="example">
+        <%= text_field_tag :query,
+            params[:query],
+            placeholder: "Search cities"
+          %>
+          <%= submit_tag "Search", class: "button_search" %>
+      </div>
+    <% end %>
   </div>
-
 
 </div>
 
