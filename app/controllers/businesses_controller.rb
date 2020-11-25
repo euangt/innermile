@@ -32,6 +32,7 @@ class BusinessesController < ApplicationController
   def show
     find_business
     @user = current_user
+    @bookmark = @user.bookmarks.where(business_id: @business.id).first
     @post = Post.new
     authorize @business
   end
