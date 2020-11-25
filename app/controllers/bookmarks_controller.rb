@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
   
   def create 
     @bookmark = Bookmark.new
-    @bookmark.business_id = params[:id]
+    @bookmark.business = Business.find(params[:id])
     @bookmark.user_id = current_user.id
     authorize @bookmark
     if @bookmark.save! 
@@ -27,6 +27,7 @@ class BookmarksController < ApplicationController
     current_user.bookmarks do |bookmark|
       if bookmark.business_id = @business.id
         bookmark.destroy
+        redirect_to business_path(@business)
       end 
     end
   end  

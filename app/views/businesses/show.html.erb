@@ -1,6 +1,10 @@
+<div class="container p-5">
+
 <h1><%= @business.name %></h1>
 <p><em><%= @business.address %></em></p>
 
-
+<i class="far fa-bookmark"></i>
 <%= link_to "Add to bookmarks", business_bookmarks_path(@business), method: :post %>
+
+</div>
 
