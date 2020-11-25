@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning up db...'
 User.destroy_all
+Category.destroy_all
 Business.destroy_all
 
 puts 'Seeding users...'
@@ -291,4 +292,4 @@ business14 = Business.create!(
     )
 
 
-puts "Created #{User.count} categories, #{Category.count} categories, and #{Business.count} businesses"
+puts "Created #{User.count} users, #{Category.count} categories, and #{Business.count} businesses"
