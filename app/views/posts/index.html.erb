@@ -1,0 +1,9 @@
+<div class="container">
+  <% @posts.each do |post| %>
+ <div class="post shadow-sm bg-white">
+  <%= render partial: "post" %>
+  <p><%= post.content %></p>
+ </div>
+<% end %>
+</div>
+
