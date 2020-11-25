@@ -5,10 +5,6 @@ class BookmarkPolicy < ApplicationPolicy
     end
   end
 
-  # def index?
-  #   user == record.user
-  # end
-
   def new? 
     true
   end

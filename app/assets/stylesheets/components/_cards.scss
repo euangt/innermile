@@ -15,3 +15,20 @@
   position: relative;
   box-shadow: 0 0 15px rgba(55, 63, 81,0.1);
 }
+
+.bookmark-cards {
+  display: block;
+  border: 1px solid rgba(55, 63, 81,0.12);
+  color: #373F51;
+  background: #FFFCFA;
+  width: 360px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(55, 63, 81,0.12);
+  font-family: "Poppins", "Open Sans", "Helvetica", "sans-serif";
+  font-weight: 300;
+
+  p {
+    font-weight: 200;
+  }
+}

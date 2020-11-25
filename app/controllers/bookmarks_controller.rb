@@ -2,6 +2,7 @@ class BookmarksController < ApplicationController
 
   def index
     policy_scope(Bookmark)
+    @bookmarks = current_user.bookmarked_businesses
   end
 
   def new 
