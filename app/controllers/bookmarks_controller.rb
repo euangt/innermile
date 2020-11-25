@@ -11,10 +11,11 @@ class BookmarksController < ApplicationController
   end 
   
   def create 
+    @business = Business.find(params[:business_id])
     @bookmark = Bookmark.new
-    @bookmark.business = Business.find(params[:id])
-    @bookmark.user_id = current_user.id
     authorize @bookmark
+    @bookmark.business = @business
+    @bookmark.user = current_user
     if @bookmark.save! 
       redirect_to business_path(@bookmark.business_id)
     end
