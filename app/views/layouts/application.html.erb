@@ -12,13 +12,18 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <div class="wrapper d-flex align-items-stretch">
-    <%= render 'shared/sidebar' %>
-    <div id="content" class="p-4 p-md-5 pt-5">
+    <% if controller_name == "pages" %>
+      <%= render 'shared/navbar' %>
       <%= yield %>
-    </div>
+    <% else %>
+      <%= render 'shared/navbar' %>
+      <div class="wrapper d-flex align-items-stretch">
+        <%= render 'shared/sidebar' %>
+        <div id="content" class="p-2 p-md-5 pt-5">
+          <%= yield %>
+        </div>
+      </div>
+    <% end %>
     <%= render 'shared/flashes' %>
-   </div>
   </body>
 </html>
