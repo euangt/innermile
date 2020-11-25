@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
   before_action :find_business
 
-  # def index
-  #   @posts = Post.where(business_id: @business.id)
-  # end
+  def index
+    @posts = Post.all
+    authorize @posts
+  end
 
   # def new
   #   @post = Post.new
@@ -20,6 +21,13 @@ class PostsController < ApplicationController
     else
       render 'businesses/show'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    authorize @post
+    @post.destroy
+    redirect_to business_posts_path
   end
 
   private

@@ -1,8 +1,8 @@
 class BookmarksController < ApplicationController
 
   def index
-    @bookmarks = current_user.bookmarks #policy_scope(Bookmark)?
-    authorize @bookmark
+    policy_scope(Bookmark)
+    @bookmarks = current_user.bookmarked_businesses
   end
 
   def new 
