@@ -25,7 +25,6 @@ class BookmarksController < ApplicationController
   def destroy 
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
-    
     @bookmark.destroy
     redirect_to business_path(@bookmark.business)
   end  
