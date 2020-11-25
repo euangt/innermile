@@ -9,8 +9,8 @@
   background: $inner-green;
   color: $inner-white;
   transition: all 0.3s;
-  position: relative;
   position: sticky;
+  top: 6vh;
   height: 100vh;
   .h6{
     color: $inner-white;
@@ -61,14 +61,6 @@ ul{
   //     }
   //   }
   }
-}
-
-.dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
 }
 
 #content {
