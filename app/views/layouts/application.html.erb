@@ -6,15 +6,19 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
+    <div class="wrapper d-flex align-items-stretch">
+    <%= render 'shared/sidebar' %>
+    <div id="content" class="p-4 p-md-5 pt-5">
+      <%= yield %>
+    </div>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+   </div>
   </body>
 </html>

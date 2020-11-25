@@ -1,0 +1,96 @@
+//SIDEBAR
+.wrapper {
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 240px;
+  max-width: 240px;
+  background: $inner-green;
+  color: $inner-white;
+  transition: all 0.3s;
+  position: relative;
+  position: sticky;
+  height: 100vh;
+  .h6{
+    color: $inner-white;
+  }
+
+ul.components{
+    padding: 0;
+  }
+ul{
+  li{
+    font-size: 16px;
+    a{
+      padding: 10px 0;
+      display: block;
+      color: rgba($inner-grey,.8);
+      border-bottom: 1px solid rgba($inner-grey,.2);
+      &:hover{
+        color: $inner-white;
+      }
+    }
+    &.active{
+      > a{
+        background: transparent;
+        color: $white;
+      }
+    }
+  }
+}
+
+
+.menu{
+  display: inline-block;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  margin-right: -20px;
+  // .btn{
+  //   width: 40px;
+  //   height: 40px;
+  //   border-radius: 50%;
+  //   &.btn-green{
+  //     background: darken($inner-green,5%);
+  //     border-color: darken($inner-green,5%);
+  //     &:hover, &:focus{
+  //       background: darken($inner-green,5%) !important;
+  //       border-color: darken($inner-green,5%) !important;
+  //       }
+  //     }
+  //   }
+  }
+}
+
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+#content {
+  width: 100%;
+  padding: 0;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+.btn{
+  &.btn-primary{
+    background: $inner-green;
+    border-color: $inner-green;
+    &:hover, &:focus{
+      background: $inner-green !important;
+      border-color: $inner-green !important;
+    }
+  }
+}
+
+.footer{
+  p{
+    color: $inner-grey;
+  }
+}
