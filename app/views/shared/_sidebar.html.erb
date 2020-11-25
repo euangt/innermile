@@ -1,27 +1,29 @@
-<div class="wrapper d-flex align-items-stretch">
 <nav id="sidebar" class="active">
-  <div class="custom-menu">
-    <button type="button" id="sidebarCollapse" class="btn btn-green">
+  <div class="menu">
+<!--     <button type="button" id="sidebarCollapse" class="btn btn-green">
       <i class="fa fa-bars"></i>
       <span class="sr-only"></span>
-    </button>
+    </button> -->
   </div>
   <div class="p-4">
     <ul class="list-unstyled components mb-5">
       <li class="active">
         <a href="#"><span class="fas fa-home mr-3"></span> Home</a>
+        <%= link_to "Home", businesses_path %>
       </li>
       <li>
-          <a href="#"><span class="fas fa-search mr-3"></span> Search</a>
+        <a href="#"><span class="fas fa-search mr-3"></span> Search</a>
       </li>
       <li>
         <a href="#"><span class="far fa-bookmark mr-3"></span> Bookmarks</a>
+        <%= link_to "Bookmarks", user_bookmarks_path(current_user.id)%>
       </li>
       <li>
         <a href="#"><span class="far fa-bell mr-3"></span> Notification</a>
       </li>
       <li>
         <a href="#"><span class="far fa-user mr-3"></span> Profile</a>
+        <%#= link_to "Profile", business_path(current_user.business_id) %>
       </li>
       <li>
         <a href="#"><span class="far fa-envelope mr-3"></span> Inbox</a>
@@ -41,20 +43,11 @@
     </ul>
 
     <div class="mb-5">
-<!--       <h3 class="h6 mb-3">Subscribe for newsletter</h3>
-      <form action="#" class="subscribe-form">
-        <div class="form-group d-flex">
-          <div class="icon"><span class="icon-paper-plane"></span></div>
-          <input type="text" class="form-control" placeholder="Enter Email Address">
-        </div>
-      </form> -->
     </div>
 
-    <div class="h6 footer mb-3">
+    <div class="footer">
       <p> About | Usage Guide | Terms of Use | Privacy Policy </p>
       <p>©2020 InnerMile</p>
     </div>
-
   </div>
 </nav>
-</div>

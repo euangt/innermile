@@ -13,12 +13,12 @@
 
   <body>
     <%= render 'shared/navbar' %>
+    <div class="wrapper d-flex align-items-stretch">
+    <%= render 'shared/sidebar' %>
     <div id="content" class="p-4 p-md-5 pt-5">
       <%= yield %>
     </div>
-    <%= render 'shared/sidebar' %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+   </div>
   </body>
 </html>
