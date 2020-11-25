@@ -59,57 +59,21 @@ user5 = User.create!(
 
 puts 'Seeding categories...'
 
-category1 = Category.create!(name: "Arts & Culture - Galleries")
-category2 = Category.create!(name: "Arts & Culture - Cinemas")
-category3 = Category.create!(name: "Arts & Culture - Theaters")
-category4 = Category.create!(name: "Education - Language School/Teacher")
-category5 = Category.create!(name: "Education - Continued Education")
-category6 = Category.create!(name: "Education - Childhood Education")
-category7 = Category.create!(name: "Education - Music School/Teacher")
-category8 = Category.create!(name: "Food & Dining - Restaurants")
-category9 = Category.create!(name: "Food & Dining - Cafes")
-category10 = Category.create!(name: "Food & Dining - Catering")
-category11 = Category.create!(name: "Food & Dining - Food Stand & Take Out")
-category12 = Category.create!(name: "Food & Dining - Food Stand & Take Out")
-category13 = Category.create!(name: "Food & Dining - Grocery & Beverage")
-category14 = Category.create!(name: "Food & Dining - Bakery & Cakes")
-category15 = Category.create!(name: "Health & Medicine - Dental")
-category16 = Category.create!(name: "Health & Medicine - Pharmacy & Drug Stores")
-category17 = Category.create!(name: "Health & Medicine - Clinics & Medical Centers")
-category18 = Category.create!(name: "Health & Medicine - Physical Therapy")
-category19 = Category.create!(name: "Health & Medicine - Acupuncture")
-category20 = Category.create!(name: "Health & Medicine - Optical")
-category21 = Category.create!(name: "Health & Medicine - Mental Health")
-category22 = Category.create!(name: "Home & Garden - Antiques & Collectibles")
-category23 = Category.create!(name: "Home & Garden - Cleaning")
-category24 = Category.create!(name: "Home & Garden - Crafts & Hobbies")
-category25 = Category.create!(name: "Home & Garden - Flower Shop")
-category26 = Category.create!(name: "Home & Garden - Home Furnishing")
-category27 = Category.create!(name: "Home & Garden - Home improvement & Repair")
-category28 = Category.create!(name: "Personal Care - Barber & Beauty Salons")
-category29 = Category.create!(name: "Personal Care - Exercise & Fitness")
-category30 = Category.create!(name: "Personal Care - Massage & Body Works")
-category31 = Category.create!(name: "Personal Care - Nail Salon")
-category32 = Category.create!(name: "Pets - Veterinary")
-category33 = Category.create!(name: "Pets - Animal Care & Supplies")
-category34 = Category.create!(name: "Pets - Pet hotel")
-category35 = Category.create!(name: "Retail - Cards & Gifts")
-category36 = Category.create!(name: "Retail - Clothing & Accessories")
-category37 = Category.create!(name: "Retail - Outdoor & Sporting Goods")
-category38 = Category.create!(name: "Retail - Bookstore")
-category39 = Category.create!(name: "Retail - Music")
-category40 = Category.create!(name: "Retail - Shoes")
-category41 = Category.create!(name: "Services - Shoe Repairs")
-category42 = Category.create!(name: "Services - Tailor")
-category43 = Category.create!(name: "Services - Laundry & Dry Cleaning")
-category44 = Category.create!(name: "Services - Electronic Repair")
-
+category1 = Category.create!(name: "Arts & Culture")
+category2 = Category.create!(name: "Education")
+category3 = Category.create!(name: "Food & Dining")
+category4 = Category.create!(name: "Health & Medicine")
+category5 = Category.create!(name: "Home & Garden")
+category6 = Category.create!(name: "Personal Care")
+category7 = Category.create!(name: "Pets")
+category8 = Category.create!(name: "Retail")
+category9 = Category.create!(name: "Services")
 
 puts "Seeding businesses..."
 
 business1 = Business.create!(
   user: user2,
-  category: category15,
+  category: category4,
   name: "ZahnCentrum",
   short_bio: "Friendly local dentist",
   long_bio: "At our facility you will find all dental specialities combined in one location – from prophylaxis to paediatric dentistry as well as oral surgery. Our dedicated team will provide you with comprehensive and attentive care. We will gladly take plenty of extra time for patients with dental anxiety and for our young patients. Arrange your next dental appointment with us! ",
@@ -124,7 +88,7 @@ business1 = Business.create!(
     )
 business2 = Business.create!(
   user: user3,
-  category: category29,
+  category: category6,
   name: "Highkick e.V.",
   short_bio: "Gym specializing in women's self-defense",
   long_bio: "Highkick: is a self defence and fitness gym for women empowerment.  All ages welcome. Male and female instructors. Private sessions available and pay as you go classes. Come and try us!
@@ -144,7 +108,7 @@ instagram/lowkick_gym",
     )
 business3 = Business.create!(
   user: user4,
-  category: category41,
+  category: category9,
   name: "Eyman's ",
   short_bio: "Cheap, fast, quality shoe repair",
   long_bio: "A family owned shoe repairshop with friendly staff. We  rebuild, remodel, and repair boots and shoes. Offering services for mending luggage, handbags, and sports equipment, such as tents, saddles, and golf bags.",
@@ -159,7 +123,7 @@ business3 = Business.create!(
     )
 business4 = Business.create!(
   user: user5,
-  category: category31,
+  category: category6,
   name: "Apple Nails",
   short_bio: "Local Nail Bar experience so far from normal",
   long_bio: "You will be warmly welcomed by Apple and Kevin in the modern salon. The duo will advise you in detail and take care of your hands and feet, be it a classic manicure and pedicure, the scratch-resistant Shellac or a gel modeling with the most beautiful designs - the regulars crowding the salon prove that the two of them are masters of their profession. Great quality at fair prices. What are you waiting for? Come by and experience for yourself what beautiful nails can do.
@@ -177,7 +141,7 @@ business4 = Business.create!(
     )
 business5 = Business.create!(
   user: user2,
-  category: category28,
+  category: category6,
   name: "Alley Barber Shop",
   short_bio: "Authentic Barber experience",
   long_bio: "A family-friendly burger shop, serving burgers, hot dogs, fries, wraps and salads and of course, friench fires in a 90's themed atmosphere. We are passionate about burgers, using the best ingredients, working directly with our meat producers and bun producers to to create our unique steak patties freshly baked buns. We have seating as well as take-away, with meat, vegetarian and vegan offerings on the menu.",
@@ -192,7 +156,7 @@ business5 = Business.create!(
     )
 business6 = Business.create!(
   user: user3,
-  category: category8,
+  category: category3,
   name: "Ben's Burgers",
   short_bio: "Best craft proper burger in Berlin",
   long_bio: "Best bar for chilled out drinks with friends. Try our original cocktails, as you enjoy the live music, shabby-chic decor and prime people-watching location. The the bar staff know their Old Fashions from their Manhattans. ",
@@ -207,7 +171,7 @@ business6 = Business.create!(
     )
 business7 = Business.create!(
   user: user4,
-  category: category12,
+  category: category3,
   name: "Bierhaus Urban",
   short_bio: "Cosy boozer, great atmosphere, friendly staff",
   long_bio: "Best bar for chilled out drinks with friends. Try our original cocktails, as you enjoy the live music, shabby-chic decor and prime people-watching location. The the bar staff know their Old Fashions from their Manhattans. ",
@@ -222,7 +186,7 @@ business7 = Business.create!(
     )
 business8 = Business.create!(
   user: user5,
-  category: category13,
+  category: category3,
   name: "Café Louis",
   short_bio: "Italian Coffee and Cakes",
   long_bio: "Cafè is run by a joyful Italian couple, Louis and his wife Nora. We offer authentic well-brewed Italian cappuccino, and our cafe is spacious - an ideal place to chatt and hang out with your friends, or to get some work done on your laptop and fill your belly with homemade sweets and sadwiches. ",
@@ -237,7 +201,7 @@ business8 = Business.create!(
     )
 business9 = Business.create!(
   user: user2,
-  category: category14,
+  category: category3,
   name: "Jon's",
   short_bio: "French & German Bakery",
   long_bio: "The bakery was a converted apotheke, rustic on the outside and perfection on the inside. The breads were all local grain and we pride ourselves in variation, from bread, rolls, cookies, pies, pastries, and muffins, We open early at 7am everyday. Come and grab your croissants and danish on your way to work!",
@@ -267,7 +231,7 @@ business10 = Business.create!(
     )
 business11 = Business.create!(
   user: user4,
-  category: category36,
+  category: category8,
   name: "Nicer Living",
   short_bio: "Fashion for the conscious shopper",
   long_bio: "Established by a passion lover in lat 2010s. Focused on on fashionable Yuppies with a lot of money",
@@ -282,7 +246,7 @@ business11 = Business.create!(
     )
 business12 = Business.create!(
   user: user5,
-  category: category2,
+  category: category1,
   name: "Rückpassage Cinema",
   short_bio: "Community-owned cinema with sofa's",
   long_bio: "At Rückpassage, we pride ourselves on the cinema experience and the belief that cinema is best with comfort and a beer, without breaking the bank. ",
@@ -297,7 +261,7 @@ business12 = Business.create!(
     )
 business13 = Business.create!(
   user: user2,
-  category: category35,
+  category: category5,
   name: "Candle Corner",
   short_bio: "Small independent shop focused on candle crafting",
   long_bio: "We are craftsmen that really love candles. Anything candle you can imagine is possible with us!",
@@ -312,7 +276,7 @@ business13 = Business.create!(
     )
 business14 = Business.create!(
   user: user3,
-  category: category13,
+  category: category5,
   name: "Neighborhood Greens",
   short_bio: "Providing the freshest and healthiest vegetables",
   long_bio: "Established in 1980 witht the intend to provide the neighborhood with the best regional vegetables Family-owned shop to puts its focus on ",
