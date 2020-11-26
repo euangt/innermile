@@ -1,9 +1,7 @@
-<div class="container py-5 position-absolute d-none">
-
-  <h1>All the businesses near you!</h1>
-
+<div class="container position-absolute filter-layer">
+ <!--  <h4>Filter by:</h4> -->
   <% @categories.each do |category| %>
-  <%= link_to category.name, businesses_path(query: @address, category: category.name) %> |
+  <%= link_to category.name, businesses_path(query: @address, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
   <% end %>
 </div>
 

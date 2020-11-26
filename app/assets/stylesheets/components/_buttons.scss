@@ -28,3 +28,29 @@
   color: #f57871;
   opacity: 1;
 }
+
+.category_btn {
+  color: #4A4A4A;
+  background-color: white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 10px;
+  transition: opacity 0.3s ease;
+  font-family: "Poppins", "sans serif";
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.btn_active {
+  opacity: 1;
+  background-color: $inner-green;
+  color: white;
+}
+
+.btn_active:hover {
+  color: white !important;
+}
+
+.category_btn:hover {
+  color: $inner-green
+}
