@@ -14,6 +14,11 @@ h1, h2, h3 {
   margin: 0;
 }
 
+h4 {
+  margin: 8px;
+  color: rgba(black, 0.8);
+  font-size: 20px;
+}
 h1 {
   font-size: 36px;
 }
@@ -26,6 +31,7 @@ h2 {
 p {
   font-weight: lighter;
   color: rgba(black, 0.8);
+  margin-bottom: 8px;
 }
 
 a {

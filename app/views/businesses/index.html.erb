@@ -10,6 +10,7 @@
 <div class="d-flex">
   <!-- <div class="container px-10"> -->
     <div class="cards">
+      <h4>Businesses in your mile</h4>
       <% @businesses.each do |business| %>
         <div class="card-business">
           <p><%= link_to business.name, business_path(business) %></p>
