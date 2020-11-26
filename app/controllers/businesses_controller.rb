@@ -47,6 +47,7 @@ class BusinessesController < ApplicationController
     @user = current_user
     @bookmark = @user.bookmarks.where(business_id: @business.id).first
     @post = Post.new
+    @posts = @business.posts.order(created_at: :desc)
     authorize @business
   end
 

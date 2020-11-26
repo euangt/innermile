@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :find_business
 
-  def index
-    @posts = Post.all
-    authorize @posts
-  end
+  # def index
+  #   @posts = Post.all
+  #   authorize @posts
+  # end
 
   # def new
   #   @post = Post.new
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @business.user = current_user
     @post.business = @business
     if @post.save
-      redirect_to business_path(@business)
+      redirect_to business_path(@business, anchor: "recent_posts")
     else
       render 'businesses/show'
     end
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     @post.destroy
-    redirect_to business_path(@business)
+    redirect_to business_path(@business, anchor: "recent_posts")
   end
 
   private
