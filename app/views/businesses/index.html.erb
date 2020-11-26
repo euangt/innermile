@@ -1,16 +1,15 @@
 
 <div class="d-flex">
   <!-- <div class="container px-10"> -->
-    <div class="cards">
-      <h4>Businesses in your mile</h4>
-      <% @businesses.each do |business| %>
-        <div class="card-business">
-          <p><%= link_to business.name, business_path(business) %></p>
-          <p><%= business.short_bio %></p>
-        </div>
-      <% end %>
-    </div>
-  <!-- </div> -->
+
+
+<div class="cards">
+  <h4>Businesses in your mile</h4>
+  <% @businesses.each do |business| %>
+    <%= render partial: 'businesses/business_card', locals: { business: business } %>
+  <% end %>
+</div>
+
 
   <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
     data-markers="<%= @markers.to_json %>"
