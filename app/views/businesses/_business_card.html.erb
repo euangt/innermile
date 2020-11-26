@@ -1,0 +1,12 @@
+<div class="card-business">
+  <% if business.avatar.attached? %>
+    <%= cl_image_path business.avatar.key %>
+  <% else %>
+    <img src="https://source.unsplash.com/random/?store" />
+  <% end %>
+    <div class="card-business-infos">
+      <h2><%= link_to business.name, business_path(business) %></h2>
+      <p><%= business.short_bio %></p>
+      <p>Show on Map</p>
+    </div>
+</div>

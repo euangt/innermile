@@ -4,28 +4,39 @@
   grid-template-columns: 1fr;
   grid-gap: 12px;
   padding: 0px 12px 0 12px;
-  width: 400px;
+  width: 420px;
   margin-top: 24px;
 }
 
 .card-business {
-  background: transparent;
-  padding: 8px;
-  display: block;
-  justify-content: space-between;
-  align-items: flex-start;
-  position: relative;
-  box-shadow: 0 0 15px rgba(55, 63, 81,0.1);
-}
+  overflow: hidden;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
 
-.bookmark-cards {
-  display: block;
-  border: 1px solid rgba(55, 63, 81,0.12);
-  color: #373F51;
-  background: #FFFCFA;
-  width: 360px;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(55, 63, 81,0.12);
-  font-weight: 300;
+  img {
+    height: 100%;
+    width: 100px;
+    object-fit: cover;
+
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+  .card-business-infos {
+    padding: 12px;
+    margin-right: 12px;
+  }
 }

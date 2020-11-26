@@ -1,29 +1,30 @@
-<div class="split left">
-  <div class="container px-10">
-    <div class="cards">
-      <% @businesses.each do |bookmark| %>
-          <div class="bookmark-cards">
-            <p><%= link_to bookmark.name, business_path(bookmark) %></p>
-            <p><%= bookmark.address %></p>
-          </div>
-        <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="split right">
-  <div class="container px-10">
-    <div class="cards">
-      <% if @posts %>
-        <div class="container">
-          <% @posts.each do |post| %>
-            <div class="post shadow-sm bg-white">
-
-              <p><%= post.content %></p>
-            </div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6">
+      <div class="container px-10">
+        <p class="text-center"><strong>Bookmarked businesses</strong></p>
+        <hr>
+        <div class="cards">
+          <% @businesses.each do |business| %>
+            <%= render partial: 'businesses/business_card', locals: { business: business } %>
           <% end %>
         </div>
-      <% end %>
+      </div>
+    </div>
+    <div class="col-6">
+      <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
+      <hr>
+      <div class="posts">
+        <% if @posts %>
+          <div class="container">
+            <% @posts.each do |post| %>
+              <div class="post shadow-sm bg-white">
+                <%= render partial: 'posts/post', locals: { post: post } %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

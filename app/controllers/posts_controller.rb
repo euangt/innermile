@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  before_action :find_business
+  before_action :find_business, only: [:create, :destroy]
 
-  # def index
-  #   @posts = Post.all
-  #   authorize @posts
-  # end
+  def index
+    @posts = policy_scope(Post)
+    @business = Business.new
+  end
 
   # def new
   #   @post = Post.new
