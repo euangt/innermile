@@ -30,7 +30,7 @@
         <a href="#"><i class="far fa-envelope mr-3"></i>Inbox</a>
       </li>
       <li>
-        <a href="#"><i class="far fa-edit mr-3"></i>Create Post</a>
+        <%= link_to raw('<i class="far fa-edit mr-3"></i>Create Post'), business_path(current_user.business_ids) %>
       </li>
       <li>
         <a href="#"><i class="far fa-calendar-plus mr-3"></i>Create Event</a>
