@@ -6,9 +6,9 @@
   background: $inner-green;
   color: $inner-white;
   transition: all 0.3s;
-  position: sticky;
-  top: 5vh;
-  height: 105vh;
+  position: relative;
+  top: 6vh;
+  height: 100vh;
   .h6{
     color: $inner-white;
   }
@@ -67,7 +67,7 @@ ul{
 
 .footer{
   position: absolute;
-  bottom: 10vh;
+  bottom: 5vh;
   p{
     color: $inner-grey;
   }
