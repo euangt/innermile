@@ -1,26 +1,24 @@
-<div class="container py-5 position-absolute d-none">
-
-  <h1>All the businesses near you!</h1>
-
-  <% @categories.each do |category| %>
-  <%= link_to category.name, businesses_path(query: @address, category: category.name) %> |
-  <% end %>
-</div>
 
 <div class="d-flex">
   <!-- <div class="container px-10"> -->
-    <div class="cards">
-      <% @businesses.each do |business| %>
-        <div class="card-business">
-          <p><%= link_to business.name, business_path(business) %></p>
-          <p><%= business.short_bio %></p>
-        </div>
-      <% end %>
-    </div>
-  <!-- </div> -->
+
+
+<div class="cards">
+  <h4>Businesses in your mile</h4>
+  <% @businesses.each do |business| %>
+    <%= render partial: 'businesses/business_card', locals: { business: business } %>
+  <% end %>
+</div>
+
 
   <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="container position-absolute filter-layer">
+     <!--  <h4>Filter by:</h4> -->
+      <% @categories.each do |category| %>
+      <%= link_to category.name, businesses_path(query: @address, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
+      <% end %>
+    </div>
   </div>
 </div>
