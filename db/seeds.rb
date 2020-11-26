@@ -110,7 +110,7 @@ instagram/lowkick_gym",
 business3 = Business.create!(
   user: user4,
   category: category9,
-  name: "Eyman's ",
+  name: "Eyman's",
   short_bio: "Cheap, fast, quality shoe repair",
   long_bio: "A family owned shoe repairshop with friendly staff. We  rebuild, remodel, and repair boots and shoes. Offering services for mending luggage, handbags, and sports equipment, such as tents, saddles, and golf bags.",
   owner_name: "Eymen Kaya",
@@ -138,14 +138,14 @@ business4 = Business.create!(
   email: "apple@nails.com",
   opening_hours: nil,
   accept_cards: true,
-  website_url: "www.apple_nails.de",
+  website_url: "www.apple-nails.de",
     )
 business5 = Business.create!(
   user: user2,
   category: category6,
   name: "Alley Barber Shop",
   short_bio: "Authentic Barber experience",
-  long_bio: "A family-friendly burger shop, serving burgers, hot dogs, fries, wraps and salads and of course, friench fires in a 90's themed atmosphere. We are passionate about burgers, using the best ingredients, working directly with our meat producers and bun producers to to create our unique steak patties freshly baked buns. We have seating as well as take-away, with meat, vegetarian and vegan offerings on the menu.",
+  long_bio: "A family-friendly burger shop, serving burgers, hot dogs, fries, wraps and salads and of course, french fires in a 90's themed atmosphere. We are passionate about burgers, using the best ingredients, working directly with our meat producers and bun producers to to create our unique steak patties freshly baked buns. We have seating as well as take-away, with meat, vegetarian and vegan offerings on the menu.",
   owner_name: "Deniz ",
   owner_bio: "I feel most confident when I have my scissors in my hands and doing work. I've had my barbershop now for 20 years, and I still love my job and appreciate my customers for all the support they have given me throughout the years. ",
   address: "Mulackstraße 33, 10119 Berlin",
@@ -153,7 +153,7 @@ business5 = Business.create!(
   email: "alley@barber.com",
   opening_hours: nil,
   accept_cards: true,
-  website_url: "www.alley_barber_shop.de",
+  website_url: "www.alley-barber-shop.de",
     )
 business6 = Business.create!(
   user: user3,
@@ -198,7 +198,7 @@ business8 = Business.create!(
   email: "cafe@louis.com",
   opening_hours: nil,
   accept_cards: true,
-  website_url: "www.cafelouis.de/",
+  website_url: "www.cafelouis.de",
     )
 business9 = Business.create!(
   user: user2,
@@ -235,9 +235,9 @@ business11 = Business.create!(
   category: category8,
   name: "Nicer Living",
   short_bio: "Fashion for the conscious shopper",
-  long_bio: "Established by a passion lover in lat 2010s. Focused on on fashionable Yuppies with a lot of money",
+  long_bio: "Established by a passion lover in the late 2010s. Focused on on fashionable Yuppies with a lot of money",
   owner_name: "Helena Bonstat",
-  owner_bio: "Born and raised in Berlin. I have been working the fashion indurstry for as long as I can think of, true passion makes the best professionals!",
+  owner_bio: "Born and raised in Berlin. I have been working the fashion industry for as long as I can think of, true passion makes the best professionals!",
   address: "Brunnenstraße 164, 10119 Berlin",
   telephone: "+49-123-4567-8901",
   email: "nicer@living.com",
@@ -265,7 +265,7 @@ business13 = Business.create!(
   category: category5,
   name: "Candle Corner",
   short_bio: "Small independent shop focused on candle crafting",
-  long_bio: "We are craftsmen that really love candles. Anything candle you can imagine is possible with us!",
+  long_bio: "We are craftsmen that really love candles. Any candle you can imagine is possible with us!",
   owner_name: "The Rückpassage community",
   owner_bio: "Born in a small village in the south of Germany, Heinz learned the carft of making candles from his father and kept onto it ever since",
   address: "Ackerstraße 16, 10115 Berlin",
@@ -290,6 +290,138 @@ business14 = Business.create!(
   accept_cards: true,
   website_url: "www.greenerfood.com",
     )
+
+puts "Seeding posts"
+
+post1 = Post.create!(
+  content: "Think it has been too long since your last checkup? Give us a call and arrange your next appointment",
+  business_id: business1.id,
+)
+post2 = Post.create!(
+  content: "We all know how much sugar our kids can get through on Halloween, so for all of November we are offering half-price checkups for your little ones",
+  business_id: business1.id,
+)
+post3 = Post.create!(
+  content: "Don’t wait until the new year to get yourself into shape! Come and drop by for one of our free beginners classes. No experience needed, just positivity and a can-do attitude",
+  business_id: business2.id,
+)
+post4 = Post.create!(
+  content: "Meet our newest instructor, Louise! Louise joins us from the national judo association and brings with her a wealth of experience in meditation, yoga and, of course, judo",
+  business_id: business2.id,
+)
+post5 = Post.create!(
+  content: "Wondering what to get for your significant other this Christmas? We are offering half-price discounts across a range of memberships so why not change someone's life this year, not just their sock collection",
+  business_id: business2.id,
+)
+post31 = Post.create!(
+  content: "Don’t let winter get to your favourite pair of shoes! Drop them off with us and let them get the care and attention they deserve",
+  business_id: business3.id,
+)
+post32 = Post.create!(
+  content: "We are so much more than just shoes! We offer quick repairs on bags, watches, luggage, even golf bags and more",
+  business_id: business3.id,
+)
+post6 = Post.create!(
+  content: "Got yourself the first post-lockdown date? Come see us and make sure your nails are looking their best for the big day",
+  business_id: business4.id,
+)
+post7 = Post.create!(
+  content: "We all miss spending time with our closest friends, so why not buy a shared manicure and treat yourselves to an afternoon of pampering?",
+  business_id: business4.id,
+)
+post8 = Post.create!(
+  content: "Has your man-gone from hipster to hippie? Lets get you looking your best for that first big night out!",
+  business_id: business5.id,
+)
+post9 = Post.create!(
+  content: "No-shave November changed your life? Want to keep that chin fuzz looking fine? Our team can help keep your facial fur at its best",
+  business_id: business5.id,
+)
+post10 = Post.create!(
+    content: "Hair cuts shouldn’t be a chore; all of ours come with a complimentary beer. So what are you waiting for?",
+  business_id: business5.id,
+)
+post11 = Post.create!(
+  content: "Presenting the newest addition to our menu, the Thanksgiving burger. Treat yourself to true American gluttony. Don’t wait, it’ll only be here for the next week!",
+  business_id: business6.id,
+)
+post12 = Post.create!(
+  content: "We won’t let the newest regulations stop us from bringing you the finest in burger brilliance. Order online for free delivery and even a free drink if you don’t mind collecting it yourself!",
+  business_id: business6.id,
+)
+post13 = Post.create!(
+  content: "We are committed to reducing our environmental impact so we are proud to introduce you to our new spicy vegan burger, the Temple of Seitan",
+  business_id: business6.id,
+)
+post14 = Post.create!(
+  content: "As the cold nights draw-in, come fight the winter chill with us!",
+  business_id: business7.id,
+)
+post15 = Post.create!(
+  content: "Cabin fever setting in after the fifth straight day of working from home? Come join us for our famous happy hour! All beers on tap are half-price, monday to thursday,  5-7! You know it makes sense!!",
+  business_id: business7.id,
+)
+post16 = Post.create!(
+  content: "Eat-in or takeout? You choose! It’s never been easier to find the finest food France has to offer",
+  business_id: business8.id,
+)
+post17 = Post.create!(
+  content: "A new lockdown doesn’t mean you must indulge less? Order online and we will have the richest Beef Bourguignon ready when you are",
+  business_id: business8.id,
+)
+post18 = Post.create!(
+  content: "Our bread is baked fresh each morning so start your morning with the delicious taste of a warm croissant",
+  business_id: business9.id,
+)
+post19 = Post.create!(
+  content: "We know mornings are a little harder this time of year, so pick up a half-price coffee between 7 and 8 everyday",
+  business_id: business9.id,
+)
+post20 = Post.create!(
+  content: "Community alert! All our bread is half-price from now until we close for the day!",
+  business_id: business9.id,
+)
+post21 = Post.create!(
+  content: "Want to get your kids away from the tv this weekend? Come to the Schoenhausser this Saturday when kids go free!",
+  business_id: business10.id,
+)
+post22 = Post.create!(
+  content: "We are proud to present our newest exhibition, featuring the up and coming artist Ben Gordon. His sculptures offer a sardonic and, often, witty rebuke of modern America",
+  business_id: business10.id,
+)
+post23 = Post.create!(
+  content: "Fashion shouldn’t hurt the world around us. That’s why we are introducing our newest bamboo clothing range",
+  business_id: business11.id,
+)
+post24 = Post.create!(
+  content: "All of our items are sustainably sourced so you can look your best, guilt-free!",
+  business_id: business11.id,
+)
+post25 = Post.create!(
+  content: "Don’t miss the newest mind-bending thriller from Sir Christopher Nolan! Weekday screenings of his newest masterpiece from only €5",
+  business_id: business12.id,
+)
+post26 = Post.create!(
+  content: "We believe that the best films should be enjoyed with comfort and indulgence, that’s why all of our screens have sofas and a bar to make every viewing memorable",
+  business_id: business12.id,
+)
+post27 = Post.create!(
+  content: "Nothing says Valentines and romance like our Rose leaf candle. Make your night a little more special",
+  business_id: business13.id,
+)
+post28 = Post.create!(
+  content: "Finally got a Saturday night to yourself? Gearing up to soak your cares away? Pick up a lavender candle from us and make your night as relaxing as possible",
+  business_id: business13.id,
+)
+post29 = Post.create!(
+  content: "We would like to introduce you to Lukas, the newest member of our family business!",
+  business_id: business14.id,
+)
+post30 = Post.create!(
+  content: "We believe that vegetables should come in all shapes and sizes, so unlike supermarkets, we won’t main farmers suffer for it!",
+  business_id: business14.id,
+)
+
 
 
 puts "Created #{User.count} users, #{Category.count} categories, and #{Business.count} businesses"
