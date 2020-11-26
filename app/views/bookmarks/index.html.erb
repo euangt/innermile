@@ -1,10 +1,29 @@
-<div class="container px-10">
-  <div class="cards">
-    <% @bookmarks.each do |bookmark| %>
-        <div class="bookmark-cards">
-          <p><%= link_to bookmark.name, business_path(bookmark) %></p>
-          <p><%= bookmark.address %></p>
+<div class="split left">
+  <div class="container px-10">
+    <div class="cards">
+      <% @businesses.each do |bookmark| %>
+          <div class="bookmark-cards">
+            <p><%= link_to bookmark.name, business_path(bookmark) %></p>
+            <p><%= bookmark.address %></p>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="container px-10">
+    <div class="cards">
+      <% if @posts %>
+        <div class="container">
+          <% @posts.each do |post| %>
+            <div class="post shadow-sm bg-white">
+
+              <p><%= post.content %></p>
+            </div>
+          <% end %>
         </div>
       <% end %>
+    </div>
   </div>
 </div>
