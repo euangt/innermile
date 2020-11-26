@@ -16,10 +16,10 @@
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-profile" %>
               <% end %>
             </div>
-            <div class="profile-name ml-3">
+            <div class="profile-name ml-3 mb-4">
               <h2><%= @business.name %></h2>
+              <p><em><%= @business.address %></em></p>
               <p><em><%= @business.short_bio %></em></p>
-              <p>text text text</p>
             </div>
             <div>
               <% if !@user.businesses.include?(@business) %>
@@ -61,58 +61,51 @@
                   <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
                 <% end %>
               </div>
-
-              <p><em><%= @business.address %></em></p>
-              <p><em><%= @business.opening_hours %></em></p>
-              <p><em><%= @business.telephone %></em></p>
-              <p><em><%= @business.email %></em></p>
-              <a><em><%= @business.website_url %></em></a>
-
-            </div>
-
-        </div>
-
-
+  <div class="row justify-content-center mt-4">
+    <div class="bookmark-cards mb-2">
+      <h1 class="text-center" id="recent_posts">Recent Posts</h1>
+      <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
+      <hr>
+      <div class="text-center" id="posts">
+        <% if @business.posts.blank? %>
+        <%# if policy(Post).create? %>
+          <p> <%= @business.name %> has no posts yet</p>
+        <% else %>
+          <% @posts.each do |post| %>
+            <%= render partial: 'posts/post', locals: { post: post } %>
+          <% end %>
+        <% end %>
       </div>
-    </div>
-  </div>
-
-
-
- <div class="row justify-content-center">
-  <div class="col-6">
-    <h1 class="text-center" id="recent_posts">Recent Posts</h1>
-    <p  class="text-center"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
-    <hr>
-    <div id="posts">
-      <% if @business.posts.blank? %>
-      <%# if policy(Post).create? %>
-        <p> <%= @business.name %> has no posts yet</p>
-      <% else %>
-        <% @posts.each do |post| %>
-
-          <%= render partial: 'posts/post', locals: { post: post } %>
-
+      <hr>
+      <% if current_user == @business.user %>
+        <h2 class="text-center">Create a post</h2>
+        <p class="text-center">----------</p>
+        <%= simple_form_for([@business, @post]) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :content %>
+            <%= f.input :post_image, as: :file %>
+          </div>
+          <div class="form-actions mb-2">
+            <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
+          </div>
+          <hr>
         <% end %>
       <% end %>
+      </div>
+      <!-- <div>
+
+    <p><em><%= @business.opening_hours %></em></p>
+    <p><em><%= @business.telephone %></em></p>
+    <p><em><%= @business.email %></em></p>
+    <a><em><%= @business.website_url %></em></a>
     </div>
-    <hr>
-    <% if current_user == @business.user %>
-      <h2 class="text-center">Create a post</h2>
-      <p class="text-center">----------</p>
-      <%= simple_form_for([@business, @post]) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :content %>
-          <%= f.input :post_image, as: :file %>
-        </div>
-        <div class="form-actions mb-2">
-          <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
-        </div>
-        <hr>
 
-      <% end %>
-    <% end %>
-
+    </div>
+    This is commented out for the demo on friday since the tabs are not yet functional:
+    All of the code above will move to the Contact tab eventually.
+    -->
+        </div>
+      </div>
     </div>
   </div>
 </div>
