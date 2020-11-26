@@ -2,7 +2,10 @@ class BookmarksController < ApplicationController
 
   def index
     policy_scope(Bookmark)
-    @bookmarks = current_user.bookmarked_businesses
+    @businesses = current_user.bookmarked_businesses
+    @posts = @businesses.map do |business|
+      business.posts
+    end.flatten
   end
 
   def new
