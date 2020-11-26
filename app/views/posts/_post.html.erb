@@ -8,15 +8,13 @@
               <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
                 <em class="fa fa-ellipsis-h"></em>
               </button>
-              <% if current_user.business_owner? %>
-                <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                  <a class="dropdown-item" href="#">Hide post</a>
-                  <a class="dropdown-item" href="#">Report</a>
-                  <% if current_user == post.business.user %>
-                    <%= link_to "Delete post", business_post_path(@business, post), method: :delete, class: "dropdown-item", remote: true %>
-                  <% end %>
-                </div>
-              <% end %>
+              <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a class="dropdown-item" href="#">Hide post</a>
+                <a class="dropdown-item" href="#">Report</a>
+                <% if current_user == post.business.user && controller_name != "posts" %>
+                  <%= link_to "Delete post", business_post_path(@business, post), method: :delete, class: "dropdown-item", remote: true %>
+                <% end %>
+              </div>
             </div>
               <div class="media m-0">
                 <div class="d-flex mr-3">

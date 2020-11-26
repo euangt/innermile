@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = policy_scope(Post)
+    @business = Business.new
   end
 
   # def new
