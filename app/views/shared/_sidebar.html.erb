@@ -8,38 +8,38 @@
   <div class="p-4">
     <ul class="list-unstyled components mb-5">
       <br>
-      <li class="active">
-        <%= link_to raw('<i class="fas fa-home mr-3"></i> Home'), businesses_path %>
+      <li>
+        <%= link_to raw('<i class="fas fa-home mr-3"></i>Home'), businesses_path %>
       </li>
       <li>
-        <%= link_to raw('<i class="fas fa-search mr-3"></i> Search'), root_path %>
+        <%= link_to raw('<i class="fas fa-search mr-3"></i>Search'), root_path %>
       </li>
       <% if current_user %>
       <li>
-        <%= link_to raw('<i class="far fa-bookmark mr-3"></i> Bookmarks'), user_bookmarks_path(current_user) %>
+        <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>   Bookmarks'), user_bookmarks_path(current_user) %>
       </li>
       <li>
-        <a href="#"><span class="far fa-bell mr-3"></span> Notification</a>
+        <a href="#"><i class="far fa-bell mr-3"></i></i>Notification</a>
       </li>
       <% if current_user.business_owner == true %>
       <li>
-        <%= link_to raw('<i class="far fa-user mr-3"></i> Business Profile'), business_path(current_user.business_ids) %>
+        <%= link_to raw('<i class="far fa-user mr-3"></i>Business Profile'), business_path(current_user.business_ids) %>
       </li>
       <% end %>
       <li>
-        <a href="#"><span class="far fa-envelope mr-3"></span> Inbox</a>
+        <a href="#"><i class="far fa-envelope mr-3"></i>Inbox</a>
       </li>
       <li>
-        <a href="#"><span class="far fa-edit mr-3"></span> Create Post</a>
+        <%= link_to raw('<i class="far fa-edit mr-3"></i>Create Post'), business_path(current_user.business_ids) %>
       </li>
       <li>
-        <a href="#"><span class="far fa-calendar-plus mr-3"></span> Create Event</a>
+        <a href="#"><i class="far fa-calendar-plus mr-3"></i>Create Event</a>
       </li>
       <li>
-        <%= link_to raw('<i class="fas fa-cog mr-3"></i> Settings'), edit_user_path(current_user) %>
+        <%= link_to raw('<i class="fas fa-cog mr-3"></i>Settings'), edit_user_path(current_user) %>
       </li>
       <li>
-        <%= link_to raw('<i class="far fa-map mr-33"></i> Map View'), root_path %>
+        <%= link_to raw('<i class="far fa-map mr-3"></i>Map View'), root_path %>
       </li>
     </ul>
     <% end %>

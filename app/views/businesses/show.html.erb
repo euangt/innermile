@@ -24,11 +24,9 @@
             <div>
               <% if !@user.businesses.include?(@business) %>
                 <% if !@user.bookmarked_businesses.include?(@business) %>
-                  <i class="far fa-bookmark"></i>
-                  <%= link_to "Add to bookmarks", business_bookmarks_path(@business), method: :post, remote: true %>
+                  <%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true %>
                 <% else %>
-                  <i class="fas fa-bookmark"></i>
-                  <%= link_to "Remove from bookmarks", bookmark_path(@bookmark), method: :delete, remote: true  %>
+                  <%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true %>
                 <% end %>
               <% end %>
             </div>
@@ -68,7 +66,7 @@
               <p><em><%= @business.opening_hours %></em></p>
               <p><em><%= @business.telephone %></em></p>
               <p><em><%= @business.email %></em></p>
-              <p><em><%= @business.website_url %></em></p>
+              <a><em><%= @business.website_url %></em></a>
 
             </div>
 
