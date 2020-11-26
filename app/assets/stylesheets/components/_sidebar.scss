@@ -1,7 +1,4 @@
 //SIDEBAR
-.wrapper {
-  width: 100%;
-}
 
 #sidebar {
   min-width: 240px;
@@ -10,15 +7,16 @@
   color: $inner-white;
   transition: all 0.3s;
   position: relative;
-  position: sticky;
+  top: 6vh;
   height: 100vh;
   .h6{
     color: $inner-white;
   }
 
 ul.components{
-    padding: 0;
+  padding: 0;
   }
+
 ul{
   li{
     font-size: 16px;
@@ -34,12 +32,11 @@ ul{
     &.active{
       > a{
         background: transparent;
-        color: $white;
+        color: $inner-white;
       }
     }
   }
 }
-
 
 .menu{
   display: inline-block;
@@ -47,28 +44,7 @@ ul{
   top: 20px;
   right: 0;
   margin-right: -20px;
-  // .btn{
-  //   width: 40px;
-  //   height: 40px;
-  //   border-radius: 50%;
-  //   &.btn-green{
-  //     background: darken($inner-green,5%);
-  //     border-color: darken($inner-green,5%);
-  //     &:hover, &:focus{
-  //       background: darken($inner-green,5%) !important;
-  //       border-color: darken($inner-green,5%) !important;
-  //       }
-  //     }
-  //   }
   }
-}
-
-.dropdown-toggle::after {
-  display: block;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
 }
 
 #content {
@@ -90,6 +66,8 @@ ul{
 }
 
 .footer{
+  position: absolute;
+  bottom: 5vh;
   p{
     color: $inner-grey;
   }

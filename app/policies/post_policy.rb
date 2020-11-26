@@ -10,10 +10,10 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    user.present?
   end
 
   def destroy?
-    record.user == user
+    user.present?
   end
 end

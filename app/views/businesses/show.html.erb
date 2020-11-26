@@ -1,46 +1,86 @@
-<div class="container p-5">
+<div class="container mt-2">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="container shadow-lg bg-white">
+        <% if @business.banner_photo.attached? %>
+          <div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)), url('<%= cl_image_path @business.banner_photo.key %>');"></div>
+        <% else %>
+          <div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);"></div>
+        <% end %>
+        <div class="container mt-2">
+          <div class="row profile-top">
+            <div class="profile-image ml-3">
+              <% if @business.avatar.attached? %>
+                <%= cl_image_path @business.avatar.key, class: "avatar-profile" %>
+              <% else %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-profile" %>
+              <% end %>
+            </div>
+            <div class="profile-name ml-3">
+              <h2><%= @business.name %></h2>
+              <p><em><%= @business.short_bio %></em></p>
+              <p>text text text</p>
+            </div>
+            <div>
+              <% if !@user.businesses.include?(@business) %>
+                <% if !@user.bookmarked_businesses.include?(@business) %>
+                  <i class="far fa-bookmark"></i>
+                  <%= link_to "Add to bookmarks", business_bookmarks_path(@business), method: :post %>
+                <% else %>
+                  <i class="fas fa-bookmark"></i>
+                  <%= link_to "Remove from bookmarks", bookmark_path(@bookmark), method: :delete  %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <ul class="list-inline tabs-underlined">
+              <li><a href="#" class="tab-underlined active">About</a></li>
+              <li><a href="#" class="tab-underlined">Images</a></li>
+              <li><a href="#" class="tab-underlined">Contact</a></li>
+              <li><a href="#" class="tab-underlined">Newsfeed</a></li>
+              <li><a href="#" class="tab-underlined">Chat</a></li>
+            </ul>
+            <hr>
+          </div>
+              <p><%= @business.long_bio %></p>
+
+              <div class="business-image">
+                <% if @business.business_photos.attached? %>
+                  <%= cl_image_path @business.business_photos.first.key, width: 400, height: 400, crop: :fill %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
+                <% end %>
+              </div>
+
+              <p><em><%= @business.owner_name %></em></p>
+              <p><em><%= @business.owner_bio %></em></p>
+
+              <div class="owner-image">
+                <% if @business.owner_photo.attached? %>
+                  <%= cl_image_path @business.owner_photo.key, width: 400, height: 400, crop: :fill, gravity: :face %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
+                <% end %>
+              </div>
+
+              <p><em><%= @business.address %></em></p>
+              <p><em><%= @business.opening_hours %></em></p>
+              <p><em><%= @business.telephone %></em></p>
+              <p><em><%= @business.email %></em></p>
+              <p><em><%= @business.website_url %></em></p>
+
+            </div>
+
+        </div>
 
 
-<ul class="list-inline tabs-underlined">
-  <li>
-    <a href="#" class="tab-underlined active">About</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Images</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Contact</a>
-  </li>
-   <li>
-    <a href="#" class="tab-underlined">Newsfeed</a>
-  </li>
-   <li>
-    <a href="#" class="tab-underlined">Chat</a>
-  </li>
-</ul>
+      </div>
+    </div>
+  </div>
 
-<h1><%= @business.name %></h1>
-<p><em><%= @business.short_bio %></em></p>
-<p><em><%= @business.address %></em></p>
-<p><em><%= @business.opening_hours %></em></p>
-<p><em><%= @business.telephone %></em></p>
-<p><em><%= @business.email %></em></p>
-<p><em><%= @business.website_url %></em></p>
-<p><em><%= @business.owner_name %></em></p>
-<p><em><%= @business.owner_bio %></em></p>
-<p><em><%= @business.long_bio %></em></p>
 
-<% if !@user.businesses.include?(@business) %>
-  <% if !@user.bookmarked_businesses.include?(@business) %>
-    <i class="far fa-bookmark"></i>
-    <%= link_to "Add to bookmarks", business_bookmarks_path(@business), method: :post %>
-  <% else %>
-    <i class="fas fa-bookmark"></i>
-    <%= link_to "Remove from bookmarks", bookmark_path(@bookmark), method: :delete  %>
-  <% end %>
-<% end %>
 
-<div class="container">
  <div class="row justify-content-center">
   <div class="col-6">
     <h1 class="text-center">Recent Posts</h1>
