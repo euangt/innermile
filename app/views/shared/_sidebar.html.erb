@@ -16,7 +16,10 @@
       </li>
       <% if current_user %>
       <li>
-        <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>   Bookmarks'), user_bookmarks_path(current_user) %>
+        <%= link_to raw('<i class="fas fa-users mr-3"> </i>Community Feed'), posts_path %>
+      </li>
+      <li>
+        <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>Bookmarks'), user_bookmarks_path(current_user) %>
       </li>
       <li>
         <a href="#"><i class="far fa-bell mr-3"></i></i>Notification</a>

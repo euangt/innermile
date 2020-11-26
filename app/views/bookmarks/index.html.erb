@@ -5,12 +5,9 @@
         <p class="text-center"><strong>Bookmarked businesses</strong></p>
         <hr>
         <div class="cards">
-          <% @businesses.each do |bookmark| %>
-              <div class="bookmark-cards">
-                <p><%= link_to bookmark.name, business_path(bookmark) %></p>
-                <p><%= bookmark.address %></p>
-              </div>
-            <% end %>
+          <% @businesses.each do |business| %>
+            <%= render partial: 'businesses/business_card', locals: { business: business } %>
+          <% end %>
         </div>
       </div>
     </div>
