@@ -1,9 +1,3 @@
-<div class="container position-absolute filter-layer">
- <!--  <h4>Filter by:</h4> -->
-  <% @categories.each do |category| %>
-  <%= link_to category.name, businesses_path(query: @address, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
-  <% end %>
-</div>
 
 <div class="d-flex">
   <!-- <div class="container px-10"> -->
@@ -21,5 +15,11 @@
   <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="container position-absolute filter-layer">
+     <!--  <h4>Filter by:</h4> -->
+      <% @categories.each do |category| %>
+      <%= link_to category.name, businesses_path(query: @address, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
+      <% end %>
+    </div>
   </div>
 </div>
