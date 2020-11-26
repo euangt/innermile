@@ -1,9 +1,11 @@
 .cards {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 12px;
   padding: 0px 12px 0 12px;
+  width: 300px;
+  margin-top: 24px;
 }
 
 .card-business {
