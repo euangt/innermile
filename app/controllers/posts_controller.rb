@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @business.user = current_user
     @post.business = @business
     if @post.save
-      redirect_to business_path(@business)
+      redirect_to business_path(@business, anchor: "post-#{post.id}")
     else
       render 'businesses/show'
     end
