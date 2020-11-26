@@ -1,18 +1,16 @@
 .cards {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 12px;
-  padding: 0px 12px 0 12px;
+  padding: 0px 12px 0 10px;
   width: 420px;
   margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 .card-business {
   overflow: hidden;
-  height: 100px;
+  height: 120px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
   display: flex;
 
   img {
