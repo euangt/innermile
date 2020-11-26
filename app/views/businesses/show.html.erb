@@ -1,4 +1,4 @@
-<div class="container mt-2">
+<div class="container mt-4">
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="container shadow-lg bg-white">
@@ -24,9 +24,9 @@
             <div>
               <% if !@user.businesses.include?(@business) %>
                 <% if !@user.bookmarked_businesses.include?(@business) %>
-                  <%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post %>
+                  <%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true %>
                 <% else %>
-                  <%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete %>
+                  <%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true %>
                 <% end %>
               <% end %>
             </div>
@@ -81,7 +81,7 @@
 
  <div class="row justify-content-center">
   <div class="col-6">
-    <h1 class="text-center">Recent Posts</h1>
+    <h1 class="text-center" id="recent_posts">Recent Posts</h1>
     <p  class="text-center"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
     <hr>
     <div id="posts">
@@ -89,8 +89,10 @@
       <%# if policy(Post).create? %>
         <p> <%= @business.name %> has no posts yet</p>
       <% else %>
-        <% @business.posts.each do |p| %>
-          <%= render partial: 'posts/post', locals: { post: p } %>
+        <% @posts.each do |post| %>
+
+          <%= render partial: 'posts/post', locals: { post: post } %>
+
         <% end %>
       <% end %>
     </div>
@@ -104,7 +106,7 @@
           <%= f.input :post_image, as: :file %>
         </div>
         <div class="form-actions mb-2">
-          <%= f.button :submit, "Create Post", class: "btn btn-flat" %>
+          <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
         </div>
         <hr>
 

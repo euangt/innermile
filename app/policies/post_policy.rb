@@ -5,10 +5,6 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    true
-  end
-
   def create?
     user.present?
   end
