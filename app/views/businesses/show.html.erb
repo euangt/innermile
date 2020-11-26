@@ -81,7 +81,7 @@
 
  <div class="row justify-content-center">
   <div class="col-6">
-    <h1 class="text-center">Recent Posts</h1>
+    <h1 class="text-center" id="recent_posts">Recent Posts</h1>
     <p  class="text-center"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
     <hr>
     <div id="posts">
@@ -106,7 +106,7 @@
           <%= f.input :post_image, as: :file %>
         </div>
         <div class="form-actions mb-2">
-          <%= f.button :submit, "Create Post", class: "btn btn-flat" %>
+          <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
         </div>
         <hr>
 
