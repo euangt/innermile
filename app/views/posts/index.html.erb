@@ -1,9 +1,17 @@
-<div class="container">
-  <% @posts.each do |post| %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2 class="text-center">Your Community Feed</h2>
+      <hr>
+      <div id="posts">
+        <% @posts.each do |post| %>
  <div class="post shadow-sm bg-white">
-  <%= render partial: "post" %>
-  <p><%= post.content %></p>
- </div>
-<% end %>
+           <%= render partial: 'posts/post', locals: { post: post } %>
+           </div>
+           <%= post.content %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 

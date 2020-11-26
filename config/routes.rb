@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :destroy]
   end
   resources :bookmarks, only: [:destroy]
+  resources :posts, only: [:index]
 end
