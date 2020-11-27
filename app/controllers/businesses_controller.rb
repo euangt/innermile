@@ -44,8 +44,10 @@ class BusinessesController < ApplicationController
 
   def show
     find_business
-    @user = current_user
-    @bookmark = @user.bookmarks.where(business_id: @business.id).first
+    if current_user
+      @user = current_user
+      @bookmark = @user.bookmarks.where(business_id: @business.id).first
+    end
     @post = Post.new
     @posts = @business.posts.order(created_at: :desc)
     authorize @business
