@@ -23,7 +23,7 @@ const initMapbox = () => {
     mapboxgl.accessToken = indexMapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'index_map',
-      style: 'mapbox://styles/bgordon/ckhw3o84t01gy19qs8dqn9tak'
+      style: 'mapbox://styles/bgordon/ckhzzm3wt20m419mv7cs8k3lb'
     });
     const markers = JSON.parse(indexMapElement.dataset.markers);
     markers.forEach((marker) => {
