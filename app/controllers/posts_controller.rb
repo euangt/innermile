@@ -30,6 +30,23 @@ class PostsController < ApplicationController
     redirect_to business_path(@business, anchor: "recent_posts")
   end
 
+  def edit 
+    find_business
+    @post = Post.find(params[:id])
+    authorize @post
+  end 
+
+  def update 
+    find_business
+    @post = Post.find(params[:id])
+    authorize @post
+    if @post.update(post_params)
+      redirect_to business_path(@business, anchor: "recent_posts")
+    else  
+      render :edit 
+    end
+  end
+
   private
 
   def find_business

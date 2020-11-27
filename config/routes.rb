@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [ :index,  :destroy ]
   end
   resources :businesses do
-    resources :posts, only: [:create, :destroy]
+    resources :posts, only: [:create, :destroy, :edit, :update]
   end
   resources :bookmarks, only: [:destroy]
   resources :posts, only: [:index]
