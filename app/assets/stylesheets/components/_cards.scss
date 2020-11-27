@@ -1,19 +1,18 @@
 .cards {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 12px;
-  padding: 0px 12px 0 12px;
+  padding: 0px 12px 0 10px;
   width: 420px;
   margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 .card-business {
   overflow: hidden;
-  height: 100px;
+  height: 104px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
   display: flex;
+  align-items: center;
 
   img {
     height: 100%;
@@ -28,12 +27,16 @@
     margin: 0;
   }
 
+  h6{
+
+  }
+
   p {
     font-size: 12px;
     line-height: 1.4;
     opacity: .7;
     margin-bottom: 0;
-    margin-top: 8px;
+    margin-top: 1px;
   }
   .card-business-infos {
     padding: 12px;
