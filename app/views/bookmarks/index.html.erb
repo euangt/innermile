@@ -1,16 +1,14 @@
 <div class="container mt-5">
-<div id="list">
-  <div class="container-fluid">
-      <p class="text-center"><strong>Bookmarked businesses</strong></p>
-      <div class="row flex-row flex-nowrap" id="list-items">
-        <% @businesses.each do |business| %>
-          <div class="col-3">
-            <%= render partial: 'businesses/business_card', locals: { business: business } %>
-          </div>
-        <% end %>
-      </div>
+  <div id="list">
+    <p class="text-center"><strong>Bookmarked businesses</strong></p>
+    <div class="row flex-row flex-nowrap" id="list-items">
+      <% @businesses.each do |business| %>
+        <div class="col-3">
+          <%= render partial: 'businesses/business_card', locals: { business: business } %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
   <div class="row justify-content-center">
     <div class="col-6">
       <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
