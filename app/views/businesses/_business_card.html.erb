@@ -1,6 +1,6 @@
 <div class="card-business">
   <% if business.avatar.attached? %>
-    <%= cl_image_path business.avatar.key %>
+    <%= cl_image_tag business.avatar.key %>
   <% else %>
     <img src="https://source.unsplash.com/random/?store" />
   <% end %>
