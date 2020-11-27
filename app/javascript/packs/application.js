@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { fullHeight } from '../components/sidebar'
+//import {changeTabDisplay} from '../components/tab'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,3 +37,4 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   fullHeight();
 });
+
