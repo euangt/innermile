@@ -265,7 +265,7 @@ business13 = Business.create!(
   user: user2,
   category: category5,
   name: "Candle Corner",
-  short_bio: "Small independent shop focused on candle crafting",
+  short_bio: "Independent shop focused on candle crafting",
   long_bio: "We are craftsmen that really love candles. Any candle you can imagine is possible with us!",
   owner_name: "The Rückpassage community",
   owner_bio: "Born in a small village in the south of Germany, Heinz learned the carft of making candles from his father and kept onto it ever since",
@@ -521,7 +521,6 @@ business_third = [
   "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
 ]
 
-
 # Attaching business images
 
 Business.all.each_with_index do |business, index|
@@ -540,8 +539,48 @@ Business.all.each_with_index do |business, index|
 end
 
 
+puts "Attaching images to posts..."
+
+post_images = [
+  "https://images.unsplash.com/photo-1588776814546-daab30f310ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1508995476428-43d70c3d0042?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1594737626072-90dc274bc2bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1576511746135-ad5faf5b85be?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+  "https://images.unsplash.com/photo-1518563222397-1875011bbf5a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1599066852653-42826a50b163?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1011&q=80",
+  "https://images.unsplash.com/photo-1575005435874-4dc7d3a00955?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1044&q=80",
+  "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=951&q=80",
+  "https://images.unsplash.com/photo-1553521041-d168abd31de3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1582893561942-d61adcb2e534?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=937&q=80",
+  "https://images.unsplash.com/photo-1542299278-a78464851ddc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1559466273-d95e72debaf8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1590903992199-d62079236c91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
+  "https://images.unsplash.com/photo-1603679283701-d00d2859b57c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1017&q=80",
+  "https://images.unsplash.com/photo-1574521091460-429ab1506db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=946&q=80",
+  "https://images.unsplash.com/photo-1582740598622-e0784ee1f333?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1020&q=80",
+  "https://images.unsplash.com/photo-1543132685-cd95dd76c03d?ixlib=rb-1.2.1&auto=format&fit=crop&w=948&q=80",
+  "https://images.unsplash.com/photo-1548869206-93b036288d7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=941&q=80",
+  "https://images.unsplash.com/photo-1597388778288-8ae51973e2a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1042&q=80",
+  "https://images.unsplash.com/photo-1583851617967-6a928fe8508b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80",
+  "https://images.unsplash.com/photo-1560643123-9157226100d2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+  "https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+  "https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=995&q=80",
+  "https://images.unsplash.com/photo-1532904122878-9a1846ec4f76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80",
+  "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&auto=format&fit=crop&w=954&q=80",
+  "https://images.unsplash.com/photo-1533928298208-27ff66555d8d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+  "https://images.unsplash.com/photo-1604975701397-6365ccbd028a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80",
+  "https://images.unsplash.com/photo-1558451635-9ed6e6e9a6e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1599313804992-44e32565fd6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
+  "https://images.unsplash.com/photo-1579628287525-f88a27409d87?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80",
+  "https://images.unsplash.com/photo-1557844352-761f2565b576?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+]
 
 
+Post.all.each_with_index do |post, index|
+  file = URI.open(post_images[index])
+  post.post_image.attach( io: file_third, filename: "post_image-#{index}", content_type: 'image/png')
+end
 
 
 puts "Created #{User.count} users, #{Category.count} categories, #{Business.count} businesses, and #{Post.count} posts"
