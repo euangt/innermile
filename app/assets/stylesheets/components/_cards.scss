@@ -1,6 +1,18 @@
+.cards-business{
+  padding: 24px 12px 0 10px;
+  width: 360px;
+  margin-bottom: 12px;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  overflow: auto;
+  background: rgba($inner-green, 0.1);
+  z-index: 250;
+}
+
 .cards {
   padding: 0px 12px 0 10px;
-  width: 420px;
+  width: 360px;
   margin-top: 24px;
   margin-bottom: 12px;
 }
@@ -43,3 +55,27 @@
     margin-right: 12px;
   }
 }
+
+// .collapse {
+//   visibility: hidden;
+// }
+// .collapse.in {
+//   visibility: visible;
+// }
+// .collapsing {
+//   position: relative;
+//   height: 0;
+//   overflow: hidden;
+//   -webkit-transition-property: height, visibility;
+//   transition-property: height, visibility;
+//   -webkit-transition-duration: 0.35s;
+//   transition-duration: 0.35s;
+//   -webkit-transition-timing-function: ease;
+//   transition-timing-function: ease;
+// }
+// .collapsing.width {
+//   -webkit-transition-property: width, visibility;
+//   transition-property: width, visibility;
+//   width: 0;
+//   height: auto;
+// }
