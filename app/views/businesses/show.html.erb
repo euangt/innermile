@@ -36,11 +36,11 @@
           <div class="row justify-content-center">
             <!-- Tab links -->
             <ul class="tab">
-              <button class="tablinks" onclick="changeTabDisplay(event, 'About')">About></button>
-              <button class="tablinks" onclick="changeTabDisplay(event, 'Images')">Images></button>
-              <button class="tablinks" onclick="changeTabDisplay(event, 'Contact')">Contact></button>
-              <button class="tablinks" onclick="changeTabDisplay(event, 'Newsfeed')">Newsfeed></button>
-              <button class="tablinks" onclick="changeTabDisplay(event, 'Chat')">Chat></button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'About')">About</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Images')">Images</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Contact')">Contact</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Newsfeed')">Newsfeed</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Chat')">Chat</button>
             </ul>
             <hr>
             <!-- Tab content -->
@@ -74,7 +74,7 @@
                 <% end %>
               </div>
 
-              <p><em><%= @business.owner_name %></em></p>
+              <p><strong> Meet <%= @business.owner_name %></strong></p>
               <p><em><%= @business.owner_bio %></em></p>
 
               <div class="owner-image">
