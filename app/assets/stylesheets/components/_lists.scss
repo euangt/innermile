@@ -1,0 +1,17 @@
+#list {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+}
+
+#list-items {
+  margin-bottom: 8px;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
