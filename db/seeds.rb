@@ -578,8 +578,8 @@ post_images = [
 
 
 Post.all.each_with_index do |post, index|
-  file = URI.open(post_images[index])
-  post.post_image.attach( io: file_third, filename: "post_image-#{index}", content_type: 'image/png')
+  file_post = URI.open(post_images[index])
+  post.post_image.attach( io: file_post, filename: "post_image-#{index}", content_type: 'image/png')
 end
 
 
