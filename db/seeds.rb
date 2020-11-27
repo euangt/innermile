@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -291,7 +292,7 @@ business14 = Business.create!(
   website_url: "www.greenerfood.com",
     )
 
-puts "Seeding posts"
+puts "Seeding posts..."
 
 post1 = Post.create!(
   content: "Think it has been too long since your last checkup? Give us a call and arrange your next appointment",
@@ -422,6 +423,125 @@ post30 = Post.create!(
   business_id: business14.id,
 )
 
+puts "Attaching images to businesses..."
+
+business_banner = [
+  "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1566241231446-922b70e866b4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8a2lja2JveGluZ3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1576133384936-ea17c54e9fd4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8Y29iYmxlcnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8bmFpbCUyMHNhbG9ufGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmFyYmVyfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1571805618149-3a772570ebcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
+  "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80",
+  "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
+  "https://images.unsplash.com/photo-1477763858572-cda7deaa9bc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2176&q=80",
+  "https://images.unsplash.com/photo-1524947996703-8b011401c9e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80",
+  "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c3RvcmUlMjBjbG90aGluZ3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1458053688450-eef5d21d43b3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c29mYSUyMHRoZWF0ZXJ8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1545253088-68fe6b5468fd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FuZGxlJTIwc2hvcHxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1583636912119-6a33fce8899c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" ]
+
+business_avatar = [
+  "https://images.unsplash.com/photo-1520013573795-38516d2661e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1707&q=80",
+  "https://images.unsplash.com/photo-1521800641212-77d98bb90d21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
+  "https://images.unsplash.com/photo-1605243072591-326f09af85d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+  "https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1507914630432-36c25334fe9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1464&q=80",
+  "https://images.unsplash.com/photo-1543606552-c49e38aa9e15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+  "https://images.unsplash.com/photo-1517874321532-e910bae7ca4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1220&q=80",
+  "https://images.unsplash.com/photo-1598909514165-a8c8f3f29986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1537734796389-e1fc293cf856?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2132&q=80",
+  "https://images.unsplash.com/photo-1581837441861-69cd38e9a9f1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Z2FsbGVyeXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60", "https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
+  "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Y2luZW1hfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60", "https://images.unsplash.com/photo-1573747028701-bc903c9de2c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1579113800032-c38bd7635818?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8dmVnZXRhYmxlc3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=1000&q=60" ]
+
+business_owner = [
+  "https://images.unsplash.com/photo-1583123810408-23e7b5d1af9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/flagged/photo-1566064352554-f36ef0ef23b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
+  "https://images.unsplash.com/photo-1553267751-1c148a7280a1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8d29tYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1523278669709-c05da80b6a65?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fG1pZGRsZSUyMGFnZWQlMjBtYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1595475038784-bbe439ff41e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+  "https://images.unsplash.com/photo-1567850809572-96538630a0ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1541670317641-d8294a62294c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=752&q=80",
+  "https://images.unsplash.com/photo-1573409852550-139898a59fa0?ixlib=rb-1.2.1&auto=format&fit=crop&w=2200&q=80",
+  "https://images.unsplash.com/photo-1544225917-1bf66feace19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjN8fHBlb3BsZXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bWFufGVufDB8fDB8&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8d29tYW58ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60" ]
+
+business_first = [
+ "https://images.unsplash.com/photo-1473232117216-c950d4ef2e14?ixlib=rb-1.2.1&auto=format&fit=crop&w=1613&q=80",
+  "https://images.unsplash.com/photo-1535469420027-517674dad7a1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fHdvbWFuJTIwYm94aW5nfGVufDB8fDB8&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1601280729929-b9e004dd7da7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Y29iYmxlcnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG5haWwlMjBzYWxvbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1587909209111-5097ee578ec3?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8YmFyYmVyfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80",
+  "https://images.unsplash.com/photo-1485872299829-c673f5194813?ixlib=rb-1.2.1&auto=format&fit=crop&w=964&q=80",
+  "https://images.unsplash.com/photo-1531917115039-473b5a388f40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80",
+  "https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
+  "https://images.unsplash.com/photo-1562766509-16487a9dd592?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzZ8fGdhbGxlcnl8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
+  "https://images.unsplash.com/photo-1559570278-eb8d71d06403?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Y2luZW1hfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FuZGxlfGVufDB8fDB8&auto=format&fit=crop&w=700&q=60",
+  "https://images.unsplash.com/photo-1557844352-761f2565b576?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8dmVnZXRhYmxlc3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=1000&q=60"
+ ]
+
+business_second = [ "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZGVudGlzdHxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1593352216923-dd279c825ab0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFuJTIwYm94aW5nfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1601280728248-0a60229ed914?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y29iYmxlcnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1559006045-d34d415b2cff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzh8fG5haWwlMjBzYWxvbnxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFyYmVyfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1557366972-e5f841541577?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1547147278-b6acb274b6b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1514066558159-fc8c737ef259?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+  "https://images.unsplash.com/photo-1561926797-fa9e23386fe6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzl8fGdhbGxlcnl8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+  "https://images.unsplash.com/photo-1527979809431-ea3d5c0c01c9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fGNpbmVtYXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1514436598301-27a65f40469f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=951&q=80",
+  "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8dmVnZXRhYmxlc3xlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=1000&q=60"
+ ]
+
+business_third = [
+  "https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGRlbnRpc3R8ZW58MHx8MHw%3D&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1475670033737-f3bfd43d2d29?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTV8fGJveGluZyUyMGd5bXxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1557673862-a2a470406a30?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fGRyZXNzJTIwc2hvZXN8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8bWFuaWN1cmV8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1582771498000-8ad44e6c84db?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8YmFyYmVyfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1541557435984-1c79685a082b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
+  "https://images.unsplash.com/photo-1523567830207-96731740fa71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1507914464562-6ff4ac29692f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+  "https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+  "https://images.unsplash.com/photo-1581837513225-dab7373ff55c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzh8fGdhbGxlcnl8ZW58MHx8MHw%3D&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZW1hfGVufDB8fDB8&auto=format&fit=crop&w=900&q=60",
+  "https://images.unsplash.com/photo-1556791007-ef20688e3458?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+  "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+]
 
 
-puts "Created #{User.count} users, #{Category.count} categories, and #{Business.count} businesses"
+# Attaching business images
+
+Business.all.each_with_index do |business, index|
+  file_banner = URI.open(business_banner[index])
+  business.banner_photo.attach( io: file_banner, filename: "banner-#{index}", content_type: 'image/png')
+  file_avatar = URI.open(business_avatar[index])
+  business.avatar.attach( io: file_avatar, filename: "avatar-#{index}", content_type: 'image/png')
+  file_owner = URI.open(business_owner[index])
+  business.owner_photo.attach( io: file_owner, filename: "owner-#{index}", content_type: 'image/png')
+  file_first = URI.open(business_first[index])
+  business.business_photos.attach( io: file_first, filename: "first-#{index}", content_type: 'image/png')
+  file_second = URI.open(business_second[index])
+  business.business_photos.attach( io: file_second, filename: "second-#{index}", content_type: 'image/png')
+  file_third = URI.open(business_third[index])
+  business.business_photos.attach( io: file_third, filename: "third-#{index}", content_type: 'image/png')
+end
+
+
+
+
+
+
+puts "Created #{User.count} users, #{Category.count} categories, #{Business.count} businesses, and #{Post.count} posts"
