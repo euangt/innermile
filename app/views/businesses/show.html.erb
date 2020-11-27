@@ -11,7 +11,7 @@
           <div class="row profile-top">
             <div class="profile-image ml-3">
               <% if @business.avatar.attached? %>
-                <%= cl_image_path @business.avatar.key, class: "avatar-profile" %>
+                <%= cl_image_tag @business.avatar.key, class: "avatar-profile" %>
               <% else %>
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-profile" %>
               <% end %>
@@ -68,7 +68,7 @@
 
               <div class="business-image">
                 <% if @business.business_photos.attached? %>
-                  <%= cl_image_path @business.business_photos.first.key, width: 400, height: 400, crop: :fill %>
+                  <%= cl_image_tag @business.business_photos.first.key, width: 400, height: 400, crop: :fill %>
                 <% else %>
                   <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
                 <% end %>
@@ -79,7 +79,7 @@
 
               <div class="owner-image">
                 <% if @business.owner_photo.attached? %>
-                  <%= cl_image_path @business.owner_photo.key, width: 400, height: 400, crop: :fill, gravity: :face %>
+                  <%= cl_image_tag @business.owner_photo.key, width: 400, height: 400, crop: :fill, gravity: :face %>
                 <% else %>
                   <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
                 <% end %>
