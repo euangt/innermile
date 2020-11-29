@@ -16,7 +16,7 @@
     <p>Check your neighbourhood for more <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
     <% end %>
     <% if params[:category].present? && @businesses.blank? %>
-    <p>You have no bookmarks! Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
+    <p>You have no bookmark! Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
     <% end %>
   </div>
   <div class="row justify-content-center">
