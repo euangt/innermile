@@ -12,6 +12,7 @@
         </div>
       <% end %>
     </div>
+    <p>Go and find more busineseses in <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
     <% else %>
     <p>No bookmarks yet! Go and find busineseses for your <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> category!</p>
     <% end %>
