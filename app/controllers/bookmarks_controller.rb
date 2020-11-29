@@ -10,7 +10,7 @@ class BookmarksController < ApplicationController
 
     if params[:category].present?
       @category = Category.find_by_name(params[:category])
-      @category_id = Category.find_by_name(params[:category]).id
+      @category_id = @category.id
       @businesses = @businesses.where(category_id: @category_id)
       @posts = @businesses.map do |business|
         business.posts

@@ -1,10 +1,10 @@
 <div class="container mt-5">
   <p><strong>Bookmarked businesses</strong></p>
+  <%= link_to "All", user_bookmarks_path, class: "category_btn" %>
   <% @categories.each do |category| %>
     <%= link_to category.name, user_bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
   <% end %>
   <div id="list">
-    <% if @businesses.present? %>
     <div class="row flex-row flex-nowrap" id="list-items">
       <% @businesses.each do |business| %>
         <div class="col-3">
@@ -12,8 +12,10 @@
         </div>
       <% end %>
     </div>
+    <% if params[:category].present? && @businesses.present? %>
     <p>Go and find more busineseses in <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
-    <% else %>
+    <% end %>
+    <% if params[:category].present? && @businesses.blank? %>
     <p>No bookmarks yet! Go and find busineseses for your <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> category!</p>
     <% end %>
   </div>
