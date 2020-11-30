@@ -3,10 +3,12 @@
     <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
       <em class="fa fa-ellipsis-h"></em>
     </button>
+    <% if current_user == event.business.user %>
     <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
         <%= link_to "Edit event", edit_business_event_path(event.business, event), class: "dropdown-item" %>
         <%= link_to "Delete event", business_event_path(event.business, event), method: :delete, class: "dropdown-item", remote: true %>
     </div>
+    <% end %>
   </div>
   <div>
    <% if event.event_image.attached?  %>
