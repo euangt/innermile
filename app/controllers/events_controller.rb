@@ -9,6 +9,11 @@ class EventsController < ApplicationController
     authorize @event
   end
 
+  def show 
+    @event = Event.find(params[:id])
+    authorize @event
+  end
+
   def create
     @event = Event.new(event_params)
     authorize @event

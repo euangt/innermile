@@ -3,15 +3,23 @@
     <div class="col-6">
       <h2 class="text-center">Your Community Events</h2>
       <hr>
-      <div id="posts">
+      <div>
         <% @events.each do |event| %>
-          <div class="post shadow-sm bg-white">
-             <p><%= event.event_name %></p>
-             <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
-             <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
-           </div>
+          <div class="card-events my-4">
+            <div>
+            <img class="event-image">
+            </div>
+            <div class="card-body">
+              <h3 class="group"><p><%= link_to event.event_name, business_event_path(event.business, event) %></p></h3>
+  
+
+              <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
+              <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
+            </div>
+          </div>  
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
