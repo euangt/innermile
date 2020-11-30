@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { minimum: 5 }
 
   has_one_attached :post_image
+
+  has_rich_text :post_text
 end
