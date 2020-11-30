@@ -1,5 +1,4 @@
 <div class="d-flex mt-2">
-<!--   <div class="container-community"> -->
     <div class="posts">
       <h2 class="text-center">Your Community Feed</h2>
       <hr>
@@ -12,10 +11,10 @@
       </div>
     </div>
     <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    data-markers="<%= @markers.to_json %>"
+    data-home-marker="<%= @home_marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-<!--   </div> -->
 </div>
 
 
