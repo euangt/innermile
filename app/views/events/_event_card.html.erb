@@ -1,0 +1,25 @@
+<div class="card-events">
+  <div class="dropdown float-right">
+    <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+      <em class="fa fa-ellipsis-h"></em>
+    </button>
+    <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <%= link_to "Edit event", edit_business_event_path(event.business, event), class: "dropdown-item" %>
+        <%= link_to "Delete event", business_event_path(event.business, event), method: :delete, class: "dropdown-item", remote: true %>
+    </div>
+  </div>
+  <div>
+   <% if event.event_image.attached?  %>
+    <%= cl_image_tag event.event_image.key, class: "img-fluid" %>
+  <% else %>
+    <img class="img-fluid" src="https://images.unsplash.com/photo-1602525653218-cac7c9e38807?ixlib=rb-1.2.1&ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2850&q=80" alt="Image">
+  <% end %>
+  </div>
+  <div class="card-body">
+    <h3><%= event.event_name %></h3>
+    <p>By <%= event.business.name %> </p>
+    <p><%= event.date %> | <%= event.time %></p>
+    <p><%= event.location %></p>
+  </div>
+  <%= link_to '', business_event_path(event.business, event), class: 'card-events-link'  %>
+</div>
