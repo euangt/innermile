@@ -4,10 +4,11 @@
       <%= simple_form_for([@business, @event]) do |f| %>
         <div class="form-inputs">
           <%= f.input :event_name %>
-          <%= f.input :description %>
+          <%= f.rich_text_area :description %>
           <%= f.input :time %>
           <%= f.input :date %>
           <%= f.input :location %>
+          <%= f.input :post_image, as: :file %>
         </div>
         <div class="form-actions mb-2">
           <%= f.button :submit, "Add event", class: "btn btn-flat" %>
