@@ -1,11 +1,19 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row justify-content-center">
-    <div class="col-6">
       <h2 class="text-center">Your Community Events</h2>
       <hr>
-      <div>
+      <div class="cards-events">
         <% @events.each do |event| %>
-          <div class="card-events my-4">
+          <div class="card-events">
+            <div class="dropdown float-right">
+              <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+                <em class="fa fa-ellipsis-h"></em>
+              </button>
+              <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                  <%= link_to "Edit event", edit_business_event_path(event.business, event), class: "dropdown-item" %>
+                  <%= link_to "Delete event", business_event_path(event.business, event), method: :delete, class: "dropdown-item", remote: true %>
+              </div>
+            </div>
             <div>
              <% if event.event_image.attached?  %>
               <%= cl_image_tag event.event_image.key, class: "img-fluid" %>
@@ -14,16 +22,37 @@
             <% end %>
             </div>
             <div class="card-body">
-              <h3 class="group"><p><%= link_to event.event_name, business_event_path(event.business, event) %></p></h3>
 
-
-              <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
-              <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
+              <h3 class="group"><h3><%= event.event_name %></h2>
             </div>
+            <%= link_to '', business_event_path(event.business, event), class: 'card-events-link'  %>
           </div>
         <% end %>
       </div>
-    </div>
   </div>
 </div>
 
+  <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+  </div>
