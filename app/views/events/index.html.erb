@@ -1,11 +1,9 @@
-<div class="container mt-3">
-  <div class="row justify-content-center">
-      <h2 class="text-center">Your Community Events</h2>
-      <hr>
-      <div class="cards-events">
-        <% @events.each do |event| %>
-        <%= render partial: 'events/event_card', locals: { event: event } %>
-        <% end %>
-      </div>
-  </div>
+<div class="container mt-4">
+  <h2 class="text-center">Events in your community</h2>
+  <hr>
+    <div class="cards-events">
+      <% @events.each do |event| %>
+      <%= render partial: 'events/event_card', locals: { event: event } %>
+      <% end %>
+    </div>
 </div>
