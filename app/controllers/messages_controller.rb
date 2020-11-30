@@ -4,9 +4,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.conversation = @conversation
     @message.commentable = current_user
-    authorize @message
+    skip_authorization
     if @message.save
-      redirect_to conversation_path(@conversation, anchor: "message-#{@message.id}")
+      ConversationChannel.broadcast_to(@conversation, render_to_string(partial: "message", locals: { message: @message }))
+      #redirect_to conversation_path(@conversation, anchor: "message-#{@message.id}")
     else
       render "conversations/show"
     end
