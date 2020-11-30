@@ -3,6 +3,8 @@ class Business < ApplicationRecord
   belongs_to :category
   has_many :bookmarks, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :messages, as: :commentable
+
 
   validates :name, presence: true
   validates :address, presence: true

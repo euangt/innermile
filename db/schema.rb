@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_141829) do
+ActiveRecord::Schema.define(version: 2020_11_30_103245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,26 @@ ActiveRecord::Schema.define(version: 2020_11_24_141829) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "business_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_id"], name: "index_conversations_on_business_id"
+    t.index ["user_id"], name: "index_conversations_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "conversation_id", null: false
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_messages_on_commentable_type_and_commentable_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "content"
     t.bigint "business_id", null: false
@@ -104,5 +124,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_141829) do
   add_foreign_key "bookmarks", "users"
   add_foreign_key "businesses", "categories"
   add_foreign_key "businesses", "users"
+  add_foreign_key "conversations", "businesses"
+  add_foreign_key "conversations", "users"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "posts", "businesses"
 end
