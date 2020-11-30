@@ -25,16 +25,32 @@ const initMapbox = () => {
       container: 'index_map',
       style: 'mapbox://styles/bgordon/ckhzzm3wt20m419mv7cs8k3lb'
     });
-    const markers = JSON.parse(indexMapElement.dataset.markers);
-    markers.forEach((marker) => {
+    const businessMarkers = JSON.parse(indexMapElement.dataset.markers);
+    businessMarkers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(map);
-  });
-    fitMapToMarkers(map, markers);
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(map);
+    });
+
+    const homeMarker = JSON.parse(indexMapElement.dataset.homeMarker);
+
+    if (homeMarker) {
+      const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${homeMarker.image_url}')`;
+      element.style.backgroundSize = 'contain';
+      element.style.width = '30px';
+      element.style.height = '43px';
+
+      new mapboxgl.Marker(element)
+          .setLngLat([ homeMarker.lng, homeMarker.lat ])
+          .addTo(map);
+    }
+
+    fitMapToMarkers(map, businessMarkers);
   }
 };
 
