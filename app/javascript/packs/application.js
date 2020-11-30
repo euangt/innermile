@@ -27,7 +27,8 @@ require("@rails/actiontext")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-import { fullHeight } from '../components/sidebar'
+// import { fullHeight } from '../components/sidebar';
+import { showInfoBusinessOnHover } from '../components/info_business';
 //import {changeTabDisplay} from '../components/tab'
 
 // Internal imports, e.g:
@@ -37,9 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
-  fullHeight();
+  // fullHeight();
+  showInfoBusinessOnHover();
 });
-
-
-require("trix")
-require("@rails/actiontext")

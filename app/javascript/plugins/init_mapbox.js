@@ -29,16 +29,14 @@ const initMapbox = () => {
     });
     const businessMarkers = JSON.parse(indexMapElement.dataset.markers);
     businessMarkers.forEach((marker) => {
-      const popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
-        }
-        ).setHTML(marker.infoWindow);
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup)
-        .addTo(map);
+      const mapboxMarker = new mapboxgl.Marker()
+                                        .setLngLat([ marker.lng, marker.lat ])
+                                        .setPopup(popup)
+                                        .addTo(map);
+                                        console.log(map)
+      // mapboxMarker.element.id = `marker-${marker.id}`
     });
 
     const homeMarker = JSON.parse(indexMapElement.dataset.homeMarker);
