@@ -4,9 +4,11 @@
       <h2 class="text-center">Your Community Events</h2>
       <hr>
       <div id="posts">
-        <% @events.each do |post| %>
+        <% @events.each do |event| %>
           <div class="post shadow-sm bg-white">
-             <% event.location %>
+             <p><%= event.event_name %></p>
+             <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
+             <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
            </div>
         <% end %>
       </div>

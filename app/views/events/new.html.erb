@@ -1,13 +1,16 @@
 <div>
-  <h2 class="text-center">Update a post</h2>
+  <h2 class="text-center">Add an event</h2>
     <p class="text-center">----------</p>
-      <%= simple_form_for([@business, @post]) do |f| %>
+      <%= simple_form_for([@business, @event]) do |f| %>
         <div class="form-inputs">
-          <%= f.input :content %>
-          <%= f.input :post_image, as: :file %>
+          <%= f.input :event_name %>
+          <%= f.input :description %>
+          <%= f.input :time %>
+          <%= f.input :date %>
+          <%= f.input :location %>
         </div>
         <div class="form-actions mb-2">
-          <%= f.button :submit, "Update Post", class: "btn btn-flat", remote: true %>
+          <%= f.button :submit, "Add event", class: "btn btn-flat" %>
         </div>
       <hr>
     <% end %>

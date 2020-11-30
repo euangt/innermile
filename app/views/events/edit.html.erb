@@ -1,2 +1,17 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+<div>
+  <h2 class="text-center">Edit an event</h2>
+    <p class="text-center">----------</p>
+      <%= simple_form_for([@business, @event]) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :event_name %>
+          <%= f.input :description %>
+          <%= f.input :time %>
+          <%= f.input :date %>
+          <%= f.input :location %>
+        </div>
+        <div class="form-actions mb-2">
+          <%= f.button :submit, "Add event", class: "btn btn-flat" %>
+        </div>
+      <hr>
+    <% end %>
+</div>
