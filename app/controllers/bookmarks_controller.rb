@@ -3,9 +3,18 @@ class BookmarksController < ApplicationController
   def index
     policy_scope(Bookmark)
     @businesses = current_user.bookmarked_businesses
+    @categories = Category.all
     @posts = @businesses.map do |business|
       business.posts
     end.flatten
+
+    if params[:category].present?
+      @category = Category.find_by_name(params[:category])
+      @businesses = @businesses.where(category_id: @category.id)
+      @posts = @businesses.map do |business|
+        business.posts
+      end.flatten
+    end
   end
 
   def new

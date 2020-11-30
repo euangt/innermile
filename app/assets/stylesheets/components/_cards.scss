@@ -20,7 +20,7 @@
 .card-business {
   overflow: hidden;
   height: 104px;
-  background: white;
+  background: $inner-white;
   margin-top: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.2);
   display: flex;
@@ -54,6 +54,15 @@
     padding: 12px;
     margin-right: 12px;
   }
+  &:hover, &:focus{
+    // box-shadow: 0 0 12px rgba($inner-green,0.3);
+    border: 0.5px solid rgba($inner-green,0.6);
+    background: white;
+  }
+}
+
+.card-bookmark {
+
 }
 
 // .collapse {

@@ -1,6 +1,10 @@
 <div class="container mt-5">
+  <p><strong>Bookmarked businesses</strong></p>
+  <%= link_to "All", user_bookmarks_path, class: "category_btn" %>
+  <% @categories.each do |category| %>
+    <%= link_to category.name, user_bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
+  <% end %>
   <div id="list">
-    <p><strong>Bookmarked businesses</strong></p>
     <div class="row flex-row flex-nowrap" id="list-items">
       <% @businesses.each do |business| %>
         <div class="col-3">
@@ -8,6 +12,12 @@
         </div>
       <% end %>
     </div>
+    <% if params[:category].present? && @businesses.present? %>
+    <p>Check your neighbourhood for more <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
+    <% end %>
+    <% if params[:category].present? && @businesses.blank? %>
+    <p>You have no bookmark! Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
+    <% end %>
   </div>
   <div class="row justify-content-center">
     <div class="col-6">
