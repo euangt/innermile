@@ -5,6 +5,10 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    user.present?
+  end
+
   def create?
     user.present?
   end
