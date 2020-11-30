@@ -61,19 +61,18 @@
 }
 
 
-// EVENTS
-
+// EVENTS PAGE
 .cards-events {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  padding: 16px;
+  padding: 12px;
 }
 
 .card-events {
   overflow: hidden;
-  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  box-shadow: 0 0 16px rgba(0,0,0,0.2);
   background-size: cover !important;
   background-position: center;
   border-radius: 12px;
@@ -87,8 +86,8 @@
     width: 32px;
     padding: 0;
     overflow: hidden;
-    color: #fff !important;
-    background: $inner-green;
+    color: $inner-white !important;
+    background: rgba(#b5b6b6,0.5);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,11 +99,6 @@
     right: 12px !important;
     top: 12px !important;
     z-index: 1000;
-
-    .dropdown-menu{
-      // position: relative;
-      // // right: 0px !important;
-    }
 
     a:hover{
       background: #f4f4f4 !important;
@@ -124,6 +118,7 @@
       border: 0;
     }
   }
+
   img {
     height: 360px;
     width: 100%;
@@ -142,10 +137,17 @@
     flex-direction: column;
 
     h3 {
-      font-size: 20px;
+      font-size: 24px;
+      font-weight: 500;
+      color:  $inner-white;
+    }
+
+    p {
+      font-size: 16px;
       font-weight: 400;
       color:  $inner-white;
-      }
+      margin-top: 0;
+    }
   }
 }
 
@@ -157,87 +159,22 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: rgba($inner-green,0.1);
+  background: rgba($inner-green,0.2);
   opacity: 0;
 
   :hover {
-    opacity: 0.3;
-  }
-
-  p {
-    font-size: 12px;
-    opacity: .7;
-    margin: 0;
+    opacity: 0.5;
   }
 }
 
 @media(max-width: 996px) {
-  .cards-event {
-    grid-template-columns: 1fr 1fr 1fr;
+  .cards-events {
+    grid-template-columns: 1fr 1fr;
   }
 }
-@media(max-width: 500px) {
-  .cards-event { grid-template-columns:
- 1fr 1fr;
+@media(max-width: 680px) {
+  .cards-events {
+   grid-template-columns: 1fr;
   }
 }
 
-
-//GRIDS
-.grid {
-  background: #EEE;
-  max-width: 1200px;
-}
-
-/* clearfix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
-/* ---- grid-item ---- */
-
-.grid-item {
-  width: 160px;
-  height: 120px;
-  float: left;
-  background: #D26;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-}
-
-.grid-item--width2 { width: 320px; }
-.grid-item--width3 { width: 480px; }
-.grid-item--width4 { width: 640px; }
-
-.grid-item--height2 { height: 200px; }
-.grid-item--height3 { height: 260px; }
-.grid-item--height4 { height: 360px; }
-
-
-
-// .collapse {
-//   visibility: hidden;
-// }
-// .collapse.in {
-//   visibility: visible;
-// }
-// .collapsing {
-//   position: relative;
-//   height: 0;
-//   overflow: hidden;
-//   -webkit-transition-property: height, visibility;
-//   transition-property: height, visibility;
-//   -webkit-transition-duration: 0.35s;
-//   transition-duration: 0.35s;
-//   -webkit-transition-timing-function: ease;
-//   transition-timing-function: ease;
-// }
-// .collapsing.width {
-//   -webkit-transition-property: width, visibility;
-//   transition-property: width, visibility;
-//   width: 0;
-//   height: auto;
-// }
