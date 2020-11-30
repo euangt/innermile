@@ -1,62 +1,38 @@
 <div class="container mt-3">
   <div class="row justify-content-center">
-    <div class="col-6">
       <h2 class="text-center">Your Community Events</h2>
       <hr>
-      <div>
+      <div class="cards-events">
         <% @events.each do |event| %>
-          <div class="card-events my-4">
+          <div class="card-events">
+            <div class="dropdown float-right">
+              <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+                <em class="fa fa-ellipsis-h"></em>
+              </button>
+              <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                  <%= link_to "Edit event", edit_business_event_path(event.business, event), class: "dropdown-item" %>
+                  <%= link_to "Delete event", business_event_path(event.business, event), method: :delete, class: "dropdown-item", remote: true %>
+              </div>
+            </div>
             <div>
-             <% if post.post_image.attached?  %>
-              <%= cl_image_tag post.post_image.key, class: "img-fluid" %>
+             <% if event.event_image.attached?  %>
+              <%= cl_image_tag event.event_image.key, class: "img-fluid" %>
             <% else %>
               <img class="img-fluid" src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Image">
             <% end %>
             </div>
             <div class="card-body">
-              <h3 class="group"><p><%= link_to event.event_name, business_event_path(event.business, event) %></p></h3>
-
-
-              <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
-              <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
+              <h3 class="group"><h3><%= event.event_name %></h2>
             </div>
+            <%= link_to '', business_event_path(event.business, event), class: 'card-events-link'  %>
           </div>
         <% end %>
       </div>
-    </div>
   </div>
 </div>
 
-<div class="event-cards">
-      <% @events.each do |event| %>
-        <div class="event-card"  style="background-image: linear-gradient(rgba(55, 63, 81,0.4), rgba(55, 63, 81,0.2)), url(https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1567&q=80);">
-          <div class="card-description">
-            <h4><%= event.event_name %></h4>
-          </div>
-            <%= link_to '', business_event_path(event.business, event), class: 'card-link'  %>
-          </div>
-       <% end %>
-    </div>
-
   <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
       <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item grid-item--width2 grid-item--height3"></div>
-      <div class="grid-item grid-item--width2 grid-item--height4"></div>
-      <div class="grid-item grid-item--width2 grid-item--height3"></div>
-      <div class="grid-item grid-item--width2 grid-item--height4"></div>
-      <div class="grid-item grid-item--width2 grid-item--height3"></div>
-      <div class="grid-item grid-item--width2 grid-item--height4"></div>
-      <div class="grid-item grid-item--width2 grid-item--height3"></div>
-
       <div class="grid-item grid-item--height3"></div>
       <div class="grid-item grid-item--height2"></div>
       <div class="grid-item grid-item--width3"></div>
