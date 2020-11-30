@@ -4,7 +4,11 @@
   <% @conversation.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
       <i class="author">
+        <% if message.commentable_type == "User" %>
         <span><%= message.commentable.username %></span>
+        <% else %>
+        <span><%= message.commentable.name %></span>
+        <% end %>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>
