@@ -3,7 +3,30 @@ class PostsController < ApplicationController
 
   def index
     @posts = policy_scope(Post)
-    @business = Business.new
+    @user = current_user
+
+    if params[:query].present?
+      @address = params[:query]
+      @businesses = Business.near(@address, 1)
+    else
+      @businesses = Business.all
+    end
+
+    @markers = @businesses.geocoded.map do |business|
+      {
+        lat: business.latitude,
+        lng: business.longitude,
+        infoWindow: render_to_string(partial: "businesses/info_window", locals: { business: business })
+      }
+    end
+    if current_user
+      @home_marker =
+      {
+        lat: @user.latitude,
+        lng: @user.longitude,
+        image_url: helpers.asset_url('user_pin_red.png')
+      }
+    end
   end
 
   # def new
@@ -30,20 +53,20 @@ class PostsController < ApplicationController
     redirect_to business_path(@business, anchor: "recent_posts")
   end
 
-  def edit 
+  def edit
     find_business
     @post = Post.find(params[:id])
     authorize @post
-  end 
+  end
 
-  def update 
+  def update
     find_business
     @post = Post.find(params[:id])
     authorize @post
     if @post.update(post_params)
       redirect_to business_path(@business, anchor: "recent_posts")
-    else  
-      render :edit 
+    else
+      render :edit
     end
   end
 
