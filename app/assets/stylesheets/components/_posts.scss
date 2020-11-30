@@ -3,6 +3,18 @@
 //   margin: 0px !important;
 // }
 
+.posts{
+  padding: 24px 12px 0 10px;
+  width: 424px;
+  margin-bottom: 12px;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  overflow: auto;
+  background: rgba($inner-white, 0.6);
+  z-index: 250;
+}
+
 .post {
   border-radius: 3px;
   margin-bottom: 20px;
