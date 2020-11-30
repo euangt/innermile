@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_11_30_103245) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,17 +90,6 @@ ActiveRecord::Schema.define(version: 2020_11_30_103245) do
     t.index ["user_id"], name: "index_conversations_on_user_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.bigint "conversation_id", null: false
-    t.string "commentable_type", null: false
-    t.bigint "commentable_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["commentable_type", "commentable_id"], name: "index_messages_on_commentable_type_and_commentable_id"
-    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string "location"
     t.bigint "business_id", null: false
@@ -114,6 +102,17 @@ ActiveRecord::Schema.define(version: 2020_11_30_103245) do
     t.string "event_name"
     t.string "description"
     t.index ["business_id"], name: "index_events_on_business_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "conversation_id", null: false
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_messages_on_commentable_type_and_commentable_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -151,7 +150,7 @@ ActiveRecord::Schema.define(version: 2020_11_30_103245) do
   add_foreign_key "businesses", "users"
   add_foreign_key "conversations", "businesses"
   add_foreign_key "conversations", "users"
-  add_foreign_key "messages", "conversations"
   add_foreign_key "events", "businesses"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "posts", "businesses"
 end
