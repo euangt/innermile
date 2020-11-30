@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :businesses do
     resources :posts, only: [:create, :destroy, :edit, :update]
     resources :events, only: [:show, :new, :create, :edit, :update, :destroy ]
+    resources :bookmarks, only: [ :create ]
   end
   resources :posts, only: [ :index ]
   resources :events, only: [ :index ]
