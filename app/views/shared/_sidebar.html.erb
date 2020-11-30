@@ -34,7 +34,7 @@
         <%= link_to raw('<i class="far fa-edit mr-3"></i>Create Post'), business_path(current_user.business_ids) %>
       </li>
       <li>
-        <a href="#"><i class="far fa-calendar-plus mr-3"></i>Create Event</a>
+        <%= link_to raw('<i class="far fa-calendar-plus mr-3"></i>Events'), events_path %>
       </li>
       <li>
         <%= link_to raw('<i class="fas fa-cog mr-3"></i>Settings'), edit_user_registration_path(current_user) %>
