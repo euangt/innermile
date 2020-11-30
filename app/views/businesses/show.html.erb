@@ -120,6 +120,13 @@
                   </div>
                 </div>
               </div>
+              <!-- Contact -->
+              <div id= "Contact-Box" class= "box">
+              <p><em><%= @business.opening_hours %></em></p>
+              <p><em><%= @business.telephone %></em></p>
+              <p><em><%= @business.email %></em></p>
+              <a><em><%= @business.website_url %></em></a>
+              </div>
             <script type="text/javascript">
               function changeTabDisplay(evt, tabName) {
                 // Declare all variables
@@ -152,13 +159,7 @@
   </div>
 </div>
 
-<!-- <div>
-
-    <p><em><%= @business.opening_hours %></em></p>
-    <p><em><%= @business.telephone %></em></p>
-    <p><em><%= @business.email %></em></p>
-    <a><em><%= @business.website_url %></em></a>
-    </div>
+<!--
 
     </div>
     This is commented out for the demo on friday since the tabs are not yet functional:
