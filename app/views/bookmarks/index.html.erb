@@ -1,8 +1,8 @@
 <div class="container mt-3">
   <p><strong>Bookmarked businesses</strong></p>
-  <%= link_to "All", user_bookmarks_path, class: "category_btn" %>
+  <%= link_to "All", bookmarks_path, class: "category_btn" %>
   <% @categories.each do |category| %>
-    <%= link_to category.name, user_bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
+    <%= link_to category.name, bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
   <% end %>
   <div id="list">
     <div class="row flex-row flex-nowrap" id="list-items">

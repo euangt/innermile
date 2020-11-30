@@ -7,14 +7,13 @@ Rails.application.routes.draw do
   resources :businesses do
     resources :bookmarks, only: [ :create ]
   end
-  resources :users, only: [ :edit, :update ] do
-    resources :bookmarks, only: [ :index,  :destroy ]
-  end
+  resources :bookmarks, only: [ :index,  :destroy ]
+  resources :users, only: [ :edit, :update ] 
   resources :businesses do
     resources :posts, only: [:create, :destroy, :edit, :update]
     resources :events, only: [:show, :new, :create, :edit, :update, :destroy ]
+    resources :bookmarks, only: [ :create ]
   end
-  resources :bookmarks, only: [ :destroy ]
   resources :posts, only: [ :index ]
   resources :events, only: [ :index ]
 end

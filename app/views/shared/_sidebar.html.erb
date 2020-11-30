@@ -17,7 +17,7 @@
         <%= link_to raw('<i class="fas fa-users mr-3"> </i>Community Feed'), posts_path %>
       </li>
       <li>
-        <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>Bookmarks'), user_bookmarks_path(current_user) %>
+        <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>Bookmarks'), bookmarks_path %>
       </li>
       <li>
         <a href="#"><i class="far fa-bell mr-3"></i></i>Notification</a>
@@ -37,7 +37,7 @@
         <%= link_to raw('<i class="far fa-calendar-plus mr-3"></i>Events'), events_path %>
       </li>
       <li>
-        <%= link_to raw('<i class="fas fa-cog mr-3"></i>Settings'), edit_user_registration_path(current_user) %>
+        <%= link_to raw('<i class="fas fa-cog mr-3"></i>Settings'), edit_user_registration_path %>
       </li>
       <li>
         <%= link_to raw('<i class="far fa-map mr-3"></i>Map View'), root_path %>
