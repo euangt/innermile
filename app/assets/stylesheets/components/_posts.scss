@@ -21,7 +21,7 @@
   padding: 0px !important;
 
   .post-heading {
-    padding: 16px;
+    padding: 16px 16px 0px 16px;
     margin: 0
   }
 
@@ -77,8 +77,8 @@
   }
 
   img{
-    width: 48px !important;
-    height: 48px !important;
+    width: 60px !important;
+    height: 60px !important;
     padding: 2px;
     border: 2px solid #f4f4f4;
   }
@@ -116,6 +116,7 @@
     }
     .post-text {
       padding-left: 12px;
+      padding-right: 4px;
     }
 }
 .img-responsive{
