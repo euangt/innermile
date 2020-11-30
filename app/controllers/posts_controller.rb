@@ -5,6 +5,7 @@ class PostsController < ApplicationController
     @posts = policy_scope(Post)
     @business = Business.new
     @user = current_user
+    @events = Event.all
 
     if params[:query].present?
       @address = params[:query]

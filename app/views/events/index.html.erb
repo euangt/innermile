@@ -3,7 +3,7 @@
   <hr>
     <div class="cards-events">
       <% @events.each do |event| %>
-      <%= render partial: 'events/event_card', locals: { event: event } %>
+        <%= render partial: 'events/event_card', locals: { event: event } %>
       <% end %>
     </div>
 </div>
