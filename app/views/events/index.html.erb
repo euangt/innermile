@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2 class="text-center">Your Community Events</h2>
+      <hr>
+      <div id="posts">
+        <% @events.each do |post| %>
+          <div class="post shadow-sm bg-white">
+             <% event.location %>
+           </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
