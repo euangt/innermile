@@ -7,8 +7,8 @@
         <% @events.each do |event| %>
           <div class="card-events my-4">
             <div>
-             <% if post.post_image.attached?  %>
-              <%= cl_image_tag post.post_image.key, class: "img-fluid" %>
+             <% if event.event_image.attached?  %>
+              <%= cl_image_tag event.event_image.key, class: "img-fluid" %>
             <% else %>
               <img class="img-fluid" src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Image">
             <% end %>
