@@ -19,18 +19,23 @@
             </div>
               <div class="media m-0">
                 <div class="d-flex mr-3">
-                  <a href=""><img class="img-fluid rounded-circle avatar" src="https://kitt.lewagon.com/placeholder/users/random" alt="User"></a>
+                  <% if post.business.avatar.attached? %>
+                     <%= cl_image_tag post.business.avatar.key, class: "img-fluid rounded-circle avatar" %>
+                  <% else %>
+                    <a href=""><img class="img-fluid rounded-circle avatar" src="https://kitt.lewagon.com/placeholder/users/random" alt="User"></a>
+                  <% end %>
                 </div>
                 <div class="media-body">
-                  <h4 class="m-0"><%= post.business.name %></h4>
-                  <small><span><i class="fa fa-map-pin" aria-hidden="true"></i> Mitte, Berlin</span></small>
-                  <small><span><i class="fa fa-clock-o" aria-hidden="true"></i><%= post.created_at %></span></small>
+                  <h4 class="m-0"><%= link_to post.business.name, business_path(post.business)%></h4>
+                  <small><span><i class="fa fa-map-pin mr-1" aria-hidden="true"></i><%= post.business.address %> </span></small>
+                  <small><span><i class="far fa-clock mr-1" aria-hidden="true"></i><%= time_ago_in_words(post.created_at) %> ago</span></small>
                 </div>
               </div>
           </div>
           <div class="post-item">
             <div class="post-text">
               <p><%= post.content %></p>
+              <p><%= post.post_text %></p>
             </div>
           </div>
           <div class="post-item">

@@ -1,31 +1,32 @@
 <div class="map_container">
 
 
-
   <div id="home_map" style="width: 100vw; height: 100vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <div class="map_overlay">
+  <div class="map-overlay">
   </div>
 
-  <div class="headline">
-    <h1>InnerMile</h1>
-    <h3>Discover and connect with great local businesses within one mile of your home.</h3>
+  <div class="container-home">
+        <h1>InnerMile</h1>
+        <h2>Discover your local world within one mile of your home.</h2>
+        <div class="home-searchbar">
+          <%= form_tag businesses_path, method: :get do %>
+            <div class="searchbar">
+              <%= text_field_tag :query,
+                  params[:query],
+                  placeholder: "Enter your home address"
+                %>
+                <%= submit_tag "Explore", class: "button_search" %>
+            </div>
+          <% end %>
+        </div>
   </div>
 
-  <div class="home_searchbar">
-    <%= form_tag businesses_path, method: :get do %>
-      <div class="example">
-        <%= text_field_tag :query,
-            params[:query],
-            placeholder: "Search cities"
-          %>
-          <%= submit_tag "Search", class: "button_search" %>
-      </div>
-    <% end %>
-  </div>
+
+
 
 </div>
 

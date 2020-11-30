@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("trix")
+require("@rails/actiontext")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -26,6 +28,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { fullHeight } from '../components/sidebar'
+//import {changeTabDisplay} from '../components/tab'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -36,3 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   fullHeight();
 });
+
+
+require("trix")
+require("@rails/actiontext")
