@@ -11,7 +11,7 @@
           <div class="row profile-top">
             <div class="profile-image ml-3">
               <% if @business.avatar.attached? %>
-                <%= cl_image_path @business.avatar.key, class: "avatar-profile" %>
+                <%= cl_image_tag @business.avatar.key, class: "avatar-profile" %>
               <% else %>
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar-profile" %>
               <% end %>
@@ -22,6 +22,7 @@
               <p><em><%= @business.short_bio %></em></p>
             </div>
             <div>
+            <% if current_user %>
               <% if !@user.businesses.include?(@business) %>
                 <% if !@user.bookmarked_businesses.include?(@business) %>
                   <%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true %>
@@ -29,85 +30,138 @@
                   <%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true %>
                 <% end %>
               <% end %>
+              <% end %>
             </div>
           </div>
           <div class="row justify-content-center">
-            <ul class="list-inline tabs-underlined">
-              <li><a href="#" class="tab-underlined active">About</a></li>
-              <li><a href="#" class="tab-underlined">Images</a></li>
-              <li><a href="#" class="tab-underlined">Contact</a></li>
-              <li><a href="#" class="tab-underlined">Newsfeed</a></li>
-              <li><a href="#" class="tab-underlined">Chat</a></li>
+            <!-- Tab links -->
+            <ul class="tab">
+              <button class="tablinks" onclick="changeTabDisplay(event, 'About')">About</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Images')">Images</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Contact')">Contact</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Newsfeed')">Newsfeed</button>
+              <button class="tablinks" onclick="changeTabDisplay(event, 'Chat')">Chat</button>
             </ul>
             <hr>
+            <!-- Tab content -->
+            <div id="About" class="tabcontent">
+             <!--  <h3">About</h3> -->
+            </div>
+            <div id="Images" class="tabcontent">
+             <!--  <h3>Images</h3> -->
+            </div>
+            <div id="Contact" class="tabcontent">
+              <!-- <h3>Contact</h3> -->
+            </div>
+            <div id="Newsfeed" class="tabcontent">
+              <!-- <h3>Newsfeed</h3> -->
+            </div>
+            <div id="Chat" class="tabcontent">
+              <!-- <h3>Chat</h3> -->
+            </div>
+              <!-- CSS in other file not yet rendered -->
+              <!-- JS -->
           </div>
-              <p><%= @business.long_bio %></p>
+          <!-- About -->
+          <div id= "About-Box" class="box">
+             <p><%= @business.long_bio %></p>
 
               <div class="business-image">
                 <% if @business.business_photos.attached? %>
-                  <%= cl_image_path @business.business_photos.first.key, width: 400, height: 400, crop: :fill %>
+                  <%= cl_image_tag @business.business_photos.first.key, width: 400, height: 400, crop: :fill %>
                 <% else %>
                   <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
                 <% end %>
               </div>
 
-              <p><em><%= @business.owner_name %></em></p>
+              <p><strong> Meet <%= @business.owner_name %></strong></p>
               <p><em><%= @business.owner_bio %></em></p>
 
               <div class="owner-image">
                 <% if @business.owner_photo.attached? %>
-                  <%= cl_image_path @business.owner_photo.key, width: 400, height: 400, crop: :fill, gravity: :face %>
+                  <%= cl_image_tag @business.owner_photo.key, width: 400, height: 400, crop: :fill, gravity: :face %>
                 <% else %>
                   <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
                 <% end %>
               </div>
-  <div class="row justify-content-center mt-4">
-    <div class="bookmark-cards mb-2">
-      <h1 class="text-center" id="recent_posts">Recent Posts</h1>
-      <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
-      <hr>
-      <div class="text-center" id="posts">
-        <% if @business.posts.blank? %>
-        <%# if policy(Post).create? %>
-          <p> <%= @business.name %> has no posts yet</p>
-        <% else %>
-          <% @posts.each do |post| %>
-            <%= render partial: 'posts/post', locals: { post: post } %>
-          <% end %>
-        <% end %>
-      </div>
-      <hr>
-      <% if current_user == @business.user %>
-        <h2 class="text-center">Create a post</h2>
-        <p class="text-center">----------</p>
-        <%= simple_form_for([@business, @post]) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :content %>
-            <%= f.input :post_image, as: :file %>
           </div>
-          <div class="form-actions mb-2">
-            <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
-          </div>
-          <hr>
-        <% end %>
-      <% end %>
-      </div>
-      <!-- <div>
+              <!-- Posts/Newsfeed -->
+          <div id= "Newsfeed-Box" class= "box">
+            <div class="row justify-content-center mt-4">
+              <div class="bookmark-cards mb-2">
+                <h1 class="text-center" id="recent_posts">Recent Posts</h1>
+                <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
+                <hr>
+                <div class="text-center" id="posts">
+                  <% if @business.posts.blank? %>
+                  <%# if policy(Post).create? %>
+                    <p> <%= @business.name %> has no posts yet</p>
+                  <% else %>
+                    <% @posts.each do |post| %>
+                      <%= render partial: 'posts/post', locals: { post: post } %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <hr>
+                <% if current_user == @business.user %>
+                  <h2 class="text-center">Create a post</h2>
+                  <p class="text-center">----------</p>
+                  <%= simple_form_for([@business, @post]) do |f| %>
+                    <div class="form-inputs">
+                      <%= f.input :content %>
+                      <%= f.input :post_image, as: :file %>
+                    </div>
+                    <div class="form-actions mb-2">
+                      <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
+                    </div>
+                  <hr>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <!-- Contact -->
+              <div id= "Contact-Box" class= "box">
+              <p><em><%= @business.opening_hours %></em></p>
+              <p><em><%= @business.telephone %></em></p>
+              <p><em><%= @business.email %></em></p>
+              <a><em><%= @business.website_url %></em></a>
+              </div>
+            <script type="text/javascript">
+              function changeTabDisplay(evt, tabName) {
+                // Declare all variables
+                var i, tabcontent, tablinks;
 
-    <p><em><%= @business.opening_hours %></em></p>
-    <p><em><%= @business.telephone %></em></p>
-    <p><em><%= @business.email %></em></p>
-    <a><em><%= @business.website_url %></em></a>
-    </div>
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                  tabcontent[i].style.display = "none";
+                }
+                const boxes = document.getElementsByClassName("box")
+                for (i = 0; i < boxes.length; i++) {
+                  boxes[i].style.display = "none";
+                }
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                  tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
 
-    </div>
-    This is commented out for the demo on friday since the tabs are not yet functional:
-    All of the code above will move to the Contact tab eventually.
-    -->
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+                document.getElementById(`${tabName}-Box`).style.display = "block";
+                }
+          </script>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!--
 
+    </div>
+    This is commented out for the demo on friday since the tabs are not yet functional:
+    All of the code above will move to the Contact tab eventually.
+    -->

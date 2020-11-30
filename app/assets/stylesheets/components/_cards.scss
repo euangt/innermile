@@ -1,19 +1,30 @@
+.cards-business{
+  padding: 24px 12px 0 10px;
+  width: 360px;
+  margin-bottom: 12px;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  overflow: auto;
+  background: rgba($inner-white, 0.6);
+  z-index: 250;
+}
+
 .cards {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 12px;
-  padding: 0px 12px 0 12px;
-  width: 420px;
+  padding: 0px 12px 0 10px;
+  width: 360px;
   margin-top: 24px;
+  margin-bottom: 12px;
 }
 
 .card-business {
   overflow: hidden;
-  height: 100px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 104px;
+  background: $inner-white;
+  margin-top: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
   display: flex;
+  align-items: center;
 
   img {
     height: 100%;
@@ -28,15 +39,52 @@
     margin: 0;
   }
 
+  h6{
+
+  }
+
   p {
     font-size: 12px;
     line-height: 1.4;
     opacity: .7;
     margin-bottom: 0;
-    margin-top: 8px;
+    margin-top: 1px;
   }
   .card-business-infos {
     padding: 12px;
     margin-right: 12px;
   }
+  &:hover, &:focus{
+    // box-shadow: 0 0 12px rgba($inner-green,0.3);
+    border: 0.5px solid rgba($inner-green,0.6);
+    background: white;
+  }
 }
+
+.card-bookmark {
+
+}
+
+// .collapse {
+//   visibility: hidden;
+// }
+// .collapse.in {
+//   visibility: visible;
+// }
+// .collapsing {
+//   position: relative;
+//   height: 0;
+//   overflow: hidden;
+//   -webkit-transition-property: height, visibility;
+//   transition-property: height, visibility;
+//   -webkit-transition-duration: 0.35s;
+//   transition-duration: 0.35s;
+//   -webkit-transition-timing-function: ease;
+//   transition-timing-function: ease;
+// }
+// .collapsing.width {
+//   -webkit-transition-property: width, visibility;
+//   transition-property: width, visibility;
+//   width: 0;
+//   height: auto;
+// }

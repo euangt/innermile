@@ -12,4 +12,12 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     user.present?
   end
+
+  def edit? 
+    user.present?
+  end
+
+  def update?
+    true
+  end
 end

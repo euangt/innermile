@@ -26,3 +26,15 @@
   left: 0;
   z-index: 1030;
 }
+
+.navbar-home {
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-home .navbar-collapse {
+  flex-grow: 0;
+}
+

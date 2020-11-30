@@ -1,18 +1,16 @@
 <nav id="sidebar" class="active">
   <div class="menu">
-<!--     <button type="button" id="sidebarCollapse" class="btn btn-green">
-      <i class="fa fa-bars"></i>
-      <span class="sr-only"></span>
-    </button> -->
+
   </div>
   <div class="p-4">
     <ul class="list-unstyled components mb-5">
-      <br>
+      <br><br><br>
       <li>
         <%= link_to raw('<i class="fas fa-home mr-3"></i>Home'), businesses_path %>
       </li>
       <li>
-        <%= link_to raw('<i class="fas fa-search mr-3"></i>Search'), root_path %>
+        <%= link_to raw('<i class="fas fa-search mr-3"></i>Search'), root_path  %>
+        <!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseResults" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">TESTING BUTTON</a> -->
       </li>
       <% if current_user %>
       <li>
@@ -39,16 +37,13 @@
         <a href="#"><i class="far fa-calendar-plus mr-3"></i>Create Event</a>
       </li>
       <li>
-        <%= link_to raw('<i class="fas fa-cog mr-3"></i>Settings'), edit_user_path(current_user) %>
+        <%= link_to raw('<i class="fas fa-cog mr-3"></i>Settings'), edit_user_registration_path(current_user) %>
       </li>
       <li>
         <%= link_to raw('<i class="far fa-map mr-3"></i>Map View'), root_path %>
       </li>
     </ul>
     <% end %>
-
-
-
 
     <div class="footer">
       <p> About | Usage Guide |<br>Terms of Use |<br>Privacy Policy </p>
