@@ -26,7 +26,7 @@ body {
   padding: 10px;
   background: rgba($inner-blue, 0.9);
   color: white;
-  font-size: 17px;
+  font-size: 18px;
   border: 0px solid grey;
   border-top-right-radius: 50px;
   border-bottom-right-radius:50px;
@@ -46,12 +46,5 @@ form.example::after {
   content: "";
   clear: both;
   display: table;
-}
-
-.home_searchbar {
-  position: absolute;
-  top: 52%;
-  left: 20%;
-  right: 20%;
 }
 
