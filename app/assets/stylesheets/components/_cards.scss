@@ -66,7 +66,7 @@
 .cards-events {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
 }
@@ -100,10 +100,12 @@
     right: 12px !important;
     top: 12px !important;
     z-index: 1000;
+
     .dropdown-menu{
-      position: relative;
-      //
+      // position: relative;
+      // // right: 0px !important;
     }
+
     a:hover{
       background: #f4f4f4 !important;
     }
@@ -159,7 +161,7 @@
   opacity: 0;
 
   :hover {
-    opacity: 0.2;
+    opacity: 0.3;
   }
 
   p {
