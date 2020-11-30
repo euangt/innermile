@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    authorize @eve
+    authorize @event
     if @event.update(event_params)
       redirect_to business_path(@business)
     else  
