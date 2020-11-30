@@ -6,30 +6,36 @@
 //   padding: 150px 0;
 // }
 
-.headline {
-  width: 100%;
+.container-home {
   position: absolute;
-  top: 40%;
-  left: 0;
+  width: 100%;
+  top: 35%;
   padding-left: 20%;
   padding-right: 20%;
+
+  h1 {
+    // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 16px;
+    // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  .home-searchbar {
+    width: 100%;
+    // position: absolute;
+    // top: 52%;
+    // left: 20%;
+    // right: 20%;
+  }
 }
 
-.headline h1 {
-
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 42px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.headline h3 {
-  font-size: 24px;
-  font-weight: 400;
-  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.map_overlay {
+.map-overlay {
   background-color: #ffffff87;
   position: absolute;
   top: 0;
@@ -38,3 +44,5 @@
   height: 100vh;
   pointer-events: none;
 }
+
+
