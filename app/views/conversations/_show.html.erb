@@ -1,5 +1,5 @@
 <% unless @business.user == current_user %>
-<h1>conversation with: <%= @business.name %></h1>
+<h1>Conversation with: <%= @business.name %></h1>
 <div id="messages" data-conversation-id="<%= @conversation.id %>">
   <% @conversation.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
