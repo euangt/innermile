@@ -33,6 +33,10 @@ const initMapbox = () => {
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);
+
+    var marker = new mapboxgl.Marker()
+      .setLngLat([12.550343, 55.665957])
+      .addTo(map);
   });
     fitMapToMarkers(map, markers);
   }
