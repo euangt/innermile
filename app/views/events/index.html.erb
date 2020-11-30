@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-3">
   <div class="row justify-content-center">
     <div class="col-6">
       <h2 class="text-center">Your Community Events</h2>
@@ -11,15 +11,67 @@
             </div>
             <div class="card-body">
               <h3 class="group"><p><%= link_to event.event_name, business_event_path(event.business, event) %></p></h3>
-  
+
 
               <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
               <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
             </div>
-          </div>  
+          </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
+<div class="event-cards">
+      <% @events.each do |event| %>
+        <div class="event-card"  style="background-image: linear-gradient(rgba(55, 63, 81,0.4), rgba(55, 63, 81,0.2)), url(https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1567&q=80);">
+          <div class="card-description">
+            <h4><%= event.event_name %></h4>
+          </div>
+            <%= link_to '', business_event_path(event.business, event), class: 'card-link'  %>
+          </div>
+       <% end %>
+    </div>
+
+  <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 160 }'>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--width2 grid-item--height4"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--width2 grid-item--height4"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--width2 grid-item--height4"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+  </div>
