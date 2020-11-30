@@ -2,19 +2,60 @@
     <div class="posts">
       <h2 class="text-center">Your Community Feed</h2>
       <hr>
-      <div id="posts">
-        <% @posts.each do |post| %>
-          <div class="post shadow-sm bg-white">
-             <%= render partial: 'posts/post', locals: { post: post } %>
-           </div>
-        <% end %>
+      <ul class="tab">
+        <button class="tablinks btn btn-flat" onclick="changeTabDisplay(event, 'Posts')">Posts</button>
+        <button class="tablinks btn btn-flat" onclick="changeTabDisplay(event, 'Events')">Events</button>
+      </ul>
+      <div id="Posts" class="tabcontent">
       </div>
-    </div>
-    <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
-    data-markers="<%= @markers.to_json %>"
-    data-home-marker="<%= @home_marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+      <div id="Events" class="tabcontent">
+      </div>
+      <div id= "Posts-Box" class="box">
+        <div id="posts">
+          <% @posts.each do |post| %>
+            <div class="post shadow-sm bg-white">
+               <%= render partial: 'posts/post', locals: { post: post } %>
+             </div>
+          <% end %>
+        </div>
+        </div>
+      </div>
+
+      <div id= "Events-Box" class="box">
+      </div>
+
+      <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
+        data-markers="<%= @markers.to_json %>"
+        data-home-marker="<%= @home_marker.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+        <script type="text/javascript">
+          function changeTabDisplay(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            // tabcontent = document.getElementsByClassName("tabcontent");
+            // for (i = 0; i < tabcontent.length; i++) {
+            //   tabcontent[i].style.display = "none";
+            // }
+            const boxes = document.getElementsByClassName("box")
+            for (i = 0; i < boxes.length; i++) {
+              boxes[i].style.display = "none";
+            }
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            document.getElementById(`${tabName}-Box`).style.display = "block";
+            }
+      </script>
+
 </div>
 
 
