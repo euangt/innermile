@@ -35,8 +35,27 @@ const initMapbox = () => {
                                         .setLngLat([ marker.lng, marker.lat ])
                                         .setPopup(popup)
                                         .addTo(map);
-                                        console.log(map)
-      // mapboxMarker.element.id = `marker-${marker.id}`
+      // add an ID to the mapbox marker
+      // this as taken from: https://docs.mapbox.com/mapbox-gl-js/api/markers/#marker#getelement
+      mapboxMarker.getElement().id = `marker-${marker.id}`
+      // select the business card div by the dataset it has (we should refactor to use an ID)
+      const businessCard = document.querySelector(`[data-business="${marker.id}"]`)
+      businessCard.addEventListener('click', (event) => {
+        const id = event.currentTarget.dataset.business
+        const markerDiv = document.getElementById(`marker-${id}`);
+        markerDiv.click()
+        
+        // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
+        map.flyTo({
+          center: [
+            marker.lng,
+            marker.lat
+          ],
+          essential: true
+        });
+          
+      })
+
     });
 
     const homeMarker = JSON.parse(indexMapElement.dataset.homeMarker);
