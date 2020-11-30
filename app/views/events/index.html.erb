@@ -6,7 +6,7 @@
       <div id="posts">
         <% @events.each do |event| %>
           <div class="post shadow-sm bg-white">
-             <p><%= event.event_name %></p>
+             <p><%= link_to event.event_name, business_event_path(event.business, event) %></p>
              <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
              <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
            </div>
