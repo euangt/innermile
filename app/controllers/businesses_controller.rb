@@ -29,7 +29,7 @@ class BusinessesController < ApplicationController
          {
             lat: @user.latitude,
             lng: @user.longitude,
-            image_url: helpers.asset_url('home_marker_green.png')
+            image_url: helpers.asset_url('user_pin_red.png')
 
             # infoWindow: render_to_string(partial: "info_window", locals: { business: business })
           }
