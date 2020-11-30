@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :businesses, dependent: :destroy
   has_many :bookmarked_businesses, through: :bookmarks, source: :business
+  has_many :conversations, dependent: :destroy
   has_many :messages, as: :commentable
 
   validates :first_name, presence: true

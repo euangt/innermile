@@ -127,6 +127,10 @@
               <p><em><%= @business.email %></em></p>
               <a><em><%= @business.website_url %></em></a>
               </div>
+              <!-- Chat -->
+              <div id= "Chat-Box" class= "box">
+                <%= render "conversations/show" %>
+              </div>
             <script type="text/javascript">
               function changeTabDisplay(evt, tabName) {
                 // Declare all variables
@@ -159,9 +163,3 @@
   </div>
 </div>
 
-<!--
-
-    </div>
-    This is commented out for the demo on friday since the tabs are not yet functional:
-    All of the code above will move to the Contact tab eventually.
-    -->

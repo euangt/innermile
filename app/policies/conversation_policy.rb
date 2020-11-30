@@ -1,5 +1,6 @@
 class ConversationPolicy < ApplicationPolicy
-  def show
+  def show?
     user == record.user
+    business == record.business.user
   end
 end
