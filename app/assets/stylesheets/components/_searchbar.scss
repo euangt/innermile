@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
 }
 
-.example input {
+.searchbar input {
   padding: 10px;
   padding-left: 25px;
   font-size: 17px;
@@ -20,13 +20,12 @@ body {
   font-family: "Poppins", "sans-serif";
 }
 
-.example .button_search {
-  float: left;
+.searchbar .button_search {
   width: 20%;
   padding: 10px;
   background: rgba($inner-blue, 0.9);
   color: white;
-  font-size: 18px;
+  font-size: 17px;
   border: 0px solid grey;
   border-top-right-radius: 50px;
   border-bottom-right-radius:50px;
@@ -36,6 +35,25 @@ body {
   cursor: pointer;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
   font-family: "Poppins", "sans-serif";
+}
+
+// media
+@media only screen and (max-width: 800px) {
+  .searchbar input {
+    width: 75%;
+  }
+  .searchbar .button_search {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .searchbar input {
+    width: 70%;
+  }
+  .searchbar .button_search {
+    width: 30%;
+  }
 }
 
 form.example button:hover {

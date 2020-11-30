@@ -11,10 +11,10 @@
 
   <div class="container-home">
         <h1>InnerMile</h1>
-        <h2>Discover and connect with great local businesses<br>within one mile of your home.</h2>
+        <h2>Discover your local world within one mile of your home</h2>
         <div class="home-searchbar">
           <%= form_tag businesses_path, method: :get do %>
-            <div class="example">
+            <div class="searchbar">
               <%= text_field_tag :query,
                   params[:query],
                   placeholder: "Enter your home address"
