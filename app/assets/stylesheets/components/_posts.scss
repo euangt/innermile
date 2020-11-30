@@ -3,13 +3,25 @@
 //   margin: 0px !important;
 // }
 
+.posts{
+  padding: 24px 12px 0 10px;
+  width: 400px;
+  margin-bottom: 12px;
+  height: 100vh;
+  display: block;
+  position: absolute;
+  overflow: auto;
+  background: rgba($inner-white, 0.6);
+  z-index: 250;
+}
+
 .post {
   border-radius: 3px;
   margin-bottom: 20px;
   padding: 0px !important;
 
   .post-heading {
-    padding: 16px;
+    padding: 16px 16px 0px 16px;
     margin: 0
   }
 
@@ -65,8 +77,8 @@
   }
 
   img{
-    width: 48px !important;
-    height: 48px !important;
+    width: 56px !important;
+    height: 56px !important;
     padding: 2px;
     border: 2px solid #f4f4f4;
   }
@@ -104,6 +116,7 @@
     }
     .post-text {
       padding-left: 12px;
+      padding-right: 4px;
     }
 }
 .img-responsive{

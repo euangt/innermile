@@ -6,7 +6,7 @@
   display: block;
   position: absolute;
   overflow: auto;
-  background: rgba($inner-white, 0.6);
+  background: rgba(white, 0.7);
   z-index: 250;
 }
 
@@ -61,7 +61,17 @@
   }
 }
 
-.card-bookmark {
+.card-events {
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    width: 400px;
+    height: 320px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  }
 
 }
 

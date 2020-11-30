@@ -24,6 +24,16 @@ class BusinessesController < ApplicationController
           infoWindow: render_to_string(partial: "info_window", locals: { business: business })
         }
       end
+      if current_user
+        @home_marker =
+         {
+            lat: @user.latitude,
+            lng: @user.longitude,
+            image_url: helpers.asset_url('user_pin_red.png')
+
+            # infoWindow: render_to_string(partial: "info_window", locals: { business: business })
+          }
+      end
   end
 
   def new

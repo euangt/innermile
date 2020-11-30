@@ -5,6 +5,8 @@ class Business < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :messages, as: :commentable
 
+  has_many :events, dependent: :destroy
+
 
   validates :name, presence: true
   validates :address, presence: true

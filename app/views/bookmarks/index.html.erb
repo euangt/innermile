@@ -19,21 +19,28 @@
     <p>You have no bookmark! Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
     <% end %>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
-      <hr>
-      <div class="posts">
-        <% if @posts %>
-          <div class="container">
-            <% @posts.each do |post| %>
-              <div class="post shadow-sm bg-white">
-                <%= render partial: 'posts/post', locals: { post: post } %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+  <br><br>
+
+  <div class="d-flex">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
+        <hr>
+          <% if @posts %>
+            <div class="container">
+              <% @posts.each do |post| %>
+                <div class="post shadow-sm bg-white">
+                  <%= render partial: 'posts/post', locals: { post: post } %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+      <div class="col-6">
+        <p class="text-center"><strong>Recent Events from your bookmarked businesses</strong></p>
+        <hr>
       </div>
     </div>
   </div>
+
 </div>
