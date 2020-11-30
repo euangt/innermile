@@ -5,4 +5,8 @@ class Event < ApplicationRecord
   validates :location, presence: true
   validates :time, presence: true 
   validates :event_name, presence: true
+
+  has_one_attached :event_image
+
+  has_rich_text :description
 end
