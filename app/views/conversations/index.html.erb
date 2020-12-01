@@ -12,27 +12,27 @@
     <div class="container col-6">
       <div class="messages">
         <% if commentable_type = "User" %>
-        <h2>Your Chats with businesses</h2>
-        <div class= "row justify-content-center">
-          <% @conversations.each do |conversation| %>
-            <%= link_to conversation.business.name, conversations_path %>
-            <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
-          <% end %>
-        </div>
+          <h2>Your Chats with businesses</h2>
+          <div class= "row justify-content-center">
+            <% @conversations.each do |conversation| %>
+              <p><%= link_to conversation.business.name, conversations_path %></p>
+              <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
+            <% end %>
+          </div>
         <% end %>
       </div>
-</div>
+    </div>
   </div>
   <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
     <div class="container col-6">
       <div class="messages">
         <% if commentable_type = "Business" %>
-        <h2>Your Chats with your customers</h2>
-        <div class= "row justify-content-center">
-          <% @conversations.each do |conversation| %>
-            <%= link_to conversation.user.first_name, business_conversations_path(conversation.business) %>
-          <% end %>
-        </div>
+          <h2>Your Chats with your customers</h2>
+          <div class= "row justify-content-center">
+            <% @conversations.each do |conversation| %>
+            <p><%= link_to conversation.user.first_name, business_conversations_path(conversation.business) %></p>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
