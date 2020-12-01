@@ -40,49 +40,28 @@ const initMapbox = () => {
       // this as taken from: https://docs.mapbox.com/mapbox-gl-js/api/markers/#marker#getelement
       mapboxMarker.getElement().id = `marker-${marker.id}`
       // select the business card div by the dataset it has (we should refactor to use an ID)
-      const businessCard = document.querySelector(`[data-business="${marker.id}"]`)
-      if (businessCard) {
-        businessCard.addEventListener('mouseenter', (event) => {
-          const id = event.currentTarget.dataset.business
-          const markerDiv = document.getElementById(`marker-${id}`);
-          markerDiv.click()
+      const businessCards = document.querySelectorAll(`[data-business="${marker.id}"]`)
+      console.log(marker.id)
+      businessCards.forEach((businessCard)=> {
+        if (businessCard) {
+          businessCard.addEventListener('mouseenter', (event) => {
+            const id = event.currentTarget.dataset.business
+            const markerDiv = document.getElementById(`marker-${id}`);
+            markerDiv.click()
 
-          // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
-          map.flyTo({
-            center: [
-              marker.lng,
-              marker.lat
-            ],
-            speed: 0.3,
-            offset: [165, 0],
-            essential: true
-          });
-
-        })
-
-      }
-
-      // const postCard = document.getElementById('post-card');
-      // if (postCard) {
-      //   postCard.addEventListener('mouseenter', (event) => {
-      //     const id = event.currentTarget.dataset.business
-      //     const markerDiv = document.getElementById(`marker-${id}`);
-      //     markerDiv.click()
-
-      //     // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
-      //     map.flyTo({
-      //       center: [
-      //         marker.lng,
-      //         marker.lat
-      //       ],
-      //       speed: 0.3,
-      //       essential: true
-      //     });
-
-      //   })
-
-      // }
-
+            // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
+            map.flyTo({
+              center: [
+                marker.lng,
+                marker.lat
+              ],
+              speed: 0.3,
+              offset: [165, 0],
+              essential: true
+            });
+          })
+        }
+      })
     });
 
     const homeMarker = JSON.parse(indexMapElement.dataset.homeMarker);
