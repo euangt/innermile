@@ -8,19 +8,15 @@
           <% if message.conversation.user != current_user %>
             <div class="justify-content-left">
               <i class="author">
-              <% if message.commentable_type == "User" %>
-                <span><%= message.commentable.first_name %></span>
-              <% end %>
+                <span><%= message.conversation.user.first_name %></span>
               <p><%= message.content %></p>
               <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
               </i>
             </div>  
-            <% else %>
+          <% else %>
               <div class="justify-content-right">
                 <i class="author">
-                <% if message.commentable_type == "User" %>
-                  <span><%= message.commentable.first_name %></span>
-                <% end %>
+                  <span><%= message.conversation.user.businesses.first.name %></span>
                 <p><%= message.content %></p>
                 <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
                 </i>
