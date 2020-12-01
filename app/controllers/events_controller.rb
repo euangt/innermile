@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @user = current_user
-    @event_marker = 
+    @marker = 
       {
         lat: @event.latitude,
         lng: @event.longitude,
