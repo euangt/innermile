@@ -7,12 +7,18 @@ class BookmarksController < ApplicationController
     @posts = @businesses.map do |business|
       business.posts
     end.flatten
+    @events = @businesses.map do |business|
+      business.events
+    end.flatten
 
     if params[:category].present?
       @category = Category.find_by_name(params[:category])
       @businesses = @businesses.where(category_id: @category.id)
       @posts = @businesses.map do |business|
         business.posts
+      end.flatten
+      @events = @businesses.map do |business|
+        business.events
       end.flatten
     end
   end
