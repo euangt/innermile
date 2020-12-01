@@ -62,9 +62,9 @@ const initMapbox = () => {
 
       }
 
-      // const postCard = document.querySelector(`[data-business="${marker.id}"]`)
+      // const postCard = document.getElementById('post-card');
       // if (postCard) {
-      //   postCard.addEventListener('mouseover', (event) => {
+      //   postCard.addEventListener('mouseenter', (event) => {
       //     const id = event.currentTarget.dataset.business
       //     const markerDiv = document.getElementById(`marker-${id}`);
       //     markerDiv.click()
@@ -75,7 +75,7 @@ const initMapbox = () => {
       //         marker.lng,
       //         marker.lat
       //       ],
-      //       speed: 0.2,
+      //       speed: 0.3,
       //       essential: true
       //     });
 

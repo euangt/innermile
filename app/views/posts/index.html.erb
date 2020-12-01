@@ -18,9 +18,9 @@
     <div id= "Posts-Box" class="box">
       <div id="posts">
         <% @posts.each do |post| %>
-          <div class="post shadow-sm bg-white">
-             <%= render partial: 'posts/post', locals: { post: post } %>
-           </div>
+          <!-- <div class="post shadow-sm bg-white"> -->
+          <%= render partial: 'posts/post', locals: { post: post } %>
+           <!-- </div> -->
         <% end %>
       </div>
     </div>

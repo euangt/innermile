@@ -1,78 +1,61 @@
-<!-- <section class="hero">
-  <div class="container"> -->
-<!--     <div class="row">
-      <div class="col-lg-6"> -->
-        <div class="post shadow-sm bg-white">
-          <div class="post-heading">
-            <div class="dropdown float-right">
-              <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
-                <em class="fa fa-ellipsis-h"></em>
-              </button>
-              <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                <a class="dropdown-item" href="#">Hide post</a>
-                <a class="dropdown-item" href="#">Report</a>
-                <% if current_user == post.business.user && controller_name != "posts" %>
-                  <%= link_to "Delete post", business_post_path(@business, post), method: :delete, class: "dropdown-item", remote: true %>
-                  <%= link_to "Update post", edit_business_post_path(@business, post), class: "dropdown-item" %>
-                <% end %>
-              </div>
-            </div>
-              <div class="media m-0">
-                <div class="d-flex mr-3">
-                  <% if post.business.avatar.attached? %>
-                     <%= cl_image_tag post.business.avatar.key, class: "img-fluid rounded-circle avatar" %>
-                  <% else %>
-                    <a href=""><img class="img-fluid rounded-circle avatar" src="https://kitt.lewagon.com/placeholder/users/random" alt="User"></a>
-                  <% end %>
-                </div>
-                <div class="media-body">
-                  <h4 class="m-0"><%= link_to post.business.name, business_path(post.business)%></h4>
-                  <small><span><i class="fa fa-map-pin mr-1" aria-hidden="true"></i><%= post.business.address[0...-15] %> </span></small>
-                  <small><span><i class="far fa-clock mr-1" aria-hidden="true"></i><%= time_ago_in_words(post.created_at) %> ago</span></small>
-                </div>
-              </div>
-          </div>
-          <div class="post-item">
-            <div class="post-text">
-              <p><%= post.content %></p>
-              <p><%= post.post_text %></p>
-            </div>
-          </div>
-          <div class="post-item">
-            <% if post.post_image.attached?  %>
-              <%= cl_image_tag post.post_image.key, type: :upload,
+<div class="post shadow-sm bg-white" id="post-card">
+  <div class="post-heading">
+    <div class="dropdown float-right">
+      <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+        <em class="fa fa-ellipsis-h"></em>
+      </button>
+      <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <a class="dropdown-item" href="#">Hide post</a>
+        <a class="dropdown-item" href="#">Report</a>
+        <% if current_user == post.business.user && controller_name != "posts" %>
+        <%= link_to "Delete post", business_post_path(@business, post), method: :delete, class: "dropdown-item", remote: true %>
+        <%= link_to "Update post", edit_business_post_path(@business, post), class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="media m-0">
+      <div class="d-flex mr-3">
+        <% if post.business.avatar.attached? %>
+        <%= cl_image_tag post.business.avatar.key, class: "img-fluid rounded-circle avatar" %>
+        <% else %>
+        <a href=""><img class="img-fluid rounded-circle avatar" src="https://kitt.lewagon.com/placeholder/users/random" alt="User"></a>
+        <% end %>
+      </div>
+      <div class="media-body">
+        <h4 class="m-0"><%= link_to post.business.name, business_path(post.business)%></h4>
+        <small><span><i class="fa fa-map-pin mr-1" aria-hidden="true"></i><%= post.business.address[0...-15] %> </span></small>
+        <small><span><i class="far fa-clock mr-1" aria-hidden="true"></i><%= time_ago_in_words(post.created_at) %> ago</span></small>
+      </div>
+    </div>
+  </div>
+  <div class="post-item">
+    <div class="post-text">
+      <p><%= post.content %></p>
+      <p><%= post.post_text %></p>
+    </div>
+  </div>
+  <div class="post-item">
+    <% if post.post_image.attached?  %>
+    <%= cl_image_tag post.post_image.key, type: :upload,
     width: 900, height: 900, crop: :fill, class: "img-fluid post-image" %>
-            <% else %>
-              <img class="img-fluid" src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Image">
-            <% end %>
-          </div>
-          <div class="post-base">
-            <ul class="float-right">
-             <li><a><i class="fa fa-comments"></i></a></li>
-             <li><a><em class="mr-5">0</em></a></li>
-             <li><a><i class="fa fa-share-alt"></i></a></li>
-             <li><a><em class="mr-3">0</em></a></li>
-            </ul>
-            <ul>
-             <li><a><i class="fa fa-thumbs-up"></i></a></li>
-             <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
-             <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
-             <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
-             <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
-             <li><a><span>4 Likes</span></a></li>
-            </ul>
-          </div>
-<!--           <div class="post-comments">
-            <span class="comment-avatar float-left">
-              <a href=""><img class="rounded-circle" src="https://kitt.lewagon.com/placeholder/users/random" alt="..."></a>
-            </span>
-            <div class="search">
-              <input placeholder="Write a comment" type="text">
-              <button><i class="fa fa-camera"></i></button>
-            </div>
-          </div> -->
-        </div>
-<!--         </div>
-    </div> -->
-<!--   </div>
-</section> -->
+    <% else %>
+    <img class="img-fluid" src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Image">
+    <% end %>
+  </div>
+  <div class="post-base">
+    <ul class="float-right">
+     <li><a><i class="fa fa-comments"></i></a></li>
+     <li><a><em class="mr-5">0</em></a></li>
+     <li><a><i class="fa fa-share-alt"></i></a></li>
+     <li><a><em class="mr-3">0</em></a></li>
+   </ul>
+   <ul>
+     <li><a><i class="fa fa-thumbs-up"></i></a></li>
+     <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
+     <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
+     <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
+     <li><a href="#"><img src="https://kitt.lewagon.com/placeholder/users/random" class="img-fluid rounded-circle" alt="User"></a></li>
+     <li><a><span>4 Likes</span></a></li>
+   </ul>
+ </div>
+</div>
