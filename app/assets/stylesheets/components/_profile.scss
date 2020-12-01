@@ -49,6 +49,7 @@
     }
     .bookmark {
       color: $inner-green;
+      margin-top: 4px;
     }
     .menu {
       h2 {
@@ -76,7 +77,7 @@
 .profile-body{
   padding: 0px 32px 32px 32px;
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .profile-description {
@@ -93,7 +94,7 @@
   .owner {
     margin-top: 24px;
     .owner-image{
-
+     margin-top: 18px;
     }
     .owner-content {
       padding: 16px;

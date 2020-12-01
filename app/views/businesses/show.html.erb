@@ -30,9 +30,8 @@
             <% end %>
           </div>
         </div>
-
         <div class="row profile-header">
-          <div class="business-name">
+          <div class="business-name mr-4">
             <h1><%= @business.name %></h1>
             <h3><%= @business.short_bio %></h3>
               <%= @business.category.name %>
@@ -72,6 +71,7 @@
           <div class="row profile-description justify-content-center">
             <div class="col-7">
               <p><%= @business.long_bio %></p>
+              <p><%= @business.description %></p>
             </div>
           </div>
           <div class="row profile-images justify-content-center">
@@ -208,7 +208,7 @@
             <div class="row justify-content-center">
               <div class="col-7" id="posts">
                 <% if @business.events.blank? %>
-                  <p> <%= @business.name %> has no events planned</p>
+                  <p class="text-center"> <%= @business.name %> has no events planned</p>
                 <% else %>
                   <% @events.each do |event| %>
                     <%= render partial: 'events/event_card', locals: { event: event } %>
