@@ -5,6 +5,7 @@
     <div class= "row justify-content-center">
       <% @conversations.each do |conversation| %>
         <%= link_to conversation.business.name, conversations_path %>
+        <% render "conversations/show"  %>
       <% end %>
     </div>
     <% end %>
