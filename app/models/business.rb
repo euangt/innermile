@@ -4,7 +4,7 @@ class Business < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :messages, as: :commentable
-  has_many :conversations, through: :messages, source: :commentable, source_type: 'Message'
+  has_many :conversations, through: :messages, source: :commentable, source_type: 'Message', dependent: :destroy
 
   has_many :events, dependent: :destroy
 
