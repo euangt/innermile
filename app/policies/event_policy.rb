@@ -5,6 +5,10 @@ class EventPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true 
+  end
+
   def new?
     user.present?
   end
@@ -22,6 +26,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    user.present?
   end
 end

@@ -1,17 +1,9 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2 class="text-center">Your Community Events</h2>
-      <hr>
-      <div id="posts">
-        <% @events.each do |event| %>
-          <div class="post shadow-sm bg-white">
-             <p><%= event.event_name %></p>
-             <p><%= link_to "Edit event", edit_business_event_path(event.business, event) %></p>
-             <p><%= link_to "Delete event", business_event_path(event.business, event), method: :delete %></p>
-           </div>
-        <% end %>
-      </div>
+<div class="container mt-4">
+  <h2 class="text-center">Events in your community</h2>
+  <hr>
+    <div class="cards-events">
+      <% @events.each do |event| %>
+        <%= render partial: 'events/event_card', locals: { event: event } %>
+      <% end %>
     </div>
-  </div>
 </div>

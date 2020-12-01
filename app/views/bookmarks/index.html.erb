@@ -1,8 +1,8 @@
-<div class="container mt-5">
+<div class="container mt-4">
   <p><strong>Bookmarked businesses</strong></p>
-  <%= link_to "All", user_bookmarks_path, class: "category_btn" %>
+  <%= link_to "All", bookmarks_path, class: "category_btn" %>
   <% @categories.each do |category| %>
-    <%= link_to category.name, user_bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
+    <%= link_to category.name, bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
   <% end %>
   <div id="list">
     <div class="row flex-row flex-nowrap" id="list-items">
@@ -19,19 +19,37 @@
     <p>You have no bookmark! Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
     <% end %>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
-      <hr>
-        <% if @posts %>
+  <br><br>
+
+  <div class="d-flex">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
+        <hr>
+          <% if @posts %>
+            <div class="container">
+              <% @posts.each do |post| %>
+                <div class="post shadow-sm bg-white">
+                  <%= render partial: 'posts/post', locals: { post: post } %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+      <div class="col-6">
+        <p class="text-center"><strong>Recent Events from your bookmarked businesses</strong></p>
+        <hr>
+        <% if @events %>
           <div class="container">
-            <% @posts.each do |post| %>
+            <% @events.each do |event| %>
               <div class="post shadow-sm bg-white">
-                <%= render partial: 'posts/post', locals: { post: post } %>
+                <%= render partial: 'events/event_card', locals: { event: event } %>
               </div>
             <% end %>
           </div>
         <% end %>
+      </div>
     </div>
   </div>
+
 </div>

@@ -4,16 +4,7 @@ class BookmarkPolicy < ApplicationPolicy
       scope.all
     end
   end
-
-  def new?
-    true
-  end
-
-  def create?
-    true
-  end
-
-  def destroy?
-    user == record.user
-  end
+    def create?
+      user == record.user
+    end
 end
