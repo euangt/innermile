@@ -1,8 +1,14 @@
 .banner-event {
   background-color: white;
-  height: 32vh;
+  height: 24vh;
   border-radius: 8px;
   position: relative;
+
+  .btn.btn-flat {
+    position: absolute;
+    right: 2%;
+    bottom: 8%;
+  }
 
   h2 {
     font-size: 32px;
@@ -54,20 +60,22 @@
 .event-body {
   display: flex;
   justify-content: space-between;
-  margin: 12px;
+  margin-top: 12px;
 
   .event-details {
-    flex-grow: 2;
     padding: 12px;
+
+    h4 {
+      margin: 0;
+    }
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
     .event-map {
         margin-top: 24px;
       }
   }
   .event-side {
-    flex-grow: 1;
 
     .event-image {
       margin: 12px;
@@ -87,6 +95,7 @@
       width: 400px;
       margin-bottom: 24px;
       background-color: white;
+      border: 1px solid rgba($inner-green, 0.5);
       // box-shadow: 0 0 12px rgba(0,0,0,0.1);
 
       border-radius: 12px;
