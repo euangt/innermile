@@ -2,6 +2,22 @@ class EventsController < ApplicationController
   before_action :find_business, only: [:new, :create, :edit, :update, :destroy]
   def index
     @events = policy_scope(Event)
+    @user = current_user
+    @event_markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        id: event.id
+      }
+    end
+    if current_user
+      @home_marker =
+       {
+          lat: @user.latitude,
+          lng: @user.longitude,
+          image_url: helpers.asset_url('user_pin_red.png')
+        }
+    end
   end
 
   def new
@@ -12,6 +28,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event
+    raise
   end
 
   def create
