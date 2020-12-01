@@ -12,9 +12,9 @@
   </div>
   <div>
   <% if event.event_image.attached?  %>
-    <div class="img-event img-fluid" style="background-size: cover; background-image: linear-gradient(rgba(38, 103, 120,0.3),rgba(38, 103, 120,0.2), url('<%= cl_image_tag event.event_image.key %>');"></div>
+    <div class="img-event img-fluid" style="background-size: cover; background-image: linear-gradient(rgba(38, 103, 120,0.2),rgba(38, 103, 120,0.5)), url('<%= cl_image_path event.event_image.key %>');"></div>
   <% else %>
-    <div class="img-event img-fluid" style="background-size: cover; background-image: linear-gradient(rgba(38, 103, 120,0.3),rgba(38, 103, 120,0.2)), url(https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70);"></div>
+    <div class="img-event img-fluid" style="background-size: cover; background-image: linear-gradient(rgba(38, 103, 120,0.2),rgba(38, 103, 120,0.5)), url(https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70);"></div>
   <% end %>
   </div>
   <div class="card-body">
