@@ -159,43 +159,6 @@
           <p><em><%= @business.email %></em></p>
           <a><em><%= @business.website_url %></em></a>
         </div>
-        <!-- Chat -->
-        <div id="Chat-Box" class="box">
-          <% if @business.owner?(current_user) %>
-            <% @business.conversations.each do |conversation| %>
-            <%= render "conversations/chat", business: @business, conversation: conversation, message: Message.new %>
-            <% end %>
-          <% else %>
-          <%= render "conversations/chat", business: @business, conversation: @conversation, message: Message.new %>
-        <% end %>
-        </div>
-        <script type="text/javascript">
-          function changeTabDisplay(evt, tabName) {
-            // Declare all variables
-            var i, tabcontent, tablinks;
-
-            // Get all elements with class="tabcontent" and hide them
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-              tabcontent[i].style.display = "none";
-            }
-            const boxes = document.getElementsByClassName("box")
-            for (i = 0; i < boxes.length; i++) {
-              boxes[i].style.display = "none";
-            }
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-              tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-
-            // Show the current tab, and add an "active" class to the button that opened the tab
-            document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
-            document.getElementById(`${tabName}-Box`).style.display = "block";
-            }
-       </script>
-        </div>
         <!-- Events -->
         <div id= "Event-Box" class= "box">
           <%= link_to "add event", new_business_event_path(@business)  %>
@@ -220,12 +183,17 @@
 
         </div>
         <!-- Chat -->
-        <div id= "Chat-Box" class= "box">
-          <%= render "conversations/show" %>
+        <div id="Chat-Box" class="box">
+          <% if @business.owner?(current_user) %>
+            <% @business.conversations.each do |conversation| %>
+            <%= render "conversations/chat", business: @business, conversation: conversation, message: Message.new %>
+            <% end %>
+          <% else %>
+          <%= render "conversations/chat", business: @business, conversation: @conversation, message: Message.new %>
+        <% end %>
         </div>
 
       </div> <!-- end of post body -->
-
       <script type="text/javascript">
         function changeTabDisplay(evt, tabName) {
           // Declare all variables
