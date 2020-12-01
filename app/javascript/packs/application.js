@@ -27,7 +27,8 @@ require("@rails/actiontext")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-import { fullHeight } from '../components/sidebar'
+// import { fullHeight } from '../components/sidebar';
+import { showInfoBusinessOnHover } from '../components/info_business';
 //import {changeTabDisplay} from '../components/tab'
 import {initConversationCable} from '../channels/conversation_channel'
 
@@ -41,7 +42,3 @@ document.addEventListener('turbolinks:load', () => {
   //fullHeight();
   initConversationCable();
 });
-
-
-require("trix")
-require("@rails/actiontext")

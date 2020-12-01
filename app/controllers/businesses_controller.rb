@@ -21,7 +21,8 @@ class BusinessesController < ApplicationController
         {
           lat: business.latitude,
           lng: business.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { business: business })
+          infoWindow: render_to_string(partial: "info_window", locals: { business: business }),
+          id: business.id
         }
       end
       if current_user
