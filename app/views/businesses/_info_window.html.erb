@@ -1,4 +1,7 @@
 <div class="business-<%= business.id %>">
-  <h2><%= link_to business.name, business_path(business) %></h2>
-  <p><%= business.address %></p>
+  <div class="business-card-index">
+   <!--  <img <#%= cl_image_tag business.avatar.key, width: 240, height: 240, class: "info_window_img"%>> -->
+    <h2><%= link_to business.name, business_path(business) %></h2>
+    <p><%= business.address %></p>
+  </div>
 </div>
