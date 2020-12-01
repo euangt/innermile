@@ -5,7 +5,7 @@ class MessagePolicy < ApplicationPolicy
     end
   end
 
-   def create?
+  def create?
     user == record.user
   end
 end
