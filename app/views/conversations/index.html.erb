@@ -1,26 +1,40 @@
-<div class="container col-6">
-  <div class="messages">
-    <% if commentable_type = "User" %>
-    <h2>Your Chats with businesses</h2>
-    <div class= "row justify-content-center">
-      <% @conversations.each do |conversation| %>
-        <%= link_to conversation.business.name, conversations_path %>
-        <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div>
 
-<div class="container col-6">
-  <div class="messages">
-    <% if commentable_type = "Business" %>
-    <h2>Your Chats with your customers</h2>
-    <div class= "row justify-content-center">
-      <% @conversations.each do |conversation| %>
-        <%= link_to conversation.user.username, business_conversations_path(conversation.business) %>
-      <% end %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true">User</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false">Business</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+    <div class="container col-6">
+      <div class="messages">
+        <% if commentable_type = "User" %>
+        <h2>Your Chats with businesses</h2>
+        <div class= "row justify-content-center">
+          <% @conversations.each do |conversation| %>
+            <%= link_to conversation.business.name, conversations_path %>
+            <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+</div>
+  </div>
+  <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+    <div class="container col-6">
+      <div class="messages">
+        <% if commentable_type = "Business" %>
+        <h2>Your Chats with your customers</h2>
+        <div class= "row justify-content-center">
+          <% @conversations.each do |conversation| %>
+            <%= link_to conversation.user.first_name, business_conversations_path(conversation.business) %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <% end %>
   </div>
 </div>
