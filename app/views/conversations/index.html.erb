@@ -1,0 +1,25 @@
+<div class="container col-6">
+  <div class="messages">
+    <% if commentable_type = "User" %>
+    <h2>Your Chats with businesses</h2>
+    <div class= "row justify-content-center">
+      <% @conversations.each do |conversation| %>
+        <%= link_to conversation.business.name, conversations_path %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container col-6">
+  <div class="messages">
+    <% if commentable_type = "Business" %>
+    <h2>Your Chats with your customers</h2>
+    <div class= "row justify-content-center">
+      <% @conversations.each do |conversation| %>
+        <%= link_to conversation.user.username, business_conversations_path(conversation.business) %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
