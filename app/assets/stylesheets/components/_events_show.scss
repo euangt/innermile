@@ -1,12 +1,12 @@
 .banner-event {
   background-color: white;
-  height: 24vh;
+  height: 28vh;
   border-radius: 8px;
   position: relative;
 
   .btn.btn-flat {
     position: absolute;
-    right: 2%;
+    right: 3%;
     bottom: 8%;
   }
 
@@ -63,10 +63,11 @@
   margin-top: 12px;
 
   .event-details {
-    padding: 12px;
+    margin: 24px;
 
     h4 {
-      margin: 0;
+      margin: 0 0 12px 0;
+      color: rgba(black, 0.5);
     }
     p {
       font-size: 18px;
@@ -75,25 +76,23 @@
         margin-top: 24px;
       }
   }
-  .event-side {
-
-    .event-image {
-      margin: 12px;
-      // box-shadow: 0 0 12px rgba(0,0,0,0.1);
-      img {
-        width: 400px;
-        height: 480px;
-        border-radius: 12px;
-        object-fit: cover;
-      }
+  .event-image {
+    margin-top: 18px;
+    // box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    img {
+      width: 100%;
+      height: 360px;
+      border-radius: 12px;
+      object-fit: cover;
     }
   }
-}
+  .event-side {
+
     .event-data {
       margin: 12px;
-      padding: 24px;
-      width: 400px;
-      margin-bottom: 24px;
+      padding: 18px;
+      width: 300px;
+      margin-bottom: 18px;
       background-color: white;
       border: 1px solid rgba($inner-green, 0.5);
       // box-shadow: 0 0 12px rgba(0,0,0,0.1);
@@ -112,5 +111,13 @@
         color: rgba(black, 0.5);
       }
     }
+
+    .event-map {
+      padding: 12px;
+    }
+
+  }
+}
+
 
 
