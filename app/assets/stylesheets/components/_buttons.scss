@@ -13,19 +13,20 @@
 }
 
 .btn-ghost {
-  color: $inner-red;
-  border: 1px solid $inner-red;
+  color: lighten($inner-green, 70%);
+  border: 2px solid lighten($inner-green, 70%);
   padding: 8px 24px;
   margin-top: 4px;
   border-radius: 8px;
-  font-weight: lighter;
+  font-weight: 500;
   opacity: 0.9;
   transition: opacity 0.3sec ease;
   display: inline-block;
 }
 
 .btn-ghost:hover {
-  color: #f57871;
+  color: lighten($inner-green, 50%);
+  border: 2px solid lighten($inner-green, 50%);
   opacity: 1;
 }
 
