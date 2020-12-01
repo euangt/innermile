@@ -15,7 +15,6 @@
           <h2>Your Chats with businesses</h2>
           <div class= "row justify-content-center">
             <% @conversations.each do |conversation| %>
-              <p><%= link_to conversation.business.name, conversations_path %></p>
               <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
             <% end %>
           </div>
