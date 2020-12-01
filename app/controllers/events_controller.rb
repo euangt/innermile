@@ -28,7 +28,6 @@ class EventsController < ApplicationController
           image_url: helpers.asset_url('user_pin_red.png')
         }
     end
-    raise
   end
 
   def create
