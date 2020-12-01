@@ -27,7 +27,7 @@
                 </div>
                 <div class="media-body">
                   <h4 class="m-0"><%= link_to post.business.name, business_path(post.business)%></h4>
-                  <small><span><i class="fa fa-map-pin mr-1" aria-hidden="true"></i><%= post.business.address %> </span></small>
+                  <small><span><i class="fa fa-map-pin mr-1" aria-hidden="true"></i><%= post.business.address[0...-15] %> </span></small>
                   <small><span><i class="far fa-clock mr-1" aria-hidden="true"></i><%= time_ago_in_words(post.created_at) %> ago</span></small>
                 </div>
               </div>
