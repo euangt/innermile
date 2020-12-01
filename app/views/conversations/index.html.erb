@@ -26,7 +26,7 @@
     <div class="container col-6">
       <div class="messages">
         <% if commentable_type = "Business" %>
-          <h2>Your Chats with your customers</h2>
+          <h2>Customer Enquiries</h2>
           <div class= "row justify-content-center">
             <% @conversations.each do |conversation| %>
             <p><%= link_to conversation.user.first_name, business_conversations_path(conversation.business) %></p>
