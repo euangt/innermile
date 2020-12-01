@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-4">
   <p><strong>Bookmarked businesses</strong></p>
   <%= link_to "All", bookmarks_path, class: "category_btn" %>
   <% @categories.each do |category| %>
@@ -39,6 +39,15 @@
       <div class="col-6">
         <p class="text-center"><strong>Recent Events from your bookmarked businesses</strong></p>
         <hr>
+        <% if @events %>
+          <div class="container">
+            <% @events.each do |event| %>
+              <div class="post shadow-sm bg-white">
+                <%= render partial: 'events/event_card', locals: { event: event } %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
