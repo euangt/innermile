@@ -21,7 +21,8 @@ class BusinessesController < ApplicationController
         {
           lat: business.latitude,
           lng: business.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { business: business })
+          infoWindow: render_to_string(partial: "info_window", locals: { business: business }),
+          id: business.id
         }
       end
       if current_user
@@ -55,8 +56,8 @@ class BusinessesController < ApplicationController
   def show
     @message = Message.new
     find_business
-    @conversation = current_user.conversations.find_or_create_by(business: @business)
     if current_user
+      @conversation = current_user.conversations.find_or_create_by(business: @business)
       @user = current_user
       @bookmark = @user.bookmarks.where(business_id: @business.id).first
     end

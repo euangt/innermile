@@ -1,4 +1,4 @@
-<div class="card-business">
+<div class="card-business" data-business="<%= business.id %>">
   <% if business.avatar.attached? %>
     <%= cl_image_tag business.avatar.key %>
   <% else %>

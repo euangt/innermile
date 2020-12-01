@@ -1,2 +1,4 @@
-<h2><%= link_to business.name, business_path(business) %></h2>
-<p><%= business.address %></p>
+<div class="business-<%= business.id %>">
+  <h2><%= link_to business.name, business_path(business) %></h2>
+  <p><%= business.address %></p>
+</div>

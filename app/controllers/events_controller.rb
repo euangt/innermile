@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     authorize @event
   end
 
-  def show 
+  def show
     @event = Event.find(params[:id])
     authorize @event
   end
@@ -35,8 +35,8 @@ class EventsController < ApplicationController
     authorize @event
     if @event.update(event_params)
       redirect_to business_path(@business)
-    else  
-      render :edit 
+    else
+      render :edit
     end
   end
 
@@ -47,13 +47,13 @@ class EventsController < ApplicationController
     redirect_to business_path(@business, anchor: "recent_posts")
   end
 
-  private 
+  private
 
   def find_business
     @business = Business.find(params[:business_id])
   end
 
   def event_params
-    params.require(:event).permit(:event_name, :description, :business_id, :time, :date, :location)
+    params.require(:event).permit(:event_name, :description, :business_id, :time, :date, :location, :event_image)
   end
 end
