@@ -213,6 +213,18 @@
   .post-base {
     display: none;
   }
+  .float-right {
+    display: none;
+  }
+}
+
+@media(max-width: 800px) {
+  .post-base {
+    display: none;
+  }
+  .float-right {
+    display: none;
+  }
   .media-body {
     -ms-flex: 1;
     flex: 1;
@@ -230,19 +242,17 @@
       display: none;
     }
   }
-  .float-right {
-    display: none;
-  }
 }
+
 @media(max-width: 720px) {
   .cards-events {
    grid-template-columns: 1fr;
   }
   .media {
 
-  img{
-    display: none;
+    img{
+      display: none;
+    }
   }
-}
 }
 
