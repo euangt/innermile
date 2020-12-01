@@ -28,7 +28,7 @@
       </li>
       <% end %>
       <li>
-        <a href="#"><i class="far fa-envelope mr-3"></i>Inbox</a>
+         <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>Inbox'), conversations_path %>
       </li>
       <li>
         <%= link_to raw('<i class="far fa-edit mr-3"></i>Create Post'), business_path(current_user.business_ids) %>
