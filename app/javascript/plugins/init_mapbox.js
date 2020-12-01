@@ -42,7 +42,7 @@ const initMapbox = () => {
       // select the business card div by the dataset it has (we should refactor to use an ID)
       const businessCard = document.querySelector(`[data-business="${marker.id}"]`)
       if (businessCard) {
-        businessCard.addEventListener('mouseover', (event) => {
+        businessCard.addEventListener('mouseenter', (event) => {
           const id = event.currentTarget.dataset.business
           const markerDiv = document.getElementById(`marker-${id}`);
           markerDiv.click()
