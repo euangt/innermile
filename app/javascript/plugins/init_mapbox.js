@@ -25,6 +25,7 @@ const initMapbox = () => {
       container: 'index_map',
       style: 'mapbox://styles/bgordon/ckhzzm3wt20m419mv7cs8k3lb',
       minZoom: 14,
+      pitch: 50,
 
     });
     const businessMarkers = JSON.parse(indexMapElement.dataset.markers);
@@ -40,22 +41,46 @@ const initMapbox = () => {
       mapboxMarker.getElement().id = `marker-${marker.id}`
       // select the business card div by the dataset it has (we should refactor to use an ID)
       const businessCard = document.querySelector(`[data-business="${marker.id}"]`)
-      businessCard.addEventListener('mouseover', (event) => {
-        const id = event.currentTarget.dataset.business
-        const markerDiv = document.getElementById(`marker-${id}`);
-        markerDiv.click()
+      if (businessCard) {
+        businessCard.addEventListener('mouseover', (event) => {
+          const id = event.currentTarget.dataset.business
+          const markerDiv = document.getElementById(`marker-${id}`);
+          markerDiv.click()
 
-        // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
-        map.flyTo({
-          center: [
-            marker.lng,
-            marker.lat
-          ],
-          speed: 0.3,
-          essential: true
-        });
+          // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
+          map.flyTo({
+            center: [
+              marker.lng,
+              marker.lat
+            ],
+            speed: 0.3,
+            essential: true
+          });
 
-      })
+        })
+
+      }
+
+      // const postCard = document.querySelector(`[data-business="${marker.id}"]`)
+      // if (postCard) {
+      //   postCard.addEventListener('mouseover', (event) => {
+      //     const id = event.currentTarget.dataset.business
+      //     const markerDiv = document.getElementById(`marker-${id}`);
+      //     markerDiv.click()
+
+      //     // this was taken from: https://docs.mapbox.com/mapbox-gl-js/example/flyto/
+      //     map.flyTo({
+      //       center: [
+      //         marker.lng,
+      //         marker.lat
+      //       ],
+      //       speed: 0.2,
+      //       essential: true
+      //     });
+
+      //   })
+
+      // }
 
     });
 
