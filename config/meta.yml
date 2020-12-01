@@ -1,0 +1,5 @@
+meta_product_name: "Innermile"
+meta_title: "Innermile - Discover and Explore Your Local World"
+meta_description: "Connect with the community from within a mile of your home"
+meta_image: "cover.png" # should exist in `app/assets/images/` - Our home image is a map...
+#twitter_account: "@product_twitter_account"   # required for Twitter Cards
