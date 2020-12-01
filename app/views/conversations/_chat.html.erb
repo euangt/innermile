@@ -1,8 +1,6 @@
-<% if current_user %>
-<% unless @business.user == current_user %>
-<h1>Conversation with: <%= @business.name %></h1>
-<div id="messages" data-conversation-id="<%= @conversation.id %>">
-  <% @conversation.messages.each do |message| %>
+<h1>Conversation with: <%= business.name %></h1>
+<div id="messages" data-conversation-id="<%= conversation.id %>">
+  <% conversation.messages.each do |message| %>
     <div class="message-container" id="message-<%= message.id %>">
       <i class="author">
         <% if message.commentable_type == "User" %>
@@ -17,9 +15,7 @@
   <% end %>
 </div>
 
-<%= simple_form_for [ @conversation, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@business.name}" %>
+<%= simple_form_for [ conversation, message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message ##{business.name}" %>
   <%= f.button :submit, "Send Message", class: "btn btn-flat", remote: true %>
-<% end %>
-<% end %>
 <% end %>
