@@ -54,6 +54,7 @@ const initMapbox = () => {
               marker.lat
             ],
             speed: 0.3,
+            offset: [165, 0],
             essential: true
           });
 
