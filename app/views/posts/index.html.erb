@@ -1,15 +1,16 @@
 <div class="d-flex mt-2">
   <div class="posts">
     <h2 class="text-center">Your Community Feed</h2>
-    <hr>
-    <ul class="list-inline tabs-underlined">
-      <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'Posts')">
-        Posts
-      </li>
-      <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Events')">
-        Events
-      </li>
-    </ul>
+    <div class="row justify-content-center">
+      <ul  class="list-inline tabs-underlined">
+        <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'Posts')">
+          Posts
+        </li>
+        <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Events')">
+          Events
+        </li>
+      </ul>
+    </div>
     <div id="Posts" class="tabcontent">
     </div>
     <div id="Events" class="tabcontent">
