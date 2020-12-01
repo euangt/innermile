@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
   include Pundit
 
   # Pundit: white-list approach.
@@ -13,9 +16,6 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
-  def default_url_options
-    { host: ENV["DOMAIN"] || "localhost:3000" }
-  end
 
   private
 
