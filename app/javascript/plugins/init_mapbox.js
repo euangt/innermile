@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  markers.forEach(marker => bounds.extend([marker.lng, marker.lat]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
@@ -33,9 +33,9 @@ const initMapbox = () => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
       const mapboxMarker = new mapboxgl.Marker()
-                                        .setLngLat([ marker.lng, marker.lat ])
-                                        .setPopup(popup)
-                                        .addTo(map);
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(map);
       // add an ID to the mapbox marker
       // this as taken from: https://docs.mapbox.com/mapbox-gl-js/api/markers/#marker#getelement
       mapboxMarker.getElement().id = `marker-${marker.id}`
@@ -96,11 +96,12 @@ const initMapbox = () => {
       element.style.height = '43px';
 
       new mapboxgl.Marker(element)
-          .setLngLat([ homeMarker.lng, homeMarker.lat ])
-          .addTo(map);
+        .setLngLat([homeMarker.lng, homeMarker.lat])
+        .addTo(map);
     }
 
     fitMapToMarkers(map, businessMarkers);
+
   }
 };
 

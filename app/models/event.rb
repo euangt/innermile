@@ -7,6 +7,8 @@ class Event < ApplicationRecord
   validates :event_name, presence: true
 
   has_one_attached :event_image
-
   has_rich_text :description
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
