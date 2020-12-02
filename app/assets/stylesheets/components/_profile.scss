@@ -12,7 +12,7 @@
     .banner-profile {
       background-size: cover;
       background-position: center;
-      height: 32vh;
+      height: 28vh;
       color: #eee;
       border-radius: 4px;
       padding: 0;
@@ -23,7 +23,7 @@
 
     .media {
       position: absolute;
-      top: 140px;
+      top: 70%;
       right: 5%;
       display: -ms-flexbox;
       display: flex;
@@ -49,14 +49,20 @@
     }
     .bookmark {
       color: $inner-green;
+      margin-top: 4px;
+      h1 {
+        font-size: 30px;
+      }
     }
-  }
 
-  .business-info {
-    margin-left: 32px;
+    }
+}
+
+  .business-name {
+    margin-left: 0;
 
     h3 {
-      font-size: 18px;
+      font-size: 20px;
       color: rgba(black, 0.5);
       font-weight: 300;
     }
@@ -64,18 +70,23 @@
 
   .profile-menu {
     margin-top: 16px;
+    h4 {
+      font-size: 17px;
+    }
   }
-}
 
 .profile-body{
-  padding: 16px;
+  padding: 0px 32px 32px 32px;
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .profile-description {
     padding: 12px;
     margin-bottom: 12px;
+    p {
+      font-size: 17px;
+    }
   }
 
   .profile-images {
@@ -87,10 +98,37 @@
   .owner {
     margin-top: 24px;
     .owner-image{
-
+     margin-top: 18px;
     }
     .owner-content {
       padding: 16px;
+    }
+  }
+
+  .business-data {
+    margin: 18px;
+  }
+
+  .create-post {
+    h2 {
+      color: rgba(black, 0.7);
+    }
+  }
+
+  .post-feed {
+    h1 {
+      color: rgba(black, 0.7);
+    }
+  }
+  .messages {
+    h2 {
+      color: rgba(black, 0.7);
+    }
+  }
+
+  .events-feed {
+    h1 {
+      color: rgba(black, 0.7);
     }
   }
 }
