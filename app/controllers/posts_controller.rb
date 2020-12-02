@@ -40,7 +40,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     authorize @post
-    @business.user = current_user
+    @user = current_user
+    @business.user = @user
     @post.business = @business
     if @post.save
       redirect_to business_path(@business, anchor: "recent_posts")
