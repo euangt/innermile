@@ -13,14 +13,14 @@
       <div class="messages">
         
           <h2>Your Chats with businesses</h2>
-          <% if !@conversations.include?(current_user.businesses) %>
+
             <div class= "row justify-content-center">
               <% @conversations.each do |conversation| %>
                 <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
               <% end %>
             </div>
           
-        <% end %>
+
       </div>
     </div>
   </div>
@@ -29,13 +29,13 @@
       <div class="messages">
         <h2>Customer Enquiries</h2>
         
-        <% if @conversations.include?(current_user.businesses) %>
+
           <div class= "row justify-content-center">
-            <% @conversations.each do |conversation| %>
+            <% @business_conversations.each do |conversation| %>
             <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
             <% end %>
           </div>
-        <% end %>
+
       </div>
 
     </div>

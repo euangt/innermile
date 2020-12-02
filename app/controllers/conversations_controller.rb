@@ -1,6 +1,9 @@
 class ConversationsController < ApplicationController
+  skip_after_action :verify_policy_scoped, only: :index
+
   def index
-    @conversations = policy_scope(Conversation)
+    @conversations = Conversation.where(user: current_user)
+    @business_conversations = Conversation.where(business: current_user.businesses.pluck(:id))
     @messages = current_user.messages
     @all_conversations = Message.all.includes(:businesses) #should be all the conversations a user has
     #this should be done within policy scope
