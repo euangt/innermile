@@ -8,7 +8,8 @@ const fitMapToMarkers = (map, markers) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('home_map');
-  const indexMapElement = document.getElementById('index_map')
+  const indexMapElement = document.getElementById('index_map');
+  const showMapElement = document.getElementById('show_map');
 
 
   if (mapElement) { // only build a map if there's a div#map to inject into
@@ -19,16 +20,39 @@ const initMapbox = () => {
     });
   }
 
+  const businessMarkers = JSON.parse(showMapElement.dataset.markers);
+
+  if (showMapElement) { // only build a map if there's a div#map to inject into
+    mapboxgl.accessToken = showMapElement.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'show_map',
+      style: 'mapbox://styles/bgordon/cki76vhy60dfc19pbadllpuqz'
+    });
+
+
+    businessMarkers.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+      const mapboxMarker = new mapboxgl.Marker()
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
+        .addTo(map);
+      })
+
+  }
+
+
   if (indexMapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = indexMapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'index_map',
-      style: 'mapbox://styles/bgordon/ckhzzm3wt20m419mv7cs8k3lb',
+      style: 'mapbox://styles/bgordon/cki76vhy60dfc19pbadllpuqz',
       minZoom: 14,
       pitch: 50,
 
     });
     const businessMarkers = JSON.parse(indexMapElement.dataset.markers);
+
     businessMarkers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 

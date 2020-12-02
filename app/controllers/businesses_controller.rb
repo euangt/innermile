@@ -25,6 +25,7 @@ class BusinessesController < ApplicationController
           id: business.id
         }
       end
+
       if current_user
         @home_marker =
          {
@@ -61,6 +62,13 @@ class BusinessesController < ApplicationController
       @user = current_user
       @bookmark = @user.bookmarks.where(business_id: @business.id).first
     end
+
+   @markers = [{
+        lat: @business.latitude,
+        lng: @business.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { business: @business }),
+      }]
+
     @post = Post.new
     @posts = @business.posts.order(created_at: :desc)
     authorize @business
