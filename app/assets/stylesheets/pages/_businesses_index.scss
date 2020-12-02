@@ -1,13 +1,19 @@
 .filter-layer {
+  position: absolute;
   z-index: 1000;
-  left: 400px;
-  padding: 16px;
-  // border-radius: 50px;
-  height: 150px;
-  top: 16px;
-  width: 70%;
-  text-align: center;
+  padding: 24px 12px 0px 24px;
+  top: 8px;
+  margin-right: 32px;
+  margin-left: 384px;
+  height: 100px;
+  text-align: left;
   font-family: "Poppins", "sans serif";
   box-shadow: 1px, 1px, 40px, rgba(0,0,0,0.3);
+  // overflow-y: scroll;
   // position: sticky;
+}
+
+.categories {
+
+
 }
