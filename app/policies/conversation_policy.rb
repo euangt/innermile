@@ -1,11 +1,10 @@
 class ConversationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user_id: user.id)
     end
   end
   def show?
-    user == record.user
-    business == record.business.user
+    user == record.user || record.business.user == user
   end
 end
