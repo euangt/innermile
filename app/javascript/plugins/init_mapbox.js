@@ -160,7 +160,7 @@ const initMapbox = () => {
             paint: {
               'line-color': '#3887be',
               'line-width': 5,
-              'line-opacity': 0.75
+              'line-opacity': 0.5
             }
           });
         }
