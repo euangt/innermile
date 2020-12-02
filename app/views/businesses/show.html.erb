@@ -90,6 +90,21 @@
                   <p><strong> Meet <%= @business.owner_name %></strong></p>
                   <p><%= @business.owner_bio %></p>
                 </div>
+                <hr>
+            </div>
+          </div>
+          <!-- <div class="profile-map">
+            <div id="index_map" style="width: 100%; height: 560px; position: sticky; top: 56px;"
+              data-markers="<%= @markers.to_json %>"
+              data-home-marker="<%= @home_marker.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div> -->
+          <hr>
+        </div>
+      <!-- Chat -->
+        <div id="Chat-Box" class="box">
+          <div class="messages">
               </div>
               <div class="row owner-image justify-content-center">
                 <% if @business.owner_photo.attached? %>

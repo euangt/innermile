@@ -1,22 +1,30 @@
 <div class="container mt-4">
   <h2>Conversation with: <%= link_to conversation.business.name, business_path(conversation.business) %></h2>
-  <div class="row justify-content-center">
+
     <div id="messages" data-conversation-id="<%= conversation.id %>">
       <% conversation.messages.each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
-          <i class="author">
-          <% if message.commentable_type == "User" %>
-            <span><%= message.commentable.username %></span>
+          <% if message.conversation.user == current_user %>
+            <div class="justify-content-left">
+              <i class="author">
+              <span>From: <%= message.conversation.user.first_name %></span>
+              <p><%= message.content %></p>
+              <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </i>
+            </div>  
           <% else %>
-            <span><%= message.commentable.name %></span>
+            <div class="justify-content-right">
+              <i class="author">
+              <span>From: <%= message.conversation.user.businesses.first.name %></span>
+              <p><%= message.content %></p>
+              <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+              </i>
+            </div> 
           <% end %>
-          <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </i>
-          <p><%= message.content %></p>
         </div>
       <% end %>
+      
     </div>
-  </div>
 </div>
 <div class="container mt-4">
 <%= simple_form_for [ conversation, message ], remote: true do |f| %>
