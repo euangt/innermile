@@ -57,9 +57,9 @@ class BusinessesController < ApplicationController
   def show
     @message = Message.new
     find_business
+    @user = current_user
     if current_user
       @conversation = current_user.conversations.find_or_create_by(business: @business)
-      @user = current_user
       @bookmark = @user.bookmarks.where(business_id: @business.id).first
     end
 
