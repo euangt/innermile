@@ -2,13 +2,17 @@
   <div class="container">
     <div class="row justify-content-center">
     <div class="events-container col-10 shadow-lg bg-white rounded">
-        <div class="banner-event">
-          <h4><%= link_to 'Bookmark Event', business_event_path(@event.business, @event), method: :post, remote: true, class: "btn btn-flat" %></h4>
+      <% if @event.event_image.attached? %>
+        <div class="banner-event" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.event_image.key %>');">
+      <% else %>
+        <div class="banner-event" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);">
+      <% end %>
+          <h4><%= link_to 'Bookmark Event', business_event_path(@event.business, @event), method: :post, remote: true, class: "btn btn-ghost" %></h4>
           <div class="container event-header">
-            <h3><%= @event.date.strftime("%B %d") %>, <%= @event.time %></h3>
+            <h3><%= @event.date.strftime("%B %d, %Y") %> <%= @event.time %></h3>
             <h2><%= @event.event_name %></h2>
             <div class="row event-host d-flex align-items-center">
-              <div class="media mr-2">
+              <div class="media mr-3">
                 <%= cl_image_tag @event.business.avatar.key, class: "business-avatar rounded-circle" %>
               </div>
               <div class="host-details">
@@ -53,5 +57,5 @@
       </div>
     </div>
   </div>
-      <%= link_to '', businesses_path, class: 'background-link'  %>
+  <%= link_to '', businesses_path, class: 'background-link'  %>
 </div>

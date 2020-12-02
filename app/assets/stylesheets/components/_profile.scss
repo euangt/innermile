@@ -1,4 +1,14 @@
-
+.profile-container {
+  margin-top: 5vh;
+  width: 64vw;
+  display: block;
+  position: absolute;
+  overflow: scroll;
+  height: 90%;
+  z-index: 100;
+  border-radius: 12px;
+  border: 1px solid rbga($inner-green,0.7);
+}
 .profile-top {
 
   .profile-banner {
@@ -12,7 +22,7 @@
     .banner-profile {
       background-size: cover;
       background-position: center;
-      height: 28vh;
+      height: 236px;
       color: #eee;
       border-radius: 4px;
       padding: 0;
@@ -71,7 +81,7 @@
   .profile-menu {
     margin-top: 16px;
     h4 {
-      font-size: 17px;
+      font-size: 16px;
     }
   }
 
@@ -82,11 +92,12 @@
   }
 
   .profile-description {
-    padding: 12px;
+    padding: 24px;
     margin-bottom: 12px;
-    p {
-      font-size: 17px;
-    }
+    position: relative;
+      p {
+        font-size: 17px;
+      }
   }
 
   .profile-images {
@@ -101,7 +112,10 @@
      margin-top: 18px;
     }
     .owner-content {
-      padding: 16px;
+      padding: 24px;
+    }
+    p {
+      font-size: 17px;
     }
   }
 
@@ -110,6 +124,7 @@
   }
 
   .create-post {
+    padding-top: 32px;
     h2 {
       color: rgba(black, 0.7);
     }
@@ -131,6 +146,11 @@
       color: rgba(black, 0.7);
     }
   }
+
+  .recent-post {
+    padding-top: 36px;
+  }
+
 }
 
 

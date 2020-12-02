@@ -2,9 +2,10 @@
   background-image: asset-url('cover.png');
   height: 100%;
   width: auto;
-  object-fit: cover;
+  background-size: cover;
   z-index: 1;
-  position: relative;
+  position: sticky;
+
 }
 
 .background-link {
