@@ -1,6 +1,14 @@
+.events-container {
+  margin: 36px;
+  position: relative;
+  background-color: red;
+  z-index: 100;
+}
+
 .banner-event {
   background-color: white;
   height: 28vh;
+  padding-top: -36px;
   border-radius: 8px;
   position: relative;
 

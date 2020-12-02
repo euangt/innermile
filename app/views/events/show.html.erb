@@ -1,7 +1,7 @@
 <div class="background-map">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-10 shadow-lg bg-white rounded">
+    <div class="events-container col-10 shadow-lg bg-white rounded">
         <div class="banner-event">
           <h4><%= link_to 'Bookmark Event', business_event_path(@event.business, @event), method: :post, remote: true, class: "btn btn-flat" %></h4>
           <div class="container event-header">
@@ -53,4 +53,5 @@
       </div>
     </div>
   </div>
+      <%= link_to '', businesses_path, class: 'background-link'  %>
 </div>
