@@ -90,7 +90,8 @@ class PostsController < ApplicationController
       start_coord = [user.longitude, user.latitude]
       end_coord = [business.longitude, business.latitude]
       distance = Geocoder::Calculations.distance_between(start_coord, end_coord)
-      distance = distance.round(2)
+      distance = distance * 18
+      distance = distance.round(0)
     end
   end
 end
