@@ -2,7 +2,6 @@
   <div class="container mt-3 ">
     <div class="row justify-content-center">
       <div class="col-10 shadow-lg mb-5 bg-white rounded">
-
         <div class="profile-top">
           <div class="profile-banner">
             <div class="bookmark-button">
@@ -163,7 +162,7 @@
                   <p class="text-center">----------</p>
                   <%= simple_form_for([@business, @post]) do |f| %>
                     <div class="form-inputs">
-                      <%= f.rich_text_area :post_text %>
+                      <%= f.rich_text_area :content %>
                       <%= f.input :post_image, as: :file %>
                     </div>
                     <div class="form-actions mb-2">
