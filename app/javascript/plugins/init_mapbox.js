@@ -168,7 +168,7 @@ const initMapbox = () => {
         },
         paint: {
           'circle-radius': 10,
-          'circle-color': '#3887be'
+          'circle-color': '#266778'
         }
       });
       // this is where the code from the next step will go
