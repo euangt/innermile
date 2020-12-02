@@ -6,7 +6,7 @@
         <div class="profile-banner">
           <div class="bookmark-button">
             <% if current_user %>
-              <% if !@user.businesses.include?(@business) %>
+              <% if !current_user.businesses.include?(@business) %>
                 <% if !@user.bookmarked_businesses.include?(@business) %>
                   <h4><%= link_to 'Bookmark this business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
                 <% else %>
@@ -38,7 +38,7 @@
           </div>
           <div class="bookmark">
             <% if current_user %>
-              <% if !@user.businesses.include?(@business) %>
+              <% if !current_user.businesses.include?(@business) %>
                 <% if !@user.bookmarked_businesses.include?(@business) %>
                   <h1><%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %></h1>
                 <% else %>
@@ -126,7 +126,7 @@
             </div>
           </div>
           <div class="profile-map">
-            <div id="index_map" style="width: 100%; height: 560px; position: sticky; top: 56px;"
+            <div id="show_map" style="width: 100%; height: 560px; position: sticky; top: 56px;"
               data-markers="<%= @markers.to_json %>"
               data-home-marker="<%= @home_marker.to_json %>"
               data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -160,13 +160,13 @@
               <% if current_user == @business.user %>
                 <h2 class="text-center">Create a post</h2>
                 <p class="text-center">----------</p>
-                <%= simple_form_for([@business, @post]) do |f| %>
+                <%= simple_form_for([@business, @post], method: :post,  remote: true) do |f| %>
                   <div class="form-inputs">
-                    <%= f.rich_text_area :post_text %>
+                    <%= f.rich_text_area :content %>
                     <%= f.input :post_image, as: :file %>
                   </div>
                   <div class="form-actions mb-2">
-                    <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
+                    <%= f.button :submit, "Create Post", class: "btn btn-flat" %>
                   </div>
                   <hr>
                 <% end %>
