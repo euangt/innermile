@@ -36,6 +36,7 @@ p {
 
 a {
   text-decoration: none;
+  outline: none;
   color: rgba(#00AD7C, 0.8);
 
   &:hover{
@@ -46,4 +47,11 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

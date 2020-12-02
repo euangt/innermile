@@ -18,7 +18,8 @@ class PostsController < ApplicationController
       {
         lat: business.latitude,
         lng: business.longitude,
-        infoWindow: render_to_string(partial: "businesses/info_window", locals: { business: business })
+        infoWindow: render_to_string(partial: "businesses/info_window", locals: { business: business }),
+        id: business.id
       }
     end
     if current_user
@@ -39,7 +40,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     authorize @post
-    @business.user = current_user
+    @user = current_user
+    @business.user = @user
     @post.business = @business
     if @post.save
       redirect_to business_path(@business, anchor: "recent_posts")

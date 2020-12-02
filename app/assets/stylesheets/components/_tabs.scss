@@ -10,7 +10,10 @@
   opacity: .4;
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 4px solid transparent;
+  border-bottom: 2px solid $inner-grey;
+  h4 {
+    margin-bottom: 0;
+  }
 }
 
 .tabs-underlined .tab-underlined.active {

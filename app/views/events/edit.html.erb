@@ -1,18 +1,24 @@
-<div>
-  <h2 class="text-center">Edit an event</h2>
-    <p class="text-center">----------</p>
-      <%= simple_form_for([@business, @event]) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :event_name %>
-          <%= f.rich_text_area :description %>
-          <%= f.input :time %>
-          <%= f.input :date %>
-          <%= f.input :location %>
-          <%= f.input :event_image, as: :file %>
-        </div>
-        <div class="form-actions mb-2">
-          <%= f.button :submit, "Add event", class: "btn btn-flat" %>
-        </div>
-      <hr>
-    <% end %>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="container-edit">
+        <h2 class="text-center">Edit an event</h2>
+          <p class="text-center">----------</p>
+            <%= simple_form_for([@business, @event]) do |f| %>
+              <div class="form-inputs">
+                <%= f.input :event_name %>
+                <%= f.rich_text_area :description %>
+                <%= f.input :time %>
+                <%= f.input :date %>
+                <%= f.input :location %>
+                <%= f.input :event_image, as: :file %>
+              </div>
+              <div class="form-actions mb-2">
+                <%= f.button :submit, "Update event", class: "btn btn-flat" %>
+              </div>
+            <hr>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>

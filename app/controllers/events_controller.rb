@@ -12,6 +12,22 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     authorize @event
+    @user = current_user
+    @marker = 
+      {
+        lat: @event.latitude,
+        lng: @event.longitude,
+        id: @event.id
+      }
+
+    if current_user
+      @home_marker =
+       {
+          lat: @user.latitude,
+          lng: @user.longitude,
+          image_url: helpers.asset_url('user_pin_red.png')
+        }
+    end
   end
 
   def create
@@ -34,7 +50,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     if @event.update(event_params)
-      redirect_to business_path(@business)
+      redirect_to business_event_path(@event.business, @event)
     else
       render :edit
     end
