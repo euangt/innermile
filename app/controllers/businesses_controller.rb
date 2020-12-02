@@ -18,10 +18,11 @@ class BusinessesController < ApplicationController
       end
 
       @markers = @businesses.geocoded.map do |business|
+        distance = find_distance(@user, business)
         {
           lat: business.latitude,
           lng: business.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { business: business }),
+          infoWindow: render_to_string(partial: "info_window", locals: { business: business, distance: distance }),
           id: business.id
         }
       end
@@ -63,10 +64,11 @@ class BusinessesController < ApplicationController
       @bookmark = @user.bookmarks.where(business_id: @business.id).first
     end
 
-   @markers = [{
+    distance = find_distance(@user, @business)
+    @markers = [{
         lat: @business.latitude,
         lng: @business.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { business: @business }),
+        infoWindow: render_to_string(partial: "info_window", locals: { business: @business, distance: distance }),
       }]
 
     @post = Post.new
@@ -103,5 +105,14 @@ class BusinessesController < ApplicationController
 
   def find_business
     @business = Business.find(params[:id])
+  end
+
+  def find_distance(user, business)
+    if current_user
+      start_coord = [user.longitude, user.latitude]
+      end_coord = [business.longitude, business.latitude]
+      distance = Geocoder::Calculations.distance_between(start_coord, end_coord)
+      distance = distance.round(2)
+    end
   end
 end
