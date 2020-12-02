@@ -81,13 +81,13 @@ const initMapbox = () => {
 
     fitMapToMarkers(map, businessMarkers);
 
-
+    getRoute([13.4004488, 52.5314138]);
     // create a function to make a directions request
     function getRoute(end) {
       // make a directions request using cycling profile
       // an arbitrary start will always be the same
       // only the end or destination will change
-      var start = [52.5241939, 13.3992695]; // Had to move this outside of the getRoute function in order to make the getRoute(start) work on line 146
+      var start = [homeMarker.lng, homeMarker.lat]; // Had to move this outside of the getRoute function in order to make the getRoute(start) work on line 146
       var url = 'https://api.mapbox.com/directions/v5/mapbox/walking/' + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
 
       // make an XHR request https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
@@ -95,6 +95,7 @@ const initMapbox = () => {
       req.open('GET', url, true);
       req.onload = function() {
         var json = JSON.parse(req.response);
+        console.log(json);
         var data = json.routes[0];
         var route = data.geometry.coordinates;
         var geojson = {
@@ -137,13 +138,14 @@ const initMapbox = () => {
         // add turn instructions here at the end
       };
       req.send();
+      console.log("get route is running")
     }
 
     map.on('load', function() {
       // make an initial directions request that
       // starts and ends at the same location
-      var start = [52.5241939, 13.3992695];  // When I add this it "works", which means that the code below is not in the same scope as the code about with 'start' defined
-      getRoute(start);
+      var end = [13.4004488, 52.5314138];  // When I add this it "works", which means that the code below is not in the same scope as the code about with 'start' defined
+      getRoute(end);
 
       // Add starting point to the map
       map.addLayer({
@@ -158,7 +160,7 @@ const initMapbox = () => {
               properties: {},
               geometry: {
                 type: 'Point',
-                coordinates: start
+                coordinates: end
               }
             }
             ]
