@@ -1,6 +1,6 @@
 <div class="container mt-4">
+  <% if current_user %>
   <h2>Conversation with: <%= link_to conversation.business.name, business_path(conversation.business) %></h2>
-
     <div id="messages" data-conversation-id="<%= conversation.id %>">
       <% conversation.messages.each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
@@ -23,12 +23,12 @@
           <% end %>
         </div>
       <% end %>
-      
     </div>
-</div>
-<div class="container mt-4">
-<%= simple_form_for [ conversation, message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Message ##{business.name}" %>
-  <%= f.button :submit, "Send Message", class: "btn btn-flat", remote: true %>
-<% end %>
+    </div>
+    <div class="container mt-4">
+    <%= simple_form_for [ conversation, message ], remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Send #{business.name} a message" %>
+      <%= f.button :submit, "Send Message", class: "btn btn-flat", remote: true %>
+    <% end %>
+  <% end %>
 </div>

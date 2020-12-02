@@ -1,16 +1,12 @@
 <nav id="sidebar" class="active">
-  <div class="menu">
-
-  </div>
   <div class="p-4">
     <ul class="list-unstyled components mb-5">
-      <br><br><br>
+      <br><br>
       <li>
         <%= link_to raw('<i class="fas fa-home mr-3"></i>Home'), businesses_path %>
       </li>
       <li>
         <%= link_to raw('<i class="fas fa-search mr-3"></i>Search'), root_path  %>
-        <!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseResults" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">TESTING BUTTON</a> -->
       </li>
       <% if current_user %>
       <li>
@@ -18,9 +14,6 @@
       </li>
       <li>
         <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>Bookmarks'), bookmarks_path %>
-      </li>
-      <li>
-        <a href="#"><i class="far fa-bell mr-3"></i></i>Notification</a>
       </li>
       <% if current_user.business_owner == true %>
       <li>
@@ -44,8 +37,8 @@
       </li>
     </ul>
     <% end %>
-
-    <div class="footer">
+    <br><br>
+    <div class="footer fixed-bottom p-4">
       <p> About | Usage Guide |<br>Terms of Use |<br>Privacy Policy </p>
       <p>©2020 InnerMile</p>
     </div>
