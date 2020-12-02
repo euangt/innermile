@@ -513,22 +513,25 @@ business28 = Business.create!(
 
 puts "Seeding posts..."
 
+
+post34 = Post.create!(
+  content: "Never underestimate the power of brainstorming! Organize your thoughts into colors and notice how easy it becomes to turn your ideas into action.",
+  business_id: business20.id,
+)
+
 post1 = Post.create!(
   content: "Think it has been too long since your last checkup? Give us a call and arrange your next appointment",
   business_id: business1.id,
 )
-post2 = Post.create!(
-  content: "We all know how much sugar our kids can get through on Halloween, so for all of November we are offering half-price checkups for your little ones",
-  business_id: business1.id,
+post27 = Post.create!(
+  content: "Nothing says Valentines and romance like our Rose leaf candle. Make your night a little more special",
+  business_id: business13.id,
 )
 post3 = Post.create!(
   content: "Don’t wait until the new year to get yourself into shape! Come and drop by for one of our free beginners classes. No experience needed, just positivity and a can-do attitude",
   business_id: business2.id,
 )
-post4 = Post.create!(
-  content: "Meet our newest instructor, Louise! Louise joins us from the national judo association and brings with her a wealth of experience in meditation, yoga and, of course, judo",
-  business_id: business2.id,
-)
+
 post5 = Post.create!(
   content: "Wondering what to get for your significant other this Christmas? We are offering half-price discounts across a range of memberships so why not change someone's life this year, not just their sock collection",
   business_id: business2.id,
@@ -557,6 +560,14 @@ post9 = Post.create!(
   content: "No-shave November changed your life? Want to keep that chin fuzz looking fine? Our team can help keep your facial fur at its best",
   business_id: business5.id,
 )
+post20 = Post.create!(
+  content: "Community alert! All our bread is half-price from now until we close for the day!",
+  business_id: business9.id,
+)
+post4 = Post.create!(
+  content: "Meet our newest instructor, Louise! Louise joins us from the national judo association and brings with her a wealth of experience in meditation, yoga and, of course, judo",
+  business_id: business2.id,
+)
 post10 = Post.create!(
     content: "Hair cuts shouldn’t be a chore; all of ours come with a complimentary beer. So what are you waiting for?",
   business_id: business5.id,
@@ -565,9 +576,13 @@ post11 = Post.create!(
   content: "Presenting the newest addition to our menu, the Thanksgiving burger. Treat yourself to true American gluttony. Don’t wait, it’ll only be here for the next week!",
   business_id: business6.id,
 )
-post12 = Post.create!(
-  content: "We won’t let the newest regulations stop us from bringing you the finest in burger brilliance. Order online for free delivery and even a free drink if you don’t mind collecting it yourself!",
-  business_id: business6.id,
+post15 = Post.create!(
+  content: "Cabin fever setting in after the fifth straight day of working from home? Come join us for our famous happy hour! All beers on tap are half-price, monday to thursday,  5-7! You know it makes sense!!",
+  business_id: business7.id,
+)
+post18 = Post.create!(
+  content: "Our bread is baked fresh each morning so start your morning with the delicious taste of a warm croissant",
+  business_id: business9.id,
 )
 post13 = Post.create!(
   content: "We are committed to reducing our environmental impact so we are proud to introduce you to our new spicy vegan burger, the Temple of Seitan",
@@ -577,57 +592,62 @@ post14 = Post.create!(
   content: "As the cold nights draw-in, come fight the winter chill with us!",
   business_id: business7.id,
 )
-post15 = Post.create!(
-  content: "Cabin fever setting in after the fifth straight day of working from home? Come join us for our famous happy hour! All beers on tap are half-price, monday to thursday,  5-7! You know it makes sense!!",
-  business_id: business7.id,
+post12 = Post.create!(
+  content: "We won’t let the newest regulations stop us from bringing you the finest in burger brilliance. Order online for free delivery and even a free drink if you don’t mind collecting it yourself!",
+  business_id: business6.id,
 )
 post16 = Post.create!(
   content: "Eat-in or takeout? You choose! It’s never been easier to find the finest food France has to offer",
   business_id: business8.id,
 )
-post17 = Post.create!(
-  content: "A new lockdown doesn’t mean you must indulge less? Order online and we will have the richest Beef Bourguignon ready when you are",
-  business_id: business8.id,
+post26 = Post.create!(
+  content: "We believe that the best films should be enjoyed with comfort and indulgence, that’s why all of our screens have sofas and a bar to make every viewing memorable",
+  business_id: business12.id,
 )
-post18 = Post.create!(
-  content: "Our bread is baked fresh each morning so start your morning with the delicious taste of a warm croissant",
-  business_id: business9.id,
+post30 = Post.create!(
+  content: "We believe that vegetables should come in all shapes and sizes, so unlike supermarkets, we won’t main farmers suffer for it!",
+  business_id: business14.id,
 )
 post19 = Post.create!(
   content: "We know mornings are a little harder this time of year, so pick up a half-price coffee between 7 and 8 everyday",
   business_id: business9.id,
 )
-post20 = Post.create!(
-  content: "Community alert! All our bread is half-price from now until we close for the day!",
-  business_id: business9.id,
-)
+
 post21 = Post.create!(
   content: "Want to get your kids away from the tv this weekend? Come to the Schoenhausser this Saturday when kids go free!",
   business_id: business10.id,
 )
-post22 = Post.create!(
-  content: "We are proud to present our newest exhibition, featuring the up and coming artist Ben Gordon. His sculptures offer a sardonic and, often, witty rebuke of modern America",
-  business_id: business10.id,
+post20 = Post.create!(
+  content: "Community alert! All our bread is half-price from now until we close for the day!",
+  business_id: business9.id,
 )
-post23 = Post.create!(
-  content: "Fashion shouldn’t hurt the world around us. That’s why we are introducing our newest bamboo clothing range",
-  business_id: business11.id,
+post17 = Post.create!(
+  content: "A new lockdown doesn’t mean you must indulge less? Order online and we will have the richest Beef Bourguignon ready when you are",
+  business_id: business8.id,
+)
+post2 = Post.create!(
+  content: "We all know how much sugar our kids can get through on Halloween, so for all of November we are offering half-price checkups for your little ones",
+  business_id: business1.id,
+)
+post33 = Post.create!(
+  content: "Self-confidence is an essential part of leadership. Conveyed self-confidence enhances status and is linked to an assumption of success and competence. Join us in our academy, and realize your leadership potential and develop the skills to bring out the best in others!",
+  business_id: business20.id,
 )
 post24 = Post.create!(
   content: "All of our items are sustainably sourced so you can look your best, guilt-free!",
   business_id: business11.id,
 )
+post22 = Post.create!(
+  content: "We are proud to present our newest exhibition, featuring the up and coming artist Ben Gordon. His sculptures offer a sardonic and, often, witty rebuke of modern America",
+  business_id: business10.id,
+)
 post25 = Post.create!(
   content: "Don’t miss the newest mind-bending thriller from Sir Christopher Nolan! Weekday screenings of his newest masterpiece from only €5",
   business_id: business12.id,
 )
-post26 = Post.create!(
-  content: "We believe that the best films should be enjoyed with comfort and indulgence, that’s why all of our screens have sofas and a bar to make every viewing memorable",
-  business_id: business12.id,
-)
-post27 = Post.create!(
-  content: "Nothing says Valentines and romance like our Rose leaf candle. Make your night a little more special",
-  business_id: business13.id,
+post23 = Post.create!(
+  content: "Fashion shouldn’t hurt the world around us. That’s why we are introducing our newest bamboo clothing range",
+  business_id: business11.id,
 )
 post28 = Post.create!(
   content: "Finally got a Saturday night to yourself? Gearing up to soak your cares away? Pick up a lavender candle from us and make your night as relaxing as possible",
@@ -637,20 +657,7 @@ post29 = Post.create!(
   content: "We would like to introduce you to Lukas, the newest member of our family business!",
   business_id: business14.id,
 )
-post30 = Post.create!(
-  content: "We believe that vegetables should come in all shapes and sizes, so unlike supermarkets, we won’t main farmers suffer for it!",
-  business_id: business14.id,
-)
 
-post33 = Post.create!(
-  content: "Self-confidence is an essential part of leadership. Conveyed self-confidence enhances status and is linked to an assumption of success and competence. Join us in our academy, and realize your leadership potential and develop the skills to bring out the best in others!",
-  business_id: business20.id,
-)
-
-post34 = Post.create!(
-  content: "Never underestimate the power of brainstorming! Organize your thoughts into colors and notice how easy it becomes to turn your ideas into action.",
-  business_id: business20.id,
-)
 
 puts "Attaching images to businesses..."
 
