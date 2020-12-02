@@ -20,7 +20,7 @@ const initMapbox = () => {
     });
   }
 
-  const businessMarkers = JSON.parse(showMapElement.dataset.markers);
+
 
   if (showMapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = showMapElement.dataset.mapboxApiKey;
@@ -29,7 +29,7 @@ const initMapbox = () => {
       style: 'mapbox://styles/bgordon/cki76vhy60dfc19pbadllpuqz'
     });
 
-
+    const businessMarkers = JSON.parse(showMapElement.dataset.markers);
     businessMarkers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
