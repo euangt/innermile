@@ -7,6 +7,7 @@ require "open-uri"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning up db...'
+Conversation.destroy_all
 User.destroy_all
 Category.destroy_all
 Business.destroy_all
@@ -807,7 +808,6 @@ business_second = [
   "https://images.unsplash.com/photo-1577877777751-3f1ec20a0715?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70",
   "https://images.unsplash.com/photo-1554902748-feaf536fc594?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70",
   "https://images.unsplash.com/photo-1587556930799-8dca6fad6d41?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70",
-  "https://images.unsplash.com/photo-1587556930799-8dca6fad6d41?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70",
   "https://images.unsplash.com/photo-1545672432-284607f52207?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80",
   "https://images.unsplash.com/photo-1550048192-f5416a1f132a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80",
   "https://images.unsplash.com/photo-1552215147-ebe5751c9eba?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8ZGlzdGlsbGVyeXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60",
@@ -815,6 +815,7 @@ business_second = [
   "https://images.unsplash.com/photo-1574521091464-a55e7763c1e5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8cHVifGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60",
   "https://images.unsplash.com/photo-1505705694340-019e1e335916?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJpa2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60",
   "https://images.unsplash.com/photo-1513748128818-f3cb1658102e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzJ8fG11c2ljJTIwc2Nob29sfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1296&q=60"
+
  ]
 
 business_third = [
