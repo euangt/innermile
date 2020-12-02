@@ -6,7 +6,7 @@
   overflow: scroll;
   height: 90%;
   z-index: 100;
-  border-radius: 12px;
+  border-radius: 24px;
   border: 1px solid rbga($inner-green,0.6);
 }
 
@@ -32,17 +32,17 @@
   h3 {
     font-size: 20px;
     font-weight: 500;
-    color: rgba($inner-white, 0.8);
+    color: rgba($inner-white, 0.85);
   }
   h4 {
     font-size: 18px;
-    color: rgba($inner-white, 0.8);
+    color: rgba($inner-white, 0.85);
     font-weight: 500;
     margin: 0;
   }
 
   small {
-    color: rgba($inner-white, 0.7);
+    color: rgba($inner-white, 0.75);
   }
 
   .event-header {

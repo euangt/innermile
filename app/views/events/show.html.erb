@@ -1,7 +1,7 @@
 <div class="background-map">
   <div class="container">
     <div class="row justify-content-center">
-    <div class="events-container col-10 shadow-lg bg-white rounded">
+    <div class="events-container col-10 shadow-lg bg-white">
       <% if @event.event_image.attached? %>
         <div class="banner-event" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.event_image.key %>');">
       <% else %>
