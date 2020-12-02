@@ -11,6 +11,9 @@
   cursor: pointer;
   text-decoration: none;
   border-bottom: 2px solid $inner-grey;
+  h4 {
+    margin-bottom: 0;
+  }
 }
 
 .tabs-underlined .tab-underlined.active {

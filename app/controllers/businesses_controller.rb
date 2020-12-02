@@ -64,6 +64,8 @@ class BusinessesController < ApplicationController
     @post = Post.new
     @posts = @business.posts.order(created_at: :desc)
     authorize @business
+    @event = Event.new
+    @events = @business.events
   end
 
   def edit
