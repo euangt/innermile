@@ -1,126 +1,94 @@
-<div class="container mt-3 ">
-  <div class="row justify-content-center">
-    <div class="col-10 shadow-lg mb-5 bg-white rounded">
-
-      <div class="profile-top">
-        <div class="profile-banner">
-          <div class="bookmark-button">
-            <% if current_user %>
-              <% if !@user.businesses.include?(@business) %>
-                <% if !@user.bookmarked_businesses.include?(@business) %>
-                  <h4><%= link_to 'Bookmark this business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
+<div class="background-map">
+  <div class="container mt-3 ">
+    <div class="row justify-content-center">
+      <div class="col-10 shadow-lg mb-5 bg-white rounded">
+        <div class="profile-top">
+          <div class="profile-banner">
+            <div class="bookmark-button">
+              <% if current_user %>
+                <% if !@user.businesses.include?(@business) %>
+                  <% if !@user.bookmarked_businesses.include?(@business) %>
+                    <h4><%= link_to 'Bookmark this business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
+                  <% else %>
+                    <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "btn btn-ghost"  %></h4>
+                  <% end %>
                 <% else %>
-                  <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "btn btn-ghost"  %></h4>
+                    <%= link_to 'Edit Business', edit_business_path(@business), remote: true, class: "btn-ghost" %>
                 <% end %>
-              <% else %>
-                  <%= link_to 'Edit Business', edit_business_path(@business), remote: true, class: "btn-ghost" %>
               <% end %>
-            <% end %>
-          </div>
-          <% if @business.banner_photo.attached? %>
-            <div class="banner-profile" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)), url('<%= cl_image_path @business.banner_photo.key %>');"></div>
-          <% else %>
-            <div class="banner-profile" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);"></div>
-          <% end %>
-          <div class="media mr-2">
-            <% if @business.avatar.attached? %>
-              <%= cl_image_tag @business.avatar.key, height: 500, width: 500, crop: :fill,  class: "profile-avatar rounded-circle" %>
+            </div>
+            <% if @business.banner_photo.attached? %>
+              <div class="banner-profile" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.3)), url('<%= cl_image_path @business.banner_photo.key %>');"></div>
             <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "profile-avatar rounded-circle" %>
+              <div class="banner-profile" style="background-size: cover; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80);"></div>
             <% end %>
-          </div>
-        </div>
-        <div class="row profile-header">
-          <div class="business-name mr-4">
-            <h1><%= @business.name %></h1>
-            <h3><%= @business.short_bio %></h3>
-              <%= @business.category.name %>
-          </div>
-          <div class="bookmark">
-            <% if current_user %>
-              <% if !@user.businesses.include?(@business) %>
-                <% if !@user.bookmarked_businesses.include?(@business) %>
-                  <h1><%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %></h1>
-                <% else %>
-                  <h1><%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark" %></h1>
-                <% end %>
+            <div class="media mr-2">
+              <% if @business.avatar.attached? %>
+                <%= cl_image_tag @business.avatar.key, height: 500, width: 500, crop: :fill,  class: "profile-avatar rounded-circle" %>
+              <% else %>
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "profile-avatar rounded-circle" %>
               <% end %>
-            <% end %>
-          </div>
-        </div>
-        <div class="row justify-content-center profile-menu">
-            <ul class="list-inline tabs-underlined">
-                <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'About')"><h4>About</h4></li>
-                <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Contact')"><h4>Contact</h4></li>
-                <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Newsfeed')"><h4>Newsfeed</h4></li>
-                <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Events')"><h4>Events</h4></li>
-                <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Chat')"><h4>Chat</h4></li>
-            </ul>
-            <!-- Tab content -->
-            <div id="About" class="tabcontent"></div>
-            <div id="Contact" class="tabcontent"></div>
-            <div id="Newsfeed" class="tabcontent"></div>
-            <div id="Events" class="tabcontent"></div>
-            <div id="Chat" class="tabcontent"></div>
-        </div>
-      </div>
-
-      <div class="profile-body">
-        <!-- Abouts -->
-        <div id= "About-Box" class="box">
-          <div class="row profile-description justify-content-center">
-            <div class="col-7">
-              <p><strong>Our story</strong></p>
-              <p><%= @business.long_bio %></p>
             </div>
           </div>
-          <div class="row profile-images justify-content-center">
-            <% if @business.business_photos.attached? %>
-              <%= cl_image_tag @business.business_photos[1].key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
-              <%= cl_image_tag @business.business_photos[0].key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
-              <%= cl_image_tag @business.business_photos[2].key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
-              <%= cl_image_tag @business.banner_photo.key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
-            <% else %>
-              <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
-            <% end %>
+          <div class="row profile-header">
+            <div class="business-name mr-4">
+              <h1><%= @business.name %></h1>
+              <h3><%= @business.short_bio %></h3>
+                <%= @business.category.name %>
+            </div>
+            <div class="bookmark">
+              <% if current_user %>
+                <% if !@user.businesses.include?(@business) %>
+                  <% if !@user.bookmarked_businesses.include?(@business) %>
+                    <h1><%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %></h1>
+                  <% else %>
+                    <h1><%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark" %></h1>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
-          <div class="owner">
-            <div class="row justify-content-center">
-              <div class="col-7 owner-content">
-                <p><strong> Meet <%= @business.owner_name %></strong></p>
-                <p><%= @business.owner_bio %></p>
+          <div class="row justify-content-center profile-menu">
+              <ul class="list-inline tabs-underlined">
+                  <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'About')"><h4>About</h4></li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Contact')"><h4>Contact</h4></li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Newsfeed')"><h4>Newsfeed</h4></li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Events')"><h4>Events</h4></li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Chat')"><h4>Chat</h4></li>
+              </ul>
+              <!-- Tab content -->
+              <div id="About" class="tabcontent"></div>
+              <div id="Contact" class="tabcontent"></div>
+              <div id="Newsfeed" class="tabcontent"></div>
+              <div id="Events" class="tabcontent"></div>
+              <div id="Chat" class="tabcontent"></div>
+          </div>
+        </div>
+
+        <div class="profile-body">
+          <!-- Abouts -->
+          <div id= "About-Box" class="box">
+            <div class="row profile-description justify-content-center">
+              <div class="col-7">
+                <p><strong>Our story</strong></p>
+                <p><%= @business.long_bio %></p>
               </div>
             </div>
-            <div class="row owner-image justify-content-center">
-              <% if @business.owner_photo.attached? %>
-                <%= cl_image_tag @business.owner_photo.key, width: 300, height: 420, crop: :fill, radius: '28', gravity: :face, class: "rounded" %>
+            <div class="row profile-images justify-content-center">
+              <% if @business.business_photos.attached? %>
+                <%= cl_image_tag @business.business_photos[1].key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
+                <%= cl_image_tag @business.business_photos[0].key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
+                <%= cl_image_tag @business.business_photos[2].key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
+                <%= cl_image_tag @business.banner_photo.key, width: 420, height: 300, radius: '28', crop: :fill, class: "profile-image rounded" %>
               <% else %>
                 <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
               <% end %>
             </div>
-          </div>
-          <br><br>
-          <hr>
-        </div>
-        <!-- Contact -->
-        <div id="Contact-Box" class="box">
-          <div class="row my-2 justify-content-center">
-            <div class="col-7">
-              <div class="row business-data">
-                  <div class="mr-5">
-                    <p>ADDRESS</p>
-                    <p>HOURS</p>
-                    <p>TEL</p>
-                    <p>E-MAIL</p>
-                    <p>URL</p>
-                  </div>
-                  <div class="">
-                    <p><%= @business.address %></p>
-                    <p>MON-FRI <%= @business.opening_hours %></p>
-                    <p><%= @business.telephone %></p>
-                    <p><%= @business.email %></p>
-                    <p><%= @business.website_url %></p>
-                  </div>
+            <div class="owner">
+              <div class="row justify-content-center">
+                <div class="col-7 owner-content">
+                  <p><strong> Meet <%= @business.owner_name %></strong></p>
+                  <p><%= @business.owner_bio %></p>
                 </div>
                 <hr>
             </div>
@@ -137,118 +105,167 @@
       <!-- Chat -->
         <div id="Chat-Box" class="box">
           <div class="messages">
+              </div>
+              <div class="row owner-image justify-content-center">
+                <% if @business.owner_photo.attached? %>
+                  <%= cl_image_tag @business.owner_photo.key, width: 300, height: 420, crop: :fill, radius: '28', gravity: :face, class: "rounded" %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
+                <% end %>
+              </div>
+            </div>
+            <br><br>
+            <hr>
+          </div>
+          <!-- Contact -->
+          <div id="Contact-Box" class="box">
+>>>>>>> master
             <div class="row my-2 justify-content-center">
               <div class="col-7">
-                <% if @business.owner?(current_user) %>
-                  <% @business.conversations.each do |conversation| %>
-                  <%= render "conversations/chat", business: @business, conversation: conversation, message: Message.new %>
-                  <% end %>
-                <% else %>
-                  <%= render "conversations/chat", business: @business, conversation: @conversation, message: Message.new %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
-          <!-- Newsfeed -->
-        <div id= "Newsfeed-Box" class= "box">
-          <h1 class="text-center my-2" id="recent_posts">Recent Posts</h1>
-          <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
-          <hr>
-          <div class="row my-2 create-post justify-content-center">
-            <div class="col-7">
-              <% if current_user == @business.user %>
-                <h2 class="text-center">Create a post</h2>
-                <p class="text-center">----------</p>
-                <%= simple_form_for([@business, @post]) do |f| %>
-                  <div class="form-inputs">
-                    <%= f.rich_text_area :post_text %>
-                    <%= f.input :post_image, as: :file %>
-                  </div>
-                  <div class="form-actions mb-2">
-                    <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
+                <div class="row business-data">
+                    <div class="mr-5">
+                      <p>ADDRESS</p>
+                      <p>HOURS</p>
+                      <p>TEL</p>
+                      <p>E-MAIL</p>
+                      <p>URL</p>
+                    </div>
+                    <div class="">
+                      <p><%= @business.address %></p>
+                      <p>MON-FRI <%= @business.opening_hours %></p>
+                      <p><%= @business.telephone %></p>
+                      <p><%= @business.email %></p>
+                      <p><%= @business.website_url %></p>
+                    </div>
                   </div>
                   <hr>
-                <% end %>
-              <% end %>
-            </div>
-         </div>
-
-          <div class="post-feed my-2">
-            <div class="row justify-content-center">
-              <div class="col-7" id="posts">
-                <% if @business.posts.blank? %>
-                  <p> <%= @business.name %> has no posts yet</p>
-                <% else %>
-                  <% @posts.each do |post| %>
-                    <%= render partial: 'posts/post', locals: { post: post } %>
-                  <% end %>
-                  <hr>
-                <% end %>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Events -->
-        <div id= "Events-Box" class= "box">
-          <h1 class="text-center mt-5" id="recent_events">Events</h1>
-          <p class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.events.size, "events" %></p>
-          <hr>
-          <div class="row my-2 create-post justify-content-center">
-            <div class="col-7">
-              <% if current_user == @business.user %>
-                <h2 class="text-center">Create a new event</h2>
-                <p class="text-center">----------</p>
-                <h4 class="text-center"><%= link_to "Add Event", new_business_event_path(@business), class: "btn btn-flat"  %></h4>
-              <% end %>
-            </div>
-          </div>
-          <div class="event-feed">
-            <div class="row justify-content-center">
-              <div class="col-7" id="posts">
-                <% if @business.events.blank? %>
-                  <p class="text-center"> <%= @business.name %> has no events planned</p>
-                <% else %>
-                  <% @events.each do |event| %>
-                    <%= render partial: 'events/event_card', locals: { event: event } %>
-                  <% end %>
-                <% end %>
+            <div class="profile-map">
+              <div id="index_map" style="width: 100%; height: 560px; position: sticky; top: 56px;"
+                data-markers="<%= @markers.to_json %>"
+                data-home-marker="<%= @home_marker.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
               </div>
             </div>
             <hr>
           </div>
+        <!-- Chat -->
+          <div id="Chat-Box" class="box">
+            <div class="messages">
+              <div class="row my-2 justify-content-center">
+                <div class="col-7">
+                  <% if @business.owner?(current_user) %>
+                    <% @business.conversations.each do |conversation| %>
+                    <%= render "conversations/chat", business: @business, conversation: conversation, message: Message.new %>
+                    <% end %>
+                  <% else %>
+                    <%= render "conversations/chat", business: @business, conversation: @conversation, message: Message.new %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- Newsfeed -->
+          <div id= "Newsfeed-Box" class= "box">
+            <h1 class="text-center my-2" id="recent_posts">Recent Posts</h1>
+            <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
+            <hr>
+            <div class="row my-2 create-post justify-content-center">
+              <div class="col-7">
+                <% if current_user == @business.user %>
+                  <h2 class="text-center">Create a post</h2>
+                  <p class="text-center">----------</p>
+                  <%= simple_form_for([@business, @post]) do |f| %>
+                    <div class="form-inputs">
+                      <%= f.rich_text_area :content %>
+                      <%= f.input :post_image, as: :file %>
+                    </div>
+                    <div class="form-actions mb-2">
+                      <%= f.button :submit, "Create Post", class: "btn btn-flat", remote: true %>
+                    </div>
+                    <hr>
+                  <% end %>
+                <% end %>
+              </div>
+           </div>
+
+            <div class="post-feed my-2">
+              <div class="row justify-content-center">
+                <div class="col-7" id="posts">
+                  <% if @business.posts.blank? %>
+                    <p> <%= @business.name %> has no posts yet</p>
+                  <% else %>
+                    <% @posts.each do |post| %>
+                      <%= render partial: 'posts/post', locals: { post: post } %>
+                    <% end %>
+                    <hr>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Events -->
+          <div id= "Events-Box" class= "box">
+            <h1 class="text-center mt-5" id="recent_events">Events</h1>
+            <p class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.events.size, "events" %></p>
+            <hr>
+            <div class="row my-2 create-post justify-content-center">
+              <div class="col-7">
+                <% if current_user == @business.user %>
+                  <h2 class="text-center">Create a new event</h2>
+                  <p class="text-center">----------</p>
+                  <h4 class="text-center"><%= link_to "Add Event", new_business_event_path(@business), class: "btn btn-flat"  %></h4>
+                <% end %>
+              </div>
+            </div>
+            <div class="event-feed">
+              <div class="row justify-content-center">
+                <div class="col-7" id="posts">
+                  <% if @business.events.blank? %>
+                    <p class="text-center"> <%= @business.name %> has no events planned</p>
+                  <% else %>
+                    <% @events.each do |event| %>
+                      <%= render partial: 'events/event_card', locals: { event: event } %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+
         </div>
 
       </div>
-
     </div>
+
+    <script type="text/javascript">
+      function changeTabDisplay(evt, tabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        const boxes = document.getElementsByClassName("box")
+        for (i = 0; i < boxes.length; i++) {
+          boxes[i].style.display = "none";
+        }
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+        document.getElementById(`${tabName}-Box`).style.display = "block";
+        }
+    </script>
   </div>
-
-  <script type="text/javascript">
-    function changeTabDisplay(evt, tabName) {
-      // Declare all variables
-      var i, tabcontent, tablinks;
-
-      // Get all elements with class="tabcontent" and hide them
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      const boxes = document.getElementsByClassName("box")
-      for (i = 0; i < boxes.length; i++) {
-        boxes[i].style.display = "none";
-      }
-      // Get all elements with class="tablinks" and remove the class "active"
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-
-      // Show the current tab, and add an "active" class to the button that opened the tab
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-      document.getElementById(`${tabName}-Box`).style.display = "block";
-      }
-  </script>
 </div>

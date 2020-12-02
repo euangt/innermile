@@ -5,5 +5,5 @@ class Post < ApplicationRecord
 
   has_one_attached :post_image
 
-  has_rich_text :post_text
+  has_rich_text :content
 end
