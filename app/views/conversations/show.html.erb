@@ -1,0 +1,7 @@
+
+
+ <div class= "row justify-content-center ">
+  <% @conversations.each do |conversation| %>
+    <%= render "conversations/chat", business: conversation.business, conversation: conversation, message: Message.new %>
+  <% end %>
+</div>

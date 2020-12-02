@@ -85,23 +85,23 @@
               <% end %>
             </div>
             <div class="owner">
-              <div class="row justify-content-center">
-                <div class="col-7 owner-content">
-                  <p><strong> Meet <%= @business.owner_name %></strong></p>
-                  <p><%= @business.owner_bio %></p>
-                </div>
-              </div>
-              <div class="row owner-image justify-content-center">
-                <% if @business.owner_photo.attached? %>
-                  <%= cl_image_tag @business.owner_photo.key, width: 300, height: 420, crop: :fill, radius: '28', gravity: :face, class: "rounded" %>
-                <% else %>
-                  <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
-                <% end %>
+            <div class="row justify-content-center">
+              <div class="col-7 owner-content">
+                <p><strong> Meet <%= @business.owner_name %></strong></p>
+                <p><%= @business.owner_bio %></p>
               </div>
             </div>
-            <br><br>
-            <hr>
+            <div class="row owner-image justify-content-center">
+              <% if @business.owner_photo.attached? %>
+                <%= cl_image_tag @business.owner_photo.key, width: 300, height: 420, crop: :fill, radius: '28', gravity: :face, class: "rounded" %>
+              <% else %>
+                <%= image_tag "https://images.unsplash.com/photo-1507598641400-ec3536ba81bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80", class: "owner" %>
+              <% end %>
+            </div>
           </div>
+          <br><br>
+          <hr>
+        </div>
           <!-- Contact -->
           <div id="Contact-Box" class="box">
             <div class="row my-2 justify-content-center">
@@ -135,21 +135,21 @@
             <hr>
           </div>
         <!-- Chat -->
-          <div id="Chat-Box" class="box">
-            <div class="messages">
-              <div class="row my-2 justify-content-center">
-                <div class="col-7">
-                  <% if @business.owner?(current_user) %>
-                    <% @business.conversations.each do |conversation| %>
-                    <%= render "conversations/chat", business: @business, conversation: conversation, message: Message.new %>
-                    <% end %>
-                  <% else %>
-                    <%= render "conversations/chat", business: @business, conversation: @conversation, message: Message.new %>
+        <div id="Chat-Box" class="box">
+          <div class="messages">
+            <div class="row my-2 justify-content-center">
+              <div class="col-7">
+                <% if @business.owner?(current_user) %>
+                  <% @business.conversations.each do |conversation| %>
+                  <%= render "conversations/chat", business: @business, conversation: conversation, message: Message.new %>
                   <% end %>
-                </div>
+                <% else %>
+                  <%= render "conversations/chat", business: @business, conversation: @conversation, message: Message.new %>
+                <% end %>
               </div>
             </div>
           </div>
+        </div>
             <!-- Newsfeed -->
           <div id= "Newsfeed-Box" class= "box">
             <h1 class="text-center my-2" id="recent_posts">Recent Posts</h1>
