@@ -108,7 +108,7 @@ class BusinessesController < ApplicationController
   end
 
   def find_distance(user, business)
-    if user
+    if current_user
       start_coord = [user.longitude, user.latitude]
       end_coord = [business.longitude, business.latitude]
       distance = Geocoder::Calculations.distance_between(start_coord, end_coord)
