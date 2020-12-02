@@ -13,7 +13,7 @@
                   <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "btn btn-ghost"  %></h4>
                 <% end %>
               <% else %>
-                  <h4><%= link_to 'Edit Business', edit_business_path(@business), remote: true, class: "btn-ghost" %></h4>
+                  <%= link_to 'Edit Business', edit_business_path(@business), remote: true, class: "btn-ghost" %>
               <% end %>
             <% end %>
           </div>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="row justify-content-center profile-menu">
-            <ul class="list-inline tabs-underlined menu">
+            <ul class="list-inline tabs-underlined">
                 <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'About')"><h4>About</h4></li>
                 <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Contact')"><h4>Contact</h4></li>
                 <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Newsfeed')"><h4>Newsfeed</h4></li>
@@ -70,6 +70,7 @@
         <div id= "About-Box" class="box">
           <div class="row profile-description justify-content-center">
             <div class="col-7">
+              <p><strong>Our story</strong></p>
               <p><%= @business.long_bio %></p>
             </div>
           </div>

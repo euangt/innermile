@@ -50,14 +50,13 @@
     .bookmark {
       color: $inner-green;
       margin-top: 4px;
-    }
-    .menu {
-      h2 {
-        font-size: 18px;
+      h1 {
+        font-size: 30px;
       }
+    }
 
     }
-  }
+}
 
   .business-name {
     margin-left: 0;
@@ -71,8 +70,10 @@
 
   .profile-menu {
     margin-top: 16px;
+    h4 {
+      font-size: 17px;
+    }
   }
-}
 
 .profile-body{
   padding: 0px 32px 32px 32px;
@@ -83,6 +84,9 @@
   .profile-description {
     padding: 12px;
     margin-bottom: 12px;
+    p {
+      font-size: 17px;
+    }
   }
 
   .profile-images {
