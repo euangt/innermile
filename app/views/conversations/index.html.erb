@@ -28,6 +28,7 @@
     <div class="container col-6">
       <div class="messages">
         <h2>Customer Enquiries</h2>
+        
         <% if @conversations.include?(current_user.businesses) %>
           <div class= "row justify-content-center">
             <% @conversations.each do |conversation| %>
@@ -36,7 +37,10 @@
           </div>
         <% end %>
       </div>
+
     </div>
   </div>
 </div>
-<%# unsure if this is broken but should filter conversations if it includes user businesses; this becomes customer enquiries. Else it should be a message to a business, no? %>
+
+<%# <% if commentable_type = "User" %> 
+<%# <% if commentable_type = "Business" %> 

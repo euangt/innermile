@@ -4,7 +4,7 @@
     <div id="messages" data-conversation-id="<%= conversation.id %>">
       <% conversation.messages.each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
-          <% if message.conversation.user != current_user %>
+          <% if message.conversation.user == current_user %>
             <div class="justify-content-left">
               <i class="author">
               <span>From: <%= message.conversation.user.first_name %></span>
@@ -23,6 +23,7 @@
           <% end %>
         </div>
       <% end %>
+      
     </div>
 </div>
 <div class="container mt-4">
