@@ -2,6 +2,9 @@
   <div class="business-card-index">
    <!--  <img <#%= cl_image_tag business.avatar.key, width: 240, height: 240, class: "info_window_img"%>> -->
     <h2><%= link_to business.name, business_path(business) %></h2>
-    <p><%= business.address %></p>
+    <p><strong><%= business.address %></strong></p>
+    <% if current_user %>
+      <p> <%= distance %> min walk from your home </p>
+    <% end %>
   </div>
 </div>

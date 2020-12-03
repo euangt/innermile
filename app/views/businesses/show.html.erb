@@ -1,14 +1,14 @@
 <div class="background-map">
-  <div class="container mt-3 ">
+  <div class="container">
     <div class="row justify-content-center">
-      <div class="col-10 shadow-lg mb-5 bg-white rounded">
+      <div class="profile-container col-10 shadow-lg mb-5 bg-white">
         <div class="profile-top">
           <div class="profile-banner">
             <div class="bookmark-button">
               <% if current_user %>
                 <% if !@user.businesses.include?(@business) %>
                   <% if !@user.bookmarked_businesses.include?(@business) %>
-                    <h4><%= link_to 'Bookmark this business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
+                    <h4><%= link_to 'Bookmark business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
                   <% else %>
                     <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "btn btn-ghost"  %></h4>
                   <% end %>
@@ -32,29 +32,30 @@
           </div>
           <div class="row profile-header">
             <div class="business-name mr-4">
-              <h1><%= @business.name %></h1>
+              <% if current_user %>
+                <% if !@user.businesses.include?(@business) %>
+                  <% if !@user.bookmarked_businesses.include?(@business) %>
+                    <h1><%= @business.name %><span class="ml-2"><%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %><span></h1>
+                  <% else %>
+                    <h1><%= @business.name %><span class="ml-2"><%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark" %><span></h1>
+                  <% end %>
+                <% else %>
+                  <h1><%= @business.name %></h1>
+                <% end %>
+              <% end %>
               <h3><%= @business.short_bio %></h3>
                 <%= @business.category.name %>
             </div>
             <div class="bookmark">
-              <% if current_user %>
-                <% if !@user.businesses.include?(@business) %>
-                  <% if !@user.bookmarked_businesses.include?(@business) %>
-                    <h1><%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %></h1>
-                  <% else %>
-                    <h1><%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark" %></h1>
-                  <% end %>
-                <% end %>
-              <% end %>
             </div>
           </div>
           <div class="row justify-content-center profile-menu">
               <ul class="list-inline tabs-underlined">
-                  <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'About')"><h4>About</h4></li>
-                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Contact')"><h4>Contact</h4></li>
-                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Newsfeed')"><h4>Newsfeed</h4></li>
-                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Events')"><h4>Events</h4></li>
-                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Chat')"><h4>Chat</h4></li>
+                  <li class="tablinks tab-underlined active" onclick="changeTabDisplay(event, 'About')">About</li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Contact')">Contact</li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Newsfeed')">Newsfeed</li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Events')">Events</li>
+                  <li class="tablinks tab-underlined" onclick="changeTabDisplay(event, 'Chat')">Chat</li>
               </ul>
               <!-- Tab content -->
               <div id="About" class="tabcontent"></div>
@@ -121,8 +122,7 @@
                       <p><%= @business.email %></p>
                       <p><%= @business.website_url %></p>
                     </div>
-                  </div>
-                  <hr>
+                </div>
               </div>
             </div>
             <div class="profile-map">
@@ -152,13 +152,10 @@
         </div>
             <!-- Newsfeed -->
           <div id= "Newsfeed-Box" class= "box">
-            <h1 class="text-center my-2" id="recent_posts">Recent Posts</h1>
-            <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
-            <hr>
-            <div class="row my-2 create-post justify-content-center">
-              <div class="col-7">
-                <% if current_user == @business.user %>
-                  <h2 class="text-center">Create a post</h2>
+            <% if current_user == @business.user %>
+              <div class="row my-2 create-post justify-content-center">
+                <div class="col-7">
+                  <h2 class="text-center">Create a new post</h2>
                   <p class="text-center">----------</p>
                   <%= simple_form_for([@business, @post]) do |f| %>
                     <div class="form-inputs">
@@ -170,15 +167,20 @@
                     </div>
                     <hr>
                   <% end %>
-                <% end %>
+                </div>
               </div>
-           </div>
+            <% else %>
+            <br>
+              <h1 class="text-center my-2" id="recent_posts">Recent Posts</h1>
+              <p  class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.posts.size, "recent post" %></p>
+              <hr>
+            <% end %>
 
             <div class="post-feed my-2">
               <div class="row justify-content-center">
                 <div class="col-7" id="posts">
                   <% if @business.posts.blank? %>
-                    <p> <%= @business.name %> has no posts yet</p>
+                    <p class="text-center"> <%= @business.name %> has no posts yet</p>
                   <% else %>
                     <% @posts.each do |post| %>
                       <%= render partial: 'posts/post', locals: { post: post } %>
@@ -192,18 +194,20 @@
 
           <!-- Events -->
           <div id= "Events-Box" class= "box">
-            <h1 class="text-center mt-5" id="recent_events">Events</h1>
-            <p class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.events.size, "events" %></p>
-            <hr>
-            <div class="row my-2 create-post justify-content-center">
-              <div class="col-7">
-                <% if current_user == @business.user %>
+            <% if current_user == @business.user %>
+              <div class="row my-2 create-post justify-content-center">
+                <div class="col-7">
                   <h2 class="text-center">Create a new event</h2>
                   <p class="text-center">----------</p>
                   <h4 class="text-center"><%= link_to "Add Event", new_business_event_path(@business), class: "btn btn-flat"  %></h4>
-                <% end %>
+                  <br>
+                </div>
               </div>
-            </div>
+            <% else %>
+              <h1 class="text-center mt-5" id="recent_events">Events</h1>
+              <p class="text-center mt-2"><%= @business.name %> has <%= pluralize @business.events.size, "events" %></p>
+              <hr>
+            <% end %>
             <div class="event-feed">
               <div class="row justify-content-center">
                 <div class="col-7" id="posts">
@@ -212,6 +216,7 @@
                   <% else %>
                     <% @events.each do |event| %>
                       <%= render partial: 'events/event_card', locals: { event: event } %>
+                      <br>
                     <% end %>
                   <% end %>
                 </div>
@@ -252,4 +257,5 @@
         }
     </script>
   </div>
+  <%= link_to '', businesses_path, class: 'background-link'  %>
 </div>
