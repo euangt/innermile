@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  skip_after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_policy_scoped, only: [:index, :show]
 
   def index
     @conversations = Conversation.where(user: current_user).select {|conversation| !conversation.messages.empty?}

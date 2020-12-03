@@ -19,12 +19,12 @@
       <li>
         <%= link_to raw('<i class="far fa-user mr-3"></i>Business Profile'), business_path(current_user.business_ids) %>
       </li>
-      <% end %>
-      <li>
-         <%= link_to raw('<i class="far fa-bookmark mr-3"> </i>Inbox'), conversations_path %>
-      </li>
       <li>
         <%= link_to raw('<i class="far fa-edit mr-3"></i>Create Post'), business_path(current_user.business_ids) %>
+      </li>
+      <% end %>
+      <li>
+         <%= link_to raw('<i class="far fa-envelope mr-3"></i></i>Inbox'), conversations_path %> 
       </li>
       <li>
         <%= link_to raw('<i class="far fa-calendar-plus mr-3"></i>Events'), events_path %>
