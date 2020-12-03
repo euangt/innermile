@@ -1,10 +1,23 @@
+.events-container {
+  margin-top: 5vh;
+  width: 68vw;
+  display: block;
+  position: absolute;
+  overflow: scroll;
+  height: 90%;
+  z-index: 100;
+  border-radius: 24px;
+  border: 1px solid rbga($inner-green,0.6);
+}
+
 .banner-event {
-  background-color: white;
-  height: 28vh;
+  background-color: $inner-green;
+  height: 230px;
+  margin: 0 -16px 0 -16px;
   border-radius: 8px;
   position: relative;
 
-  .btn.btn-flat {
+  .btn.btn-ghost {
     position: absolute;
     right: 3%;
     bottom: 8%;
@@ -13,33 +26,34 @@
   h2 {
     font-size: 32px;
     font-weight: 600;
-    color: rgba(black, 0.8);
+    color: rgba($inner-white, 0.95);
     margin: 1px;
   }
   h3 {
     font-size: 20px;
     font-weight: 500;
-    color: rgba(black, 0.6);
+    color: rgba($inner-white, 0.85);
   }
   h4 {
     font-size: 18px;
-    color: rgba(black, 0.6);
+    color: rgba($inner-white, 0.85);
     font-weight: 500;
     margin: 0;
   }
 
   small {
-    color: rgba(black, 0.6);
+    color: rgba($inner-white, 0.9);
   }
 
   .event-header {
     padding-left: 32px;
     padding-top: 32px;
+    position: absolute;
   }
 
   .event-host {
     padding-left: 16px;
-    margin-top: 20px;
+    margin-top: 28px;
 
     .media {
       display: -ms-flexbox;
@@ -53,6 +67,9 @@
         padding: 2px;
         border: 2px solid #f4f4f4;
       }
+    }
+    .host-details {
+      margin-top: 4px;
     }
   }
 }
