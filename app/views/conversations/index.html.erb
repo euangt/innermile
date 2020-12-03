@@ -20,7 +20,7 @@
                 <%= cl_image_tag(conversation.business.avatar.key) %>
                 <div class="card-product-infos">
                   <h2><%= conversation.business.name %></h2>
-                  <p>Product description with <strong>relevant info</strong> only.</p>
+                  <p><%= conversation.business.short_bio %></p>
                 </div>
               </div>
               <% end  %>
@@ -39,7 +39,7 @@
                 <%= cl_image_tag(conversation.business.avatar.key) %>
                 <div class="card-product-infos">
                   <h2><%= conversation.business.name %></h2>
-                  <p>Product description with <strong>relevant info</strong> only.</p>
+                  <p><%= conversation.business.short_bio %></p>
                 </div>
               </div>
               <% end  %>
