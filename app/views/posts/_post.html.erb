@@ -35,8 +35,7 @@
   </div>
   <div class="post-item">
     <% if post.post_image.attached?  %>
-    <%= cl_image_tag post.post_image.key, type: :upload,
-    width: 900, height: 900, crop: :fill, class: "img-fluid post-image" %>
+    <%= cl_image_tag post.post_image.key, type: :upload, height: 900, width: 800, crop: :fill, class: "img-fluid post-image" %>
     <% else %>
     <img class="img-fluid" src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80" alt="Image">
     <% end %>
