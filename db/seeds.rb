@@ -515,30 +515,27 @@ puts "You made it this far and, for that, we salute you"
 puts "Seeding events..."
 
 event1 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
+  location: "Rosenthaler Str. 64, 10119 Berlin ",
+  name: "Women´s self-defence day",
+  time: "10:00 ",
   date: "2020-12-05",
   business_id: business1.id
 )
 
 event2 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
+  location: "Mulackstraße 35, 10119 Berlin ",
+  name: "National beard trim day",
+  time: "09:00 ",
   date: "2020-12-06",
-  business_id: business1.id
+  business_id: business5.id
 )
 
 event3 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
+  location: "Zehdenicker Str. 19, 10119 Berlin ",
+  name: "Cafe Louis 10th anniversary",
+  time: "10:00 ",
   date: "2020-12-07",
-  business_id: business1.id
+  business_id: business8.id
 )
 
 event4 = Event.create!(
