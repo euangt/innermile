@@ -191,8 +191,8 @@ business8 = Business.create!(
   user: user1,
   category: category3,
   name: "Café Louis",
-  short_bio: "Italian Coffee and Cakes",
-  long_bio: "Cafè is run by a joyful Italian couple, Louis and his wife Nora. We offer authentic well-brewed Italian cappuccino, and our cafe is spacious - an ideal place to chatt and hang out with your friends, or to get some work done on your laptop and fill your belly with homemade sweets and sadwiches. ",
+  short_bio: "French Coffee and Cakes",
+  long_bio: "Cafè is run by a joyful French couple, Louis and his wife Nora. We offer authentic well-brewed Italian cappuccino, and our cafe is spacious - an ideal place to chatt and hang out with your friends, or to get some work done on your laptop and fill your belly with homemade sweets and sadwiches. ",
   owner_name: "Louis",
   owner_bio: "We love our neighbourhood. We seem to attract a very eclectic crow. and we love talking to each and everyone.  Daily conversations can be incredibly fascinating, and it’s exhilarating to think it all starts off with a coffee.",
   address: "Zehdenicker Str. 17, 10119 Berlin",
@@ -514,7 +514,7 @@ business28 = Business.create!(
 puts "You made it this far and, for that, we salute you"
 puts "Seeding events..."
 
-event1 = Event.create(
+event1 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
@@ -523,7 +523,7 @@ event1 = Event.create(
   business_id: business1.id
 )
 
-event2 = Event.create(
+event2 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
@@ -532,7 +532,7 @@ event2 = Event.create(
   business_id: business1.id
 )
 
-event3 = Event.create(
+event3 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
@@ -541,7 +541,7 @@ event3 = Event.create(
   business_id: business1.id
 )
 
-event4 = Event.create(
+event4 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
@@ -550,7 +550,7 @@ event4 = Event.create(
   business_id: business1.id
 )
 
-event5 = Event.create(
+event5 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
@@ -559,7 +559,7 @@ event5 = Event.create(
   business_id: business1.id
 )
 
-event6 = Event.create(
+event6 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
@@ -568,7 +568,7 @@ event6 = Event.create(
   business_id: business1.id
 )
 
-event7 = Event.create(
+event7 = Event.create!(
   date: " ",
   location: " ",
   name: " ",
