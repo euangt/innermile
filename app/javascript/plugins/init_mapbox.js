@@ -17,13 +17,13 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'home_map',
       style: 'mapbox://styles/bgordon/ckhxmcs9x0uoz19o03wjjdlhc',
-      zoom: 4,
+      zoom: 12,
       center: [13.4004488, 52.5314138],
     });
 
     map.flyTo({
       center: [13.4004488, 52.5314138],
-      speed: 0.5,
+      speed: 0.2,
       zoom: 15,
       essential: true
     });
