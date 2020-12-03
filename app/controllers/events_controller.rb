@@ -13,12 +13,15 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @user = current_user
-    @marker = 
-      {
+
+    distance = find_distance(@user, @event)
+
+    @marker = [{
         lat: @event.latitude,
         lng: @event.longitude,
-        id: @event.id
-      }
+        infoWindow: render_to_string(partial: "info_window_event", locals: { event: @event, distance: distance }),
+      }]
+
 
     if current_user
       @home_marker =
@@ -71,5 +74,15 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:event_name, :description, :business_id, :time, :date, :location, :event_image)
+  end
+
+  def find_distance(user, event)
+    if current_user
+      start_coord = [user.longitude, user.latitude]
+      end_coord = [event.longitude, event.latitude]
+      distance = Geocoder::Calculations.distance_between(start_coord, end_coord)
+      distance = distance * 18
+      distance = distance.round(0)
+    end
   end
 end
