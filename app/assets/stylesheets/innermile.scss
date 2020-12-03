@@ -37,11 +37,11 @@ p {
 a {
   text-decoration: none;
   outline: none;
-  color: rgba(#00AD7C, 0.8);
+  color: #266778;
 
   &:hover{
    text-decoration: none;
-   color: #266778;
+   color: rgba(#00AD7C, 0.8);
    opacity: 1;
   }
 }
