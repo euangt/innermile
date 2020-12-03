@@ -1,0 +1,62 @@
+.bookmarks-header {
+  padding: 16px;
+  height: 300px;
+  margin-bottom: 24px;
+
+  .categories {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .bookmarked-businesses {
+    p {
+      padding-top: 8px;
+    }
+  }
+}
+
+#list {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#list-items {
+  width: 100%;
+  overflow: auto;
+  ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+}
+
+.feed-area {
+  margin-top: 24px;
+  padding: 24px 18px 12px 18px;
+  border-radius: 12px;
+  position: relative;
+  justify-content: center;
+
+  h2 {
+    font-weight: 400;
+    color: rgba(black,0.8);
+  }
+  .recent-posts {
+    max-width: 450px;
+    .post-area {
+
+    }
+
+
+  }
+
+  .recent-events {
+    max-width: 500px;
+
+
+    .events {
+
+    }
+  }
+
+}

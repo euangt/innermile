@@ -1,55 +1,71 @@
 <div class="container mt-4">
-  <p><strong>Bookmarked businesses</strong></p>
-  <%= link_to "All", bookmarks_path, class: "category_btn" %>
-  <% @categories.each do |category| %>
-    <%= link_to category.name, bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
-  <% end %>
-  <div id="list">
-    <div class="row flex-row flex-nowrap" id="list-items">
-      <% @businesses.each do |business| %>
-        <div class="col-3">
-          <%= render partial: 'businesses/business_card', locals: { business: business } %>
-        </div>
-      <% end %>
-    </div>
-    <% if params[:category].present? && @businesses.present? %>
-    <p>Check your neighbourhood for more <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
-    <% end %>
-    <% if params[:category].present? && @businesses.blank? %>
-    <p>You have no bookmark! Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
-    <% end %>
-  </div>
-  <br><br>
-
-  <div class="d-flex">
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <p class="text-center"><strong>Recent Posts from your bookmarked businesses</strong></p>
-        <hr>
-          <% if @posts %>
-            <div class="container">
-              <% @posts.each do |post| %>
-                <div class="post shadow-sm bg-white">
-                  <%= render partial: 'posts/post', locals: { post: post } %>
-                </div>
-              <% end %>
+  <div class="row justify-content-center">
+    <div class="col-12 bookmarks-header">
+      <h1 class="text-center">Bookmarked Businesses</h1>
+      <p class="text-center">Filter by category</p>
+      <div class="categories">
+        <%= link_to "All", bookmarks_path, class: "category_btn" %>
+        <% @categories.each do |category| %>
+          <%= link_to category.name, bookmarks_path(query: @category, category: category.name), class: "category_btn #{"btn_active" if @category && @category.name == category.name}" %>
+        <% end %>
+      </div>
+      <div class="bookmarked-businesses" id="list">
+        <div class="row flex-row flex-nowrap" id="list-items">
+          <% @businesses.each do |business| %>
+            <div class="col-3">
+              <%= render partial: 'businesses/business_card', locals: { business: business } %>
             </div>
           <% end %>
-      </div>
-      <div class="col-6">
-        <p class="text-center"><strong>Recent Events from your bookmarked businesses</strong></p>
-        <hr>
-        <% if @events %>
-          <div class="container">
-            <% @events.each do |event| %>
-              <div class="post shadow-sm bg-white">
-                <%= render partial: 'events/event_card', locals: { event: event } %>
-              </div>
-            <% end %>
-          </div>
+        </div>
+        <% if params[:category].present? && @businesses.present? %>
+          <p>Check your neighbourhood for more <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
+        <% end %>
+        <% if params[:category].present? && @businesses.blank? %>
+          <p>You have nothing bookmarked. Check your neighbourhood for <%= link_to @category.name, businesses_path(query: @address, category: @category.name) %> !</p>
         <% end %>
       </div>
     </div>
   </div>
+  <hr>
+    <div class="feed-area d-flex">
+      <div class="col-6">
+        <h2 class="text-center">Recent Posts from your bookmarked businesses</h2>
+        <hr>
+        <div class="row justify-content-center">
+          <div class="recent-posts">
+            <% if params[:category].present? && @businesses.blank? %>
+              <p class="text-center">No posts yet</p>
+            <% end %>
+            <% if @posts %>
+              <div class="post-area">
+                <% @posts.each do |post| %>
+                    <%= render partial: 'posts/post', locals: { post: post } %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <h2 class="text-center">Recent Events from your bookmarked businesses</h2>
+        <hr>
+        <div class="recent-events">
+          <% if params[:category].present? && @businesses.blank? %>
+              <p class="text-center">No events either</p>
+          <% end %>
+          <% if @events %>
+            <div class="events">
+              <% @events.each do |event| %>
+                  <%= render partial: 'events/event_card', locals: { event: event } %>
+                  <br>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
 
 </div>
+
