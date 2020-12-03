@@ -1,5 +1,5 @@
 <div class="container mt-4 chat-page">
-  <h2 class="text-center">Welcome to your chatrooms</h2>
+  <h2 class="text-center">Your chatrooms</h2>
   <hr>
   <div class="row justify-space-between">
     <div class="col-5">
@@ -54,15 +54,15 @@
       </div>
     </div>
     <div class="col-6 chat-room">
+      <% if @conversation  %>
       <div class="media">
         <% if @conversation.user.avatar.attached? %>
-          <%= cl_image_tag @conversation.user.avatar.key, height: 500, width: 500, crop: :fill,  class: "user-avatar rounded-circle" %>
+          <%= cl_image_tag @conversations.user.avatar.key, height: 500, width: 500, crop: :fill,  class: "user-avatar rounded-circle" %>
         <% else %>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "profile-avatar rounded-circle" %>
         <% end %>
       </div>
       <div class="chat-content">
-        <% if @conversation  %>
         <%= render "conversations/chat", business: @conversation.business, conversation: @conversation, message: Message.new%>
         <% else %>
         <p>please select your conversation</p>

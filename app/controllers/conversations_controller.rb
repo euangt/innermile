@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  skip_after_action :verify_policy_scoped, only: :index
+  skip_after_action :verify_policy_scoped, only: [:index, :show]
 
   def index
     @conversations = Conversation.where(user: current_user).select {|conversation| !conversation.messages.empty?}
@@ -8,7 +8,6 @@ class ConversationsController < ApplicationController
     @all_conversations = Message.all.includes(:businesses) #should be all the conversations a user has
     #this should be done within policy scope
     #.includes business avoid n+1 query
-    @conversation = Conversation.find(params[:id])
   end
 
   def show
