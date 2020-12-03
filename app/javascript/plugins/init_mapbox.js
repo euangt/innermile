@@ -39,6 +39,21 @@ const initMapbox = () => {
         .addTo(map);
       })
 
+    const homeMarker = JSON.parse(showMapElement.dataset.homeMarker);
+
+    if (homeMarker) {
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${homeMarker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '30px';
+    element.style.height = '43px';
+
+    new mapboxgl.Marker(element)
+      .setLngLat([homeMarker.lng, homeMarker.lat])
+      .addTo(map);
+    }
+
   }
 
 

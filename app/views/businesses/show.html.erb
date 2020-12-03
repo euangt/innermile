@@ -8,9 +8,9 @@
               <% if current_user %>
                 <% if !@user.businesses.include?(@business) %>
                   <% if !@user.bookmarked_businesses.include?(@business) %>
-                    <h4><%= link_to 'Bookmark business', business_bookmarks_path(@business), method: :post, remote: true, class: "btn btn-ghost" %></h4>
+                    <h4 font-size: 40px><%= link_to 'Bookmark business', business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark_btn" %></h4>
                   <% else %>
-                    <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "btn btn-ghost"  %></h4>
+                    <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark_btn"  %></h4>
                   <% end %>
                 <% else %>
                     <%= link_to 'Edit Business', edit_business_path(@business), remote: true, class: "btn-ghost" %>
@@ -35,9 +35,9 @@
               <% if current_user %>
                 <% if !@user.businesses.include?(@business) %>
                   <% if !@user.bookmarked_businesses.include?(@business) %>
-                    <h1><%= @business.name %><span class="ml-2"><%= link_to raw('<i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %><span></h1>
+                    <h1><%= @business.name %><span class="ml-2"><%= link_to raw('               <i class="far fa-bookmark"></i>'), business_bookmarks_path(@business), method: :post, remote: true, class: "bookmark" %><span></h1>
                   <% else %>
-                    <h1><%= @business.name %><span class="ml-2"><%= link_to raw('<i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark" %><span></h1>
+                    <h1><%= @business.name %><span class="ml-2"><%= link_to raw('               <i class="fas fa-bookmark"></i>'), bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark" %><span></h1>
                   <% end %>
                 <% else %>
                   <h1><%= @business.name %></h1>
