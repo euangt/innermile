@@ -106,7 +106,7 @@
           <!-- Contact -->
           <div id="Contact-Box" class="box">
             <div class="row my-2 justify-content-center">
-              <div class="col-7">
+              <div class="col-6">
                 <div class="row business-data">
                     <div class="mr-5">
                       <p>ADDRESS</p>
@@ -178,15 +178,17 @@
 
             <div class="post-feed my-2">
               <div class="row justify-content-center">
-                <div class="col-7" id="posts">
-                  <% if @business.posts.blank? %>
-                    <p class="text-center"> <%= @business.name %> has no posts yet</p>
-                  <% else %>
-                    <% @posts.each do |post| %>
-                      <%= render partial: 'posts/post', locals: { post: post } %>
+                <div class="col-7 post-frame">
+                  <div class="" id="posts">
+                    <% if @business.posts.blank? %>
+                      <p class="text-center"> <%= @business.name %> has no posts yet</p>
+                    <% else %>
+                      <% @posts.each do |post| %>
+                        <%= render partial: 'posts/post', locals: { post: post } %>
+                      <% end %>
+                      <hr>
                     <% end %>
-                    <hr>
-                  <% end %>
+                  </div>
                 </div>
               </div>
             </div>
