@@ -156,7 +156,7 @@
               <div class="row my-2 create-post justify-content-center">
                 <div class="col-7">
                   <h2 class="text-center">Create a new post</h2>
-                  <p class="text-center">----------</p>
+                  <br>
                   <%= simple_form_for([@business, @post]) do |f| %>
                     <div class="form-inputs">
                       <%= f.rich_text_area :content %>
@@ -200,7 +200,7 @@
               <div class="row my-2 create-post justify-content-center">
                 <div class="col-7">
                   <h2 class="text-center">Create a new event</h2>
-                  <p class="text-center">----------</p>
+                  <br>
                   <h4 class="text-center"><%= link_to "Add Event", new_business_event_path(@business), class: "btn btn-flat"  %></h4>
                   <br>
                 </div>
