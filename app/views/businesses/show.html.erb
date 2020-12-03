@@ -178,15 +178,17 @@
 
             <div class="post-feed my-2">
               <div class="row justify-content-center">
-                <div class="col-7" id="posts">
-                  <% if @business.posts.blank? %>
-                    <p class="text-center"> <%= @business.name %> has no posts yet</p>
-                  <% else %>
-                    <% @posts.each do |post| %>
-                      <%= render partial: 'posts/post', locals: { post: post } %>
+                <div class="col-7 post-frame">
+                  <div class="" id="posts">
+                    <% if @business.posts.blank? %>
+                      <p class="text-center"> <%= @business.name %> has no posts yet</p>
+                    <% else %>
+                      <% @posts.each do |post| %>
+                        <%= render partial: 'posts/post', locals: { post: post } %>
+                      <% end %>
+                      <hr>
                     <% end %>
-                    <hr>
-                  <% end %>
+                  </div>
                 </div>
               </div>
             </div>
