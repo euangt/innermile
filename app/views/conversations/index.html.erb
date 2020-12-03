@@ -15,7 +15,7 @@
         <div class="chat-list">
           <div class="tab-content" id="myTabContent">
 
-            <div class="tab-pane fade <%= @conversation ? '' : 'show'%>" id="user" role="tabpanel" aria-labelledby="user-tab">
+            <div class="tab-pane fade show" id="user" role="tabpanel" aria-labelledby="user-tab">
                 <div class="messages">
                   <% @conversations.each do |conversation| %>
                     <%= link_to conversation_path(conversation) do %>
@@ -30,7 +30,7 @@
                   <% end %>
                 </div>
             </div>
-            <div class="tab-pane fade <%= !@conversation ? '' : 'show'%>" id="business" role="tabpanel" aria-labelledby="business-tab">
+            <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
               <div class="container col-6">
                 <div class="messages">
                   <div class= "row justify-content-center">
