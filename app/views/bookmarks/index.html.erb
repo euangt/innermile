@@ -31,17 +31,19 @@
       <div class="col-6">
         <h2 class="text-center">Recent Posts from your bookmarked businesses</h2>
         <hr>
-        <div class="recent-posts">
-          <% if params[:category].present? && @businesses.blank? %>
-            <p class="text-center">No posts yet</p>
-          <% end %>
-          <% if @posts %>
-            <div class="post-area">
-              <% @posts.each do |post| %>
-                  <%= render partial: 'posts/post', locals: { post: post } %>
-              <% end %>
-            </div>
-          <% end %>
+        <div class="row justify-content-center">
+          <div class="recent-posts">
+            <% if params[:category].present? && @businesses.blank? %>
+              <p class="text-center">No posts yet</p>
+            <% end %>
+            <% if @posts %>
+              <div class="post-area">
+                <% @posts.each do |post| %>
+                    <%= render partial: 'posts/post', locals: { post: post } %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
 
