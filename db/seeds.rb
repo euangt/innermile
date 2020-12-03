@@ -517,7 +517,7 @@ puts "Seeding events..."
 
 event1 = Event.create!(
   location: "Rosenthaler Str. 64, 10119 Berlin",
-  name: "Women´s self-defence day",
+  event_name: "Women´s self-defence day",
   time: "10:00 ",
   date: "2020-12-05",
   business_id: business1.id
@@ -525,7 +525,7 @@ event1 = Event.create!(
 
 event2 = Event.create!(
   location: "Mulackstraße 35, 10119 Berlin",
-  name: "National beard trim day",
+  event_name: "National beard trim day",
   time: "09:00 ",
   date: "2020-12-06",
   business_id: business5.id
@@ -533,7 +533,7 @@ event2 = Event.create!(
 
 event3 = Event.create!(
   location: "Zehdenicker Str. 19, 10119 Berlin",
-  name: "Cafe Louis 10th anniversary",
+  event_name: "Cafe Louis 10th anniversary",
   time: "10:00",
   date: "2020-12-07",
   business_id: business8.id
@@ -541,7 +541,7 @@ event3 = Event.create!(
 
 event4 = Event.create!(
   location: "Rosenthaler Str. 68, 10119 Berlin",
-  name: "National Cheeseburger Day 2020",
+  event_name: "National Cheeseburger Day 2020",
   time: "9:00",
   date: "2020-12-08",
   business_id: business3.id
@@ -549,7 +549,7 @@ event4 = Event.create!(
 
 event5 = Event.create!(
   location: "Ackerstraße 16, 10115 Berlin",
-  name: "New Christmas Scent Release Party",
+  event_name: "New Christmas Scent Release Party",
   time: "17:30",
   date: "2020-12-09",
   business_id: business5.id

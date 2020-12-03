@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :find_business, only: [:create, :destroy]
 
   def index
-    @posts = policy_scope(Post)
+    @posts = policy_scope(Post).order(created_at: :desc)
     @business = Business.new
     @user = current_user
     @events = Event.all
