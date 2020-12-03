@@ -1,0 +1,102 @@
+.chat-page {
+  position: relative;
+
+  .menu-chat{
+    padding: 0;
+    width: 420px;
+    margin-top: 0;
+    height: 70vh;
+    display: block;
+    position: relative;
+    background: rgba(white, 0.7);
+    z-index: 2;
+
+    h3 {
+      font-size: 17px;
+      color: rgba(black, 0.7);
+      font-weight: 400;
+    }
+
+    .chat-list {
+      padding: 12px 12px 0 12px;
+      width: 420px;
+      margin-top: 0;
+      height: 100%;
+      display: block;
+      position: absolute;
+      overflow: auto;
+      background: rgba(white, 0.7);
+      z-index: 4;
+    }
+  }
+}
+
+.card-chat {
+  overflow: hidden;
+  height: 120px;
+  width: 400px;
+  background: $inner-white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 0.1px solid rgba(black, 0.1);
+  display: flex;
+  align-items: center;
+
+  &:hover, &:focus{
+  background: white;
+  }
+
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+  .card-chat-infos {
+    padding: 16px;
+  }
+
+}
+
+.chat-room {
+  padding: 16px;
+  width: 100%;
+  margin: 36px;
+  height: 100%;
+  display: block;
+  position: relative;
+  overflow: auto;
+  border-radius: 24px;
+  background: rgba(white, 0.9);
+  z-index: 4;
+
+  .media {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    position: absolute;
+    top: 30px;
+    right: 36px;
+
+    .user-avatar{
+      width: 80px !important;
+      height: 80px !important;
+      padding: 2px;
+      border: 2px solid #f4f4f4;
+    }
+  }
+}
