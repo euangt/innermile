@@ -515,7 +515,7 @@ puts "You made it this far and, for that, we salute you"
 puts "Seeding events..."
 
 event1 = Event.create!(
-  location: "Rosenthaler Str. 64, 10119 Berlin ",
+  location: "Rosenthaler Str. 64, 10119 Berlin",
   name: "Women´s self-defence day",
   time: "10:00 ",
   date: "2020-12-05",
@@ -523,7 +523,7 @@ event1 = Event.create!(
 )
 
 event2 = Event.create!(
-  location: "Mulackstraße 35, 10119 Berlin ",
+  location: "Mulackstraße 35, 10119 Berlin",
   name: "National beard trim day",
   time: "09:00 ",
   date: "2020-12-06",
@@ -531,48 +531,29 @@ event2 = Event.create!(
 )
 
 event3 = Event.create!(
-  location: "Zehdenicker Str. 19, 10119 Berlin ",
+  location: "Zehdenicker Str. 19, 10119 Berlin",
   name: "Cafe Louis 10th anniversary",
-  time: "10:00 ",
+  time: "10:00",
   date: "2020-12-07",
   business_id: business8.id
 )
 
 event4 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
+  location: "Rosenthaler Str. 68, 10119 Berlin",
+  name: "National Cheeseburger Day 2020",
+  time: "9:00",
   date: "2020-12-08",
-  business_id: business1.id
+  business_id: business3.id
 )
 
 event5 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
+  location: "Ackerstraße 16, 10115 Berlin",
+  name: "New Christmas Scent Release Party",
+  time: "17:30",
   date: "2020-12-09",
-  business_id: business1.id
+  business_id: business5.id
 )
 
-event6 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
-  date: "2020-12-04",
-  business_id: business1.id
-)
-
-event7 = Event.create!(
-  date: " ",
-  location: " ",
-  name: " ",
-  time: " ",
-  date: "2020-12-05",
-  business_id: business1.id
-)
 
 puts "Seeding posts..."
 
@@ -920,6 +901,21 @@ Business.all.each_with_index do |business, index|
   business.business_photos.attach( io: file_third, filename: "third-#{index}", content_type: 'image/png')
 end
 
+puts "Attaching images to events..."
+
+event_images = [
+  "https://images.unsplash.com/photo-1603210185246-b1662978ea37?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c2VsZiUyMGRlZmVuY2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=70",
+  "https://images.unsplash.com/photo-1521768291053-f122b7fc3e00?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8YmVhcmR8ZW58MHwwfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=70",
+  "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FmZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=70",
+  "https://images.unsplash.com/photo-1525164286253-04e68b9d94c6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=70",
+  "https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=900&q=70"
+]
+
+Event.all.each_with_index do |event, index|
+  file_event = URI.open(event_images[index])
+  event.event_image.attach( io: file_event, filename: "event_image-#{index}", content_type: 'image/png')
+end
+
 
 puts "Attaching images to posts..."
 
@@ -967,4 +963,4 @@ Post.all.each_with_index do |post, index|
 end
 
 
-puts "Created #{User.count} users, #{Category.count} categories, #{Business.count} businesses, and #{Post.count} posts"
+puts "Created #{User.count} users, #{Category.count} categories, #{Business.count} businesses, #{Event.count} events, and #{Post.count} posts"
