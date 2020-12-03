@@ -11,6 +11,7 @@ puts 'Cleaning up db...'
 Conversation.destroy_all
 User.destroy_all
 Category.destroy_all
+Event.destroy_all
 Business.destroy_all
 
 puts 'Seeding users...'
