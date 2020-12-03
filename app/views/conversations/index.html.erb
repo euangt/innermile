@@ -1,62 +1,74 @@
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true">User</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false">Business</a>
-  </li>
-</ul>
-<div class="conversation_list">
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
-      <div class="container col-6">
-        <div class="messages">
-
-            <h2>Your Chats with businesses</h2>
-            <% @conversations.each do |conversation| %>
-            <%= link_to conversation_path(conversation) do %>
-              <div class="card-product">
-                <%= cl_image_tag(conversation.business.avatar.key) %>
-                <div class="card-product-infos">
-                  <h2><%= conversation.business.name %></h2>
-                  <p><%= conversation.business.short_bio %></p>
+<div class="container mt-4 chat-page">
+  <h2 class="text-center">Your chatrooms</h2>
+  <hr>
+  <div class="row justify-space-between">
+    <div class="col-5">
+      <div class="menu-chat">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true"><h3>Chats with businesses</h3></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false"><h3 class="ml-1 mr-1"> Chats with clients </h3></a>
+          </li>
+        </ul>
+        <div class="chat-list">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show" id="user" role="tabpanel" aria-labelledby="user-tab">
+                <div class="messages">
+                  <% @conversations.each do |conversation| %>
+                    <%= link_to conversation_path(conversation) do %>
+                      <div class="card-chat">
+                        <%= cl_image_tag(conversation.business.avatar.key) %>
+                        <div class="card-chat-infos">
+                          <p>Conversation with:</p>
+                          <h2><%= conversation.business.name %></h2>
+                        </div>
+                      </div>
+                    <% end  %>
+                  <% end %>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+              <div class="container col-6">
+                <div class="messages">
+                  <div class= "row justify-content-center">
+                   <% @business_conversations.each do |conversation| %>
+                    <%= link_to conversation_path(conversation) do %>
+                      <div class="card-chat">
+                        <%= cl_image_tag(conversation.business.avatar.key) %>
+                        <div class="card-chat-infos">
+                          <h3>See messages for:</h3>
+                          <h2><%= conversation.business.name %></h2>
+                        </div>
+                      </div>
+                    <% end  %>
+                  <% end %>
+                  </div>
                 </div>
               </div>
-              <% end  %>
-              <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
-      <div class="container col-6">
-        <div class="messages">
-          <h2>Customer Enquiries</h2>
-          <div class= "row justify-content-center">
-           <% @business_conversations.each do |conversation| %>
-            <%= link_to conversation_path(conversation) do %>
-              <div class="card-product">
-                <%= cl_image_tag(conversation.business.avatar.key) %>
-                <div class="card-product-infos">
-                  <h2><%= conversation.business.name %></h2>
-                  <p><%= conversation.business.short_bio %></p>
-                </div>
-              </div>
-              <% end  %>
-              <% end %>
+            </div>
           </div>
-        </div>
+        </div> <!-- end of list -->
       </div>
     </div>
-  </div>
-  <div class="conversation_content">
-    <% if @conversation  %>
-    <%= render "conversations/chat", business: @conversation.business, conversation: @conversation, message: Message.new%>
-    <% else %>
-    <p>please select your conversation</p>
-    <% end %>
+    <div class="col-6 chat-room">
+      <% if @conversation  %>
+      <div class="media">
+        <% if @conversation.user.avatar.attached? %>
+          <%= cl_image_tag @conversations.user.avatar.key, height: 500, width: 500, crop: :fill,  class: "user-avatar rounded-circle" %>
+        <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "profile-avatar rounded-circle" %>
+        <% end %>
+      </div>
+      <div class="chat-content">
+        <%= render "conversations/chat", business: @conversation.business, conversation: @conversation, message: Message.new%>
+        <% else %>
+        <p class="text-center">Please select your conversation</p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
 <%# <% if commentable_type = "User" %>
 <%# <% if commentable_type = "Business" %>
