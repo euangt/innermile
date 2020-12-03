@@ -511,6 +511,71 @@ business28 = Business.create!(
   website_url: "www.aconservatory.com",
     )
 
+puts "You made it this far and, for that, we salute you"
+puts "Seeding events..."
+
+event1 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-05",
+  business_id: business1.id
+)
+
+event2 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-06",
+  business_id: business1.id
+)
+
+event3 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-07",
+  business_id: business1.id
+)
+
+event4 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-08",
+  business_id: business1.id
+)
+
+event5 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-09",
+  business_id: business1.id
+)
+
+event6 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-04",
+  business_id: business1.id
+)
+
+event7 = Event.create(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-05",
+  business_id: business1.id
+)
 
 puts "Seeding posts..."
 
