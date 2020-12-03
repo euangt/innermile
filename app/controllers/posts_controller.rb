@@ -15,10 +15,11 @@ class PostsController < ApplicationController
     end
 
     @markers = @businesses.geocoded.map do |business|
+      distance = find_distance(@user, business)
       {
         lat: business.latitude,
         lng: business.longitude,
-        infoWindow: render_to_string(partial: "businesses/info_window", locals: { business: business }),
+        infoWindow: render_to_string(partial: "businesses/info_window", locals: { business: business, distance: distance }),
         id: business.id
       }
     end
@@ -82,5 +83,15 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :post_image, :business_id)
+  end
+
+  def find_distance(user, business)
+    if current_user
+      start_coord = [user.longitude, user.latitude]
+      end_coord = [business.longitude, business.latitude]
+      distance = Geocoder::Calculations.distance_between(start_coord, end_coord)
+      distance = distance * 18
+      distance = distance.round(0)
+    end
   end
 end
