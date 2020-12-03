@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   def update
     authorize current_user
-    if current_user.update
-      redirect_to @user
+    if current_user.update(user_params)
+      redirect_to edit_user_path(current_user)
     else
       render :edit
     end
