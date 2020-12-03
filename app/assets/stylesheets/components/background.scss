@@ -2,4 +2,22 @@
   background-image: asset-url('cover.png');
   height: 100%;
   width: auto;
+  background-size: cover;
+  z-index: 1;
+  position: sticky;
+
+}
+
+.background-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  // background: rgba($inner-white,0.1);
+  opacity: 0;
+
+  :hover {
+  }
 }
