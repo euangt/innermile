@@ -1,6 +1,6 @@
 <div class="container mt-4">
-  <%# @recipient = conversation.user == current_user ? conversation.business.name : conversation.user.first_name%>
-  <h4>Your chat with: <%= link_to nil, business_path(conversation.business) %></h4>
+  <% @recipient = conversation.user == current_user ? conversation.business.name : conversation.user.first_name%>
+  <h4>Your chat with: <%= link_to @recipient, business_path(conversation.business) %></h4>
     <div id="messages" data-conversation-id="<%= conversation.id %>">
       <% conversation.messages.each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
