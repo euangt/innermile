@@ -22,7 +22,7 @@ user1 = User.create!(
   password: "123456",
   bio: "Web developer and mom of two",
   address: "Auguststraße 53, 10119 Berlin",
-  business_owner: false
+  business_owner: true
   )
 user2 = User.create!(
   email: "ben@ben.com",
@@ -57,7 +57,7 @@ user5 = User.create!(
   last_name: "Gillespie-Taylor",
   password: "123456",
   bio: "Just moved into the neighbourhood!",
-  address: "Große Hamburger Str. 21, 10115 Berlin",
+  address: "Ackerstraße 23, 10115 Berlin",
   business_owner: true
   )
 
@@ -69,7 +69,6 @@ category3 = Category.create!(name: "Food & Dining")
 category4 = Category.create!(name: "Health & Medicine")
 category5 = Category.create!(name: "Home & Garden")
 category6 = Category.create!(name: "Personal Care")
-category7 = Category.create!(name: "Pets")
 category8 = Category.create!(name: "Retail")
 category9 = Category.create!(name: "Services")
 
@@ -192,8 +191,8 @@ business8 = Business.create!(
   user: user1,
   category: category3,
   name: "Café Louis",
-  short_bio: "Italian Coffee and Cakes",
-  long_bio: "Cafè is run by a joyful Italian couple, Louis and his wife Nora. We offer authentic well-brewed Italian cappuccino, and our cafe is spacious - an ideal place to chatt and hang out with your friends, or to get some work done on your laptop and fill your belly with homemade sweets and sadwiches. ",
+  short_bio: "French Coffee and Cakes",
+  long_bio: "Cafè is run by a joyful French couple, Louis and his wife Nora. We offer authentic well-brewed Italian cappuccino, and our cafe is spacious - an ideal place to chatt and hang out with your friends, or to get some work done on your laptop and fill your belly with homemade sweets and sadwiches. ",
   owner_name: "Louis",
   owner_bio: "We love our neighbourhood. We seem to attract a very eclectic crow. and we love talking to each and everyone.  Daily conversations can be incredibly fascinating, and it’s exhilarating to think it all starts off with a coffee.",
   address: "Zehdenicker Str. 17, 10119 Berlin",
@@ -238,7 +237,7 @@ business11 = Business.create!(
   category: category8,
   name: "Nicer Living",
   short_bio: "Fashion for the conscious shopper",
-  long_bio: "Established by a passion lover in the late 2010s. Focused on on fashionable Yuppies with a lot of money",
+  long_bio: "Established as a passion-project in the late 2010s, we bring the best in sustainable fashion.",
   owner_name: "Helena Bonstat",
   owner_bio: "Born and raised in Berlin. I have been working the fashion industry for as long as I can think of, true passion makes the best professionals!",
   address: "Brunnenstraße 164, 10119 Berlin",
@@ -338,7 +337,7 @@ business17 = Business.create!(
   email: "lukas@englishkids.com",
   opening_hours: "Monday - Friday 9am - 8pm",
   accept_cards: true,
-  website_url: "www.euanenglishforkids.com",
+  website_url: "www.lukasenglishforkids.com",
 
     )
 business18 = Business.create!(
@@ -439,7 +438,7 @@ business23 = Business.create!(
 business24 = Business.create!(
   user: user1,
   category: category3,
-  name: "Jade´s Finest",
+  name: "Jade's Finest",
   short_bio: "High-end whiskey distillery with attached show room",
   long_bio: "We offer a wide range of whiskeys from all over the world and even started marketing our own. Make sure to step by and try our newest blend! ",
   owner_name: "Jade McDaniels",
@@ -469,12 +468,12 @@ business25 = Business.create!(
 business26 = Business.create!(
   user: user1,
   category: category3,
-  name: "Beer´s Delight",
+  name: "Beer's Delight",
   short_bio: "Upscale neighborhood pub providing you with the best craft beers",
   long_bio: "Located right at the heart of your neighborhood which makes it the ideal place to spend your evenings as you would in your own living room",
   owner_name: "Peter Schmidt",
-  owner_bio: "I am a passionate about beer and want to share my passion with as many people as possible. In order to have a 'livingroom' in the neighborhood Beer´s delight was founded.  ",
-  address: "Torstraße 145, 10115 Berlin",
+  owner_bio: "I am a passionate about beer and want to share my passion with as many people as possible. In order to have a 'livingroom' in the neighborhood Beer's delight was founded.  ",
+  address: "Kastanienallee 33, 10435 Berlin",
   telephone: "49-123-4567-8901",
   email: "peter@delight.com",
   opening_hours: "8am-7pm",
@@ -499,7 +498,7 @@ business27 = Business.create!(
 business28 = Business.create!(
   user: user1,
   category: category3,
-  name: "Anne´s conservatory",
+  name: "Anne's conservatory",
   short_bio: "Conservatory with focus on music no older than 1850.",
   long_bio: "You love to sing? Great and come join in on great nights with like minded people!",
   owner_name: "Anne Müller",
@@ -512,6 +511,71 @@ business28 = Business.create!(
   website_url: "www.aconservatory.com",
     )
 
+puts "You made it this far and, for that, we salute you"
+puts "Seeding events..."
+
+event1 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-05",
+  business_id: business1.id
+)
+
+event2 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-06",
+  business_id: business1.id
+)
+
+event3 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-07",
+  business_id: business1.id
+)
+
+event4 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-08",
+  business_id: business1.id
+)
+
+event5 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-09",
+  business_id: business1.id
+)
+
+event6 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-04",
+  business_id: business1.id
+)
+
+event7 = Event.create!(
+  date: " ",
+  location: " ",
+  name: " ",
+  time: " ",
+  date: "2020-12-05",
+  business_id: business1.id
+)
 
 puts "Seeding posts..."
 
@@ -608,7 +672,7 @@ post23 = Post.create!(
   business_id: business8.id,
 )
 post24 = Post.create!(
-  content: "We know mornings are a little harder this time of year, so pick up a half-price coffee between 7 and 8 everyday",
+  content: "Struggling with the darker mornings this time of year? Come grab a coffee with your croissant",
   business_id: business9.id,
 )
 post25 = Post.create!(
