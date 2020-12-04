@@ -18,7 +18,7 @@ class BusinessPolicy < ApplicationPolicy
   end
 
   def edit?
-    user
+    true
   end
 
   def show?
