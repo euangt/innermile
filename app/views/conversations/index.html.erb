@@ -36,8 +36,8 @@
               <div class="container col-6">
                 <div class="messages">
                   <div class= "row justify-content-center">
-                    <% if !@business_conversation.blank? %>
                        <% @business_conversations.each do |conversation| %>
+                        <% if !conversation.blank? %>
                         <%= link_to conversation_path(conversation, business: false) do %>
                           <div class="card-chat">
                           <% if conversation.user.avatar.attached? %>
