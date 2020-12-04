@@ -148,7 +148,7 @@ business5 = Business.create!(
   category: category6,
   name: "Alley Barber Shop",
   short_bio: "Authentic Barber experience",
-  long_bio: "A family-friendly burger shop, serving burgers, hot dogs, fries, wraps and salads and of course, french fires in a 90's themed atmosphere. We are passionate about burgers, using the best ingredients, working directly with our meat producers and bun producers to to create our unique steak patties freshly baked buns. We have seating as well as take-away, with meat, vegetarian and vegan offerings on the menu.",
+  long_bio: "Top-class service, authenticity, and attention to detail. By blending old traditions with new styles, our customers know that in everything we do, there is nowhere that does better. We listen to our customers to understand their wants and needs and then deliver the cut they’re asking for: a cut tailored to suit their image and style.",
   owner_name: "Deniz ",
   owner_bio: "I feel most confident when I have my scissors in my hands and doing work. I've had my barbershop now for 20 years, and I still love my job and appreciate my customers for all the support they have given me throughout the years. ",
   address: "Mulackstraße 33, 10119 Berlin",

@@ -1,35 +1,22 @@
 <div class="container mt-4">
 <% if current_user %>
   <% @recipient = conversation.user == current_user ? conversation.business.name : conversation.user.first_name%>
-  <h4>Your chat with: <%= link_to @recipient, business_path(conversation.business) %></h4>
+  <h5>Your chat with: <%= link_to @recipient, business_path(conversation.business) %></h5>
+  <br>
     <div id="messages" data-conversation-id="<%= conversation.id %>">
-      <% conversation.messages.each do |message| %>
-        <div class="message-container" id="message-<%= message.id %>">
-          <% if message.conversation.user == current_user %>
-            <div class="justify-content-left">
-              <i class="author">
-              <small>From: <%= message.conversation.user.first_name %></small>
-              <p><%= message.content %></p>
-              <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-              </i>
-            </div>
-          <% else %>
-            <div class="justify-content-right">
-              <i class="author">
-              <small>From: <%= message.conversation.user.businesses.first.name %></small>
-              <p><%= message.content %></p>
-              <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-              </i>
-            </div>
-          <% end %>
-        </div>
+        <% conversation.messages.last(4).each_with_index do |message, index| %>
+          <div class="message-container" id="message-<%= message.id %>">
+                <p><%= message.content %></p>
+                <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                <hr>
+          </div>
+        <% end %>
+    </div>
+      <div class="container mt-4">
+      <%= simple_form_for [ conversation, message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Send #{business.name} a message" %>
+        <%= f.button :submit, "Send Message", class: "btn btn-flat", remote: true %>
       <% end %>
     </div>
-    </div>
-    <div class="container mt-4">
-    <%= simple_form_for [ conversation, message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Send #{business.name} a message" %>
-      <%= f.button :submit, "Send Message", class: "btn btn-flat", remote: true %>
-    <% end %>
   <% end %>
 </div>
