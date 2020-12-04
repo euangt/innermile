@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @business.user = @user
     @post.business = @business
     if @post.save
-      redirect_to business_path(@business, anchor: "recent_posts")
+      redirect_to business_path(@business, anchor: "posts")
     else
       render 'businesses/show'
     end
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     @post.destroy
-    redirect_to business_path(@business, anchor: "recent_posts")
+    redirect_to business_path(@business, anchor: "posts")
   end
 
   def edit
@@ -69,7 +69,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize @post
     if @post.update(post_params)
-      redirect_to business_path(@business, anchor: "recent_posts")
+      redirect_to business_path(@business, anchor: "posts")
     else
       render :edit
     end
