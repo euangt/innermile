@@ -1,22 +1,22 @@
 <div class="container mt-4 chat-page">
-  <h2 class="text-center">Your chatrooms</h2>
+  <h2 class="text-center">Your chat rooms</h2>
   <hr>
   <div class="row justify-space-between">
     <div class="col-5">
       <div class="menu-chat">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-tabs text-center" id="myTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true"><h3>Chats with businesses</h3></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false"><h3 class="ml-1 mr-1"> Chats with clients </h3></a>
+            <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false"><h3 class="ml-1 mr-1">Chats with clients</h3></a>
           </li>
         </ul>
         <div class="chat-list">
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade  <%= (params[:business] == "true" || params[:business].nil?) ? 'show active' : '' %>" id="user" role="tabpanel" aria-labelledby="user-tab">
                 <div class="messages">
-                  <% if @conversation.blank? %>
+                  <% if @conversations.blank? %>
                     <p class="text-center">You have no chat rooms yet!</p>
                   <% end %>
                   <% @conversations.each do |conversation| %>
@@ -24,7 +24,7 @@
                       <div class="card-chat">
                       <%= cl_image_tag(conversation.business.avatar.key) %>
                         <div class="card-chat-infos">
-                          <p>Conversation with:</p>
+                          <h3>Conversation with:</h3>
                           <h2><%= conversation.business.name %></h2>
                         </div>
                       </div>
@@ -39,10 +39,15 @@
                    <% @business_conversations.each do |conversation| %>
                     <%= link_to conversation_path(conversation, business: false) do %>
                       <div class="card-chat">
-                      <%= cl_image_tag(conversation.business.avatar.key) %>
+                      <% if conversation.user.avatar.attached? %>
+                        <%= cl_image_tag conversation.user.avatar.key, height: 500, width: 500, crop: :fill %>
+                      <% else %>
+                        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random" %>
+                      <% end %>
+                     <!--  <%= cl_image_tag(conversation.business.avatar.key) %> -->
                         <div class="card-chat-infos">
-                          <h3>See messages for:</h3>
-                          <h2><%= conversation.business.name %></h2>
+                          <h3>Conversation with:</h3>
+                          <h2><%= conversation.user.first_name %></h2>
                         </div>
                       </div>
                     <% end  %>
@@ -55,13 +60,15 @@
         </div> <!-- end of list -->
       </div>
     </div>
-    <div class="col-6 chat-room">
+    <div class="col-6 chat-room shadow-lg">
       <% if @conversation  %>
       <div class="media">
         <% if @conversation.user.avatar.attached? %>
+          <%= cl_image_tag @conversation.business.avatar.key, height: 500, width: 500, crop: :fill,  class: "business-avatar rounded-circle" %>
           <%= cl_image_tag @conversation.user.avatar.key, height: 500, width: 500, crop: :fill,  class: "user-avatar rounded-circle" %>
         <% else %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "profile-avatar rounded-circle" %>
+          <%= cl_image_tag @conversation.business.avatar.key, height: 500, width: 500, crop: :fill,  class: "business-avatar rounded-circle" %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "user-avatar rounded-circle" %>
         <% end %>
       </div>
       <div class="chat-content">

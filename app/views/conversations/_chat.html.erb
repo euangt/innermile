@@ -1,9 +1,10 @@
 <div class="container mt-4">
 <% if current_user %>
   <% @recipient = conversation.user == current_user ? conversation.business.name : conversation.user.first_name%>
-  <h4>Your chat with: <%= link_to @recipient, business_path(conversation.business) %></h4>
+  <h5>Your chat with: <%= link_to @recipient, business_path(conversation.business) %></h5>
+  <br>
     <div id="messages" data-conversation-id="<%= conversation.id %>">
-      <% conversation.messages.each do |message| %>
+      <% conversation.messages.last(4).each do |message| %>
         <div class="message-container" id="message-<%= message.id %>">
           <% if message.conversation.user == current_user %>
             <div class="justify-content-left">
