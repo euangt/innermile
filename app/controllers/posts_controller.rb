@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = policy_scope(Post).order(created_at: :desc)
     @business = Business.new
     @user = current_user
-    @events = Event.all
+    @events = Event.all.order(date: :asc)
 
     if params[:query].present?
       @address = params[:query]
