@@ -9,7 +9,7 @@
           <% if message.conversation.user == current_user %>
             <div class="justify-content-left">
               <i class="author">
-              <small>From: <%= message.conversation.user.first_name %></small>
+              <small>From: You <%= message.conversation.user.first_name %></small>
               <p><%= message.content %></p>
               <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
               </i>
@@ -17,6 +17,7 @@
           <% else %>
             <div class="justify-content-right">
               <i class="author">
+              <small>From: <%= message.conversation.user.first_name %></small>
               <small>From: <%= message.conversation.user.businesses.first.name %></small>
               <p><%= message.content %></p>
               <small>Sent at: <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
