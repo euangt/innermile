@@ -13,7 +13,7 @@
                     <h4><%= link_to 'Remove Bookmark', bookmark_path(@bookmark), method: :delete, remote: true, class: "bookmark_btn"  %></h4>
                   <% end %>
                 <% else %>
-                    <%= link_to 'Edit Business', edit_business_path(@business), remote: true, class: "btn-ghost" %>
+                    <%= link_to 'Edit Business', edit_business_path(@business), class: "btn-ghost" %>
                 <% end %>
               <% end %>
             </div>
