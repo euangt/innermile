@@ -36,22 +36,23 @@
               <div class="container col-6">
                 <div class="messages">
                   <div class= "row justify-content-center">
-                   <% @business_conversations.each do |conversation| %>
-                    <%= link_to conversation_path(conversation, business: false) do %>
-                      <div class="card-chat">
-                      <% if conversation.user.avatar.attached? %>
-                        <%= cl_image_tag conversation.user.avatar.key, height: 500, width: 500, crop: :fill %>
-                      <% else %>
-                        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random" %>
+                    <% if !@business_conversation.blank? %>
+                       <% @business_conversations.each do |conversation| %>
+                        <%= link_to conversation_path(conversation, business: false) do %>
+                          <div class="card-chat">
+                          <% if conversation.user.avatar.attached? %>
+                            <%= cl_image_tag conversation.user.avatar.key, height: 500, width: 500, crop: :fill %>
+                          <% else %>
+                            <%= image_tag "https://kitt.lewagon.com/placeholder/users/random" %>
+                          <% end %>
+                            <div class="card-chat-infos">
+                              <h3>Conversation with:</h3>
+                              <h2><%= conversation.user.first_name %></h2>
+                            </div>
+                          </div>
+                        <% end  %>
                       <% end %>
-                     <!--  <%= cl_image_tag(conversation.business.avatar.key) %> -->
-                        <div class="card-chat-infos">
-                          <h3>Conversation with:</h3>
-                          <h2><%= conversation.user.first_name %></h2>
-                        </div>
-                      </div>
-                    <% end  %>
-                  <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>
