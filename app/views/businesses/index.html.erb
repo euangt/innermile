@@ -3,7 +3,7 @@
 
 <!-- <div class="collapse collapsing in" id="collapseResults"> -->
   <div class="cards-business" id="business-card-index">
-      <h3>Businesses in your mile</h3>
+      <h3 class="businesses-index-header">Businesses in your mile</h3>
       <% @businesses.each do |business| %>
         <%= render partial: 'businesses/business_card', locals: { business: business } %>
       <% end %>
