@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_business, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @events = policy_scope(Event)
+    @events = policy_scope(Event).order(date: :asc)
   end
 
   def new
