@@ -4,7 +4,7 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Public Sans', sans-serif;
 }
 
 .mapboxgl-popup p {
@@ -17,4 +17,19 @@
 
 .mapboxgl-popup-content {
   border-radius: 20px;
+}
+
+.info_window_business {
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+}
+
+
+.info_window_address {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.info_window_address {
+  font-family: "Poppins", sans-serif;
 }
