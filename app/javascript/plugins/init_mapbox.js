@@ -17,7 +17,7 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'home_map',
       style: 'mapbox://styles/bgordon/ckhxmcs9x0uoz19o03wjjdlhc',
-      zoom: 12,
+      zoom: 4,
       center: [13.4004488, 52.5314138],
     });
 
