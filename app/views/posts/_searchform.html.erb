@@ -1,8 +1,0 @@
-    <%= form_tag posts_path, method: :get do %>
-      <%= text_field_tag :q,
-        params[:q],
-        class: "form-control",
-        placeholder: "Search Posts"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
