@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   before_action :find_business, only: [:create, :destroy]
 
   def index
-    @posts = policy_scope(Post).order(created_at: :desc)
+    @posts = policy_scope(Post).order(created_at: :desc).limit(20)
     @business = Business.new
     @user = current_user
     @events = Event.all.order(date: :asc)
-    @pg_search_documents = PgSearch.multisearch(params[:q])
+    @pg_search_documents = PgSearch.multisearch(params[:search])
 
     if params[:query].present?
       @address = params[:query]
