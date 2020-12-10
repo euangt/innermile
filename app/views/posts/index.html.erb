@@ -15,23 +15,31 @@
     <div id="Events" class="tabcontent"></div>
     <div id= "Posts-Box" class="box">
       <%= render partial: 'searchform' %>
-      <div id="posts">
-        <%= @pg_search_documents.each do |pg_search_document| %>
-          <%= render pg_search_document.searchable %>
-          <%#= render @posts %>
-        <% end %>
-        <% @posts.each do |post| %>
-          <%= render partial: 'posts/post', locals: { post: post } %>
-        <% end %>
-      </div>
+        <div id="posts">
+          <% if params[:search].present? %>
+            <% if @pg_search_documents.present? %>
+              <% @pg_search_documents.each do |pg_search_document| %>
+                <%= render pg_search_document.searchable %>
+              <% end %>
+            <% else %>
+              <p>No result found</p>
+            <% end %>
+          <% else %>
+            x
+            <%= render @posts %>
+
+          <% end %>
+        </div>
     </div>
-    <div id= "Events-Box" class="box">
+    <div id="Events-Box" class="box">
       <div id="events">
-        <% @events.each do |event| %>
+
+        <%# @events.each do |event| %>
           <div class="post shadow-sm bg-white">
-            <%= render partial: 'events/event_card', locals: { event: event } %>
+            <%#= render partial: 'events/event', locals: { event: event } %>
+            <%= render @events %>
            </div>
-        <% end %>
+        <%# end %>
       </div>
     </div>
 
