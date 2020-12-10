@@ -1,8 +1,8 @@
 <div class="d-flex mt-2">
   <div class="posts">
     <%= form_tag posts_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
+      <%= text_field_tag :q,
+        params[:q],
         class: "form-control",
         placeholder: "Search Posts"
       %>
@@ -19,16 +19,16 @@
         </li>
       </ul>
     </div>
-    <div id="Posts" class="tabcontent">
-    </div>
-    <div id="Events" class="tabcontent">
-    </div>
+    <div id="Posts" class="tabcontent"></div>
+    <div id="Events" class="tabcontent"></div>
     <div id= "Posts-Box" class="box">
       <div id="posts">
+        <%= @pg_search_documents.each do |pg_search_document| %>
+          <%= render pg_search_document.searchable %>
+        <%= render @posts %>
+        <% end %>
         <% @posts.each do |post| %>
-          <!-- <div class="post shadow-sm bg-white"> -->
           <%= render partial: 'posts/post', locals: { post: post } %>
-           <!-- </div> -->
         <% end %>
       </div>
     </div>

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @business = Business.new
     @user = current_user
     @events = Event.all.order(date: :asc)
+    @pg_search_documents = PgSearch.multisearch(params[:q])
 
     if params[:query].present?
       @address = params[:query]
