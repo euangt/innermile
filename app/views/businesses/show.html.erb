@@ -183,9 +183,7 @@
                     <% if @business.posts.blank? %>
                       <p class="text-center"> <%= @business.name %> has no posts yet</p>
                     <% else %>
-                      <% @posts.each do |post| %>
-                        <%= render partial: 'posts/post', locals: { post: post } %>
-                      <% end %>
+                      <%= render @posts %>
                       <hr>
                     <% end %>
                   </div>
@@ -216,10 +214,8 @@
                   <% if @business.events.blank? %>
                     <p class="text-center"> <%= @business.name %> has no events planned</p>
                   <% else %>
-                    <% @events.each do |event| %>
-                      <%= render partial: 'events/event_card', locals: { event: event } %>
+                    <%= render @events %>
                       <br>
-                    <% end %>
                   <% end %>
                 </div>
               </div>
