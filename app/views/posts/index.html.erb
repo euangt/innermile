@@ -14,7 +14,7 @@
     <div id="Posts" class="tabcontent"></div>
     <div id="Events" class="tabcontent"></div>
     <div id= "Posts-Box" class="box">
-      <%= render partial: 'searchform' %>
+      <%= render partial: 'form' %>
         <div id="posts">
           <% if params[:search].present? %>
             <% if @pg_search_documents.present? %>
@@ -25,24 +25,17 @@
               <p>No result found</p>
             <% end %>
           <% else %>
-            x
             <%= render @posts %>
-
           <% end %>
         </div>
     </div>
     <div id="Events-Box" class="box">
       <div id="events">
-
-        <%# @events.each do |event| %>
-          <div class="post shadow-sm bg-white">
-            <%#= render partial: 'events/event', locals: { event: event } %>
-            <%= render @events %>
-           </div>
-        <%# end %>
+        <div class="post shadow-sm bg-white">
+          <%= render @events %>
+        </div>
       </div>
     </div>
-
   </div>
 
   <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
