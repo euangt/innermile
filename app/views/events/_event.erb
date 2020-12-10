@@ -1,0 +1,27 @@
+<div class="card-events">
+  <div class="dropdown float-right">
+    <% if current_user == event.business.user %>
+    <button class="btn btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+      <em class="fa fa-ellipsis-h"></em>
+    </button>
+    <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+        <%= link_to "Edit event", edit_business_event_path(event.business, event), class: "dropdown-item" %>
+        <%= link_to "Delete event", business_event_path(event.business, event), method: :delete, class: "dropdown-item", remote: true %>
+    </div>
+    <% end %>
+  </div>
+  <div>
+  <% if event.event_image.attached?  %>
+    <div class="img-event img-fluid" style="background-size: cover; background-image: linear-gradient(rgba(38, 103, 120,0.2),rgba(38, 103, 120,0.5)), url('<%= cl_image_path event.event_image.key %>');"></div>
+  <% else %>
+    <div class="img-event img-fluid" style="background-size: cover; background-image: linear-gradient(rgba(38, 103, 120,0.2),rgba(38, 103, 120,0.5)), url(https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=600&q=70);"></div>
+  <% end %>
+  </div>
+  <div class="card-body">
+    <h3><%= event.event_name %></h3>
+    <p>Hosted by <%= event.business.name %> </p>
+    <p><%= event.date %> | <%= event.time %></p>
+    <small><span><i class="fa fa-map-pin mr-1" aria-hidden="true"></i><%= event.location %> </span></small>
+  </div>
+  <%= link_to '', business_event_path(event.business, event), class: 'card-events-link'  %>
+</div>
