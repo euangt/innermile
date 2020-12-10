@@ -1,13 +1,5 @@
 <div class="d-flex mt-2">
   <div class="posts">
-    <%= form_tag posts_path, method: :get do %>
-      <%= text_field_tag :q,
-        params[:q],
-        class: "form-control",
-        placeholder: "Search Posts"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
     <h2 class="text-center">Your Community Feed</h2>
     <div class="row justify-content-center">
       <ul  class="list-inline tabs-underlined">
@@ -22,10 +14,11 @@
     <div id="Posts" class="tabcontent"></div>
     <div id="Events" class="tabcontent"></div>
     <div id= "Posts-Box" class="box">
+      <%= render partial: 'searchform' %>
       <div id="posts">
         <%= @pg_search_documents.each do |pg_search_document| %>
           <%= render pg_search_document.searchable %>
-        <%= render @posts %>
+          <%#= render @posts %>
         <% end %>
         <% @posts.each do |post| %>
           <%= render partial: 'posts/post', locals: { post: post } %>
