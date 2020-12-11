@@ -5,9 +5,9 @@ class User < ApplicationRecord
   has_many :conversations, dependent: :destroy
   has_many :messages, as: :commentable
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :address, presence: true
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
+  # validates :address, presence: true
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
