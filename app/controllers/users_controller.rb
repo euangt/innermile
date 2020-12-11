@@ -1,5 +1,19 @@
 class UsersController < ApplicationController
 
+  def new 
+    @user = User.new
+  end
+
+  def create 
+    @user = User.create(user_params)
+    raise
+    if @user.save   
+      redirect_to businesses_path
+    else  
+      render :edit 
+    end
+  end
+
   def edit
     authorize current_user
   end
@@ -16,6 +30,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :address, :bio, :email, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :address, :bio, :email, :avatar, :email, :password)
   end
 end
