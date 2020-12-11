@@ -1,9 +1,8 @@
 <div class="container mt-4">
   <h2 class="text-center">Events in your community</h2>
-  <hr>
-    <div class="cards-events">
-      <% @events.each do |event| %>
-        <%= render partial: 'events/event_card', locals: { event: event } %>
-      <% end %>
-    </div>
+    <hr>
+      <div class="cards-events">
+        <%= render @events %>
+      </div>
+
 </div>

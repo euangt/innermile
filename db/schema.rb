@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_151307) do
+ActiveRecord::Schema.define(version: 2020_12_10_135931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,15 @@ ActiveRecord::Schema.define(version: 2020_11_30_151307) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_messages_on_commentable_type_and_commentable_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "posts", force: :cascade do |t|
