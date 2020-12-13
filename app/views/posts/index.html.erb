@@ -11,29 +11,31 @@
         </li>
       </ul>
     </div>
-    <div id="Posts" class="tabcontent">
-    </div>
-    <div id="Events" class="tabcontent">
-    </div>
+    <div id="Posts" class="tabcontent"></div>
+    <div id="Events" class="tabcontent"></div>
     <div id= "Posts-Box" class="box">
-      <div id="posts">
-        <% @posts.each do |post| %>
-          <!-- <div class="post shadow-sm bg-white"> -->
-          <%= render partial: 'posts/post', locals: { post: post } %>
-           <!-- </div> -->
-        <% end %>
-      </div>
+      <%= render partial: 'form' %>
+        <div id="posts">
+          <% if params[:search].present? %>
+            <% if @pg_search_documents.present? %>
+              <% @pg_search_documents.each do |pg_search_document| %>
+                <%= render pg_search_document.searchable %>
+              <% end %>
+            <% else %>
+              <p>No result found</p>
+            <% end %>
+          <% else %>
+            <%= render @posts %>
+          <% end %>
+        </div>
     </div>
-    <div id= "Events-Box" class="box">
+    <div id="Events-Box" class="box">
       <div id="events">
-        <% @events.each do |event| %>
-          <div class="post shadow-sm bg-white">
-            <%= render partial: 'events/event_card', locals: { event: event } %>
-           </div>
-        <% end %>
+        <div class="post shadow-sm bg-white">
+          <%= render @events %>
+        </div>
       </div>
     </div>
-
   </div>
 
   <div id="index_map" style="width: 100%; height: 100vh; position: sticky; top: 56px;"
