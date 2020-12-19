@@ -18,4 +18,10 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   has_one_attached :avatar
+
+  protected
+  
+  def confirmation_required?
+    false
+  end
 end
