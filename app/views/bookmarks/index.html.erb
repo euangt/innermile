@@ -57,7 +57,7 @@
           <% if @events %>
             <div class="events">
               <% @events.each do |event| %>
-                  <%= render partial: 'events/_event', locals: { event: event } %>
+                  <%= render partial: 'events/event', locals: { event: event } %>
                   <br>
               <% end %>
             </div>
