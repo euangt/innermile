@@ -21,7 +21,10 @@ Ruby on Rails framework:
 ## The Dream Team:
 
 Yoko Kansai: @ykookaasi
+
 Ben Gordon: @bhgordon
+
 Lukas Horstmann: @LRG-H
+
 Euan Gillespie-Taylor: @euangt
   
