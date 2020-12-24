@@ -8,13 +8,14 @@
       <%= simple_form_for @business do |f| %>
          <div class="form-inputs">
           <%= f.input :name %>
-          <%= f.input :address %>
-          <%= f.input :short_bio %>
-          <%= f.input :long_bio %>
+          <%= f.input :address, placeholder: 'Please ensure this is a valid address' %>
+          <%= f.input :short_bio, placeholder: 'Give a brief intro to your business' %>
+          <%= f.input :long_bio, placeholder: 'Tell us a little more about your business'%>
+          <p> catagory selection goes here </p>
           <%= f.input :banner_photo, as: :file %>
           <%= f.input :avatar, as: :file %>
           <%= f.input :owner_name %>
-          <%= f.input :owner_bio%>
+          <%= f.input :owner_bio, placeholder: 'Tell us a little about yourself' %>
           <%= f.input :owner_photo, as: :file %>
           <%= f.input :telephone %>
           <%= f.input :email%>
