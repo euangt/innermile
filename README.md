@@ -1,6 +1,6 @@
 # InnerMile: 
 
-See the 'finished' product at www.innermile.org - for UX purposes we strongly recommend searching and/or registering (so as to view all features) with an address in close proximity to Rosenthaler Platz, Berlin.
+See the 'finished' product at www.innermile.org - for UX purposes we strongly recommend registering with (for full app functionality), or at least searching, an address in close proximity to Rosenthaler Platz, Berlin.
 
 ## About:
 
