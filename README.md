@@ -12,11 +12,12 @@ The app represents the MVP of our wider vision for InnerMile, and will be contin
 
 ## Our Framework:
 
-Ruby on Rails framework:
+Built with Ruby on Rails:
 
   - Ruby and JS backend
   - HTML, SCSS and JS frontend
-  - PostGreSQL DB
+  - PostGreSQL DB alongside Redis
+  - Deployed and managed through Heroku
   
 ## The Dream Team:
 
