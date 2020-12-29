@@ -8,9 +8,11 @@
           <li class="nav-item">
             <a class="nav-link" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true"><h3>Chats with businesses</h3></a>
           </li>
+          <% if current_user.business_owner %>
           <li class="nav-item">
             <a class="nav-link" id="business-tab" data-toggle="tab" href="#business" role="tab" aria-controls="business" aria-selected="false"><h3 class="ml-1 mr-1">Chats with clients</h3></a>
           </li>
+          <% end %>
         </ul>
         <div class="chat-list">
           <div class="tab-content" id="myTabContent">
