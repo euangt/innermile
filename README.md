@@ -1,6 +1,6 @@
 # InnerMile: 
 
-See the 'finished' product at www.innermile.org - for UX purposes we strongly recommend registering with (for full app functionality), or at least searching, an address in close proximity to Rosenthaler Platz, Berlin.
+See the 'finished' product at www.innermile.org - for UX purposes we strongly recommend logging in (for full app functionality) with the credentials email: guest@guest.com password: 123456, or at least searching, an address in close proximity to Rosenthaler Platz, Berlin.
 
 ## About:
 
