@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Innermile')
 
-    
+
     # user = User.first
     # UserMailer.with(user: user).welcome.deliver_nows
   end
