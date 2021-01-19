@@ -28,6 +28,7 @@ gem 'turbolinks_render'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'letter_opener', group: :development
+gem 'postmark-rails'
 
 gem 'devise'
 gem 'pundit'
