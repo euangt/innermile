@@ -21,7 +21,7 @@ Built with Ruby on Rails:
   
 ## The Dream Team:
 
-Yoko Kansai: @ykookaasi
+Yoko Kasai: @ykookaasi
 
 Ben Gordon: @bhgordon
 
